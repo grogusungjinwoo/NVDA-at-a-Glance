@@ -1,0 +1,811 @@
+{
+  "symbol": "NVDA",
+  "sessionDate": "2026-05-12",
+  "timezone": "America/New_York",
+  "source": "Yahoo Finance chart API",
+  "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?range=1d&interval=5m&includePrePost=false",
+  "retrievedAt": "2026-05-12T23:33:17.060Z",
+  "regularMarketPrice": 220.78,
+  "previousClose": 219.44,
+  "candles": [
+    {
+      "timestamp": "2026-05-12T13:30:00.000Z",
+      "time": "09:30",
+      "open": 218.54,
+      "high": 221.6,
+      "low": 217.01,
+      "close": 221.23,
+      "volume": 18711214
+    },
+    {
+      "timestamp": "2026-05-12T13:35:00.000Z",
+      "time": "09:35",
+      "open": 221.13,
+      "high": 222,
+      "low": 220.19,
+      "close": 221.99,
+      "volume": 4699360
+    },
+    {
+      "timestamp": "2026-05-12T13:40:00.000Z",
+      "time": "09:40",
+      "open": 221.99,
+      "high": 223.75,
+      "low": 221.08,
+      "close": 223.73,
+      "volume": 5490149
+    },
+    {
+      "timestamp": "2026-05-12T13:45:00.000Z",
+      "time": "09:45",
+      "open": 223.74,
+      "high": 223.74,
+      "low": 222.14,
+      "close": 222.43,
+      "volume": 3928492
+    },
+    {
+      "timestamp": "2026-05-12T13:50:00.000Z",
+      "time": "09:50",
+      "open": 222.41,
+      "high": 223.6,
+      "low": 221.89,
+      "close": 223.31,
+      "volume": 3646536
+    },
+    {
+      "timestamp": "2026-05-12T13:55:00.000Z",
+      "time": "09:55",
+      "open": 223.31,
+      "high": 223.31,
+      "low": 220.18,
+      "close": 220.31,
+      "volume": 32795627
+    },
+    {
+      "timestamp": "2026-05-12T14:00:00.000Z",
+      "time": "10:00",
+      "open": 220.32,
+      "high": 221.78,
+      "low": 220.01,
+      "close": 221.19,
+      "volume": 3581801
+    },
+    {
+      "timestamp": "2026-05-12T14:05:00.000Z",
+      "time": "10:05",
+      "open": 221.15,
+      "high": 221.62,
+      "low": 220.27,
+      "close": 220.61,
+      "volume": 2112646
+    },
+    {
+      "timestamp": "2026-05-12T14:10:00.000Z",
+      "time": "10:10",
+      "open": 220.61,
+      "high": 220.97,
+      "low": 220.15,
+      "close": 220.44,
+      "volume": 1856948
+    },
+    {
+      "timestamp": "2026-05-12T14:15:00.000Z",
+      "time": "10:15",
+      "open": 220.44,
+      "high": 220.64,
+      "low": 219.76,
+      "close": 220.46,
+      "volume": 2027890
+    },
+    {
+      "timestamp": "2026-05-12T14:20:00.000Z",
+      "time": "10:20",
+      "open": 220.44,
+      "high": 220.64,
+      "low": 219.9,
+      "close": 220.05,
+      "volume": 43052286
+    },
+    {
+      "timestamp": "2026-05-12T14:25:00.000Z",
+      "time": "10:25",
+      "open": 220.14,
+      "high": 220.31,
+      "low": 218.65,
+      "close": 218.92,
+      "volume": 2202593
+    },
+    {
+      "timestamp": "2026-05-12T14:30:00.000Z",
+      "time": "10:30",
+      "open": 218.9,
+      "high": 218.97,
+      "low": 217.65,
+      "close": 218.34,
+      "volume": 2627008
+    },
+    {
+      "timestamp": "2026-05-12T14:35:00.000Z",
+      "time": "10:35",
+      "open": 218.32,
+      "high": 219.1,
+      "low": 217.68,
+      "close": 218.67,
+      "volume": 2283619
+    },
+    {
+      "timestamp": "2026-05-12T14:40:00.000Z",
+      "time": "10:40",
+      "open": 218.68,
+      "high": 219.1,
+      "low": 218.19,
+      "close": 218.26,
+      "volume": 1395496
+    },
+    {
+      "timestamp": "2026-05-12T14:45:00.000Z",
+      "time": "10:45",
+      "open": 218.26,
+      "high": 218.49,
+      "low": 217.6,
+      "close": 217.63,
+      "volume": 1431880
+    },
+    {
+      "timestamp": "2026-05-12T14:50:00.000Z",
+      "time": "10:50",
+      "open": 217.63,
+      "high": 218.9,
+      "low": 217.35,
+      "close": 218.63,
+      "volume": 1870133
+    },
+    {
+      "timestamp": "2026-05-12T14:55:00.000Z",
+      "time": "10:55",
+      "open": 218.6,
+      "high": 218.9,
+      "low": 217.24,
+      "close": 217.37,
+      "volume": 2028924
+    },
+    {
+      "timestamp": "2026-05-12T15:00:00.000Z",
+      "time": "11:00",
+      "open": 217.39,
+      "high": 217.82,
+      "low": 217.08,
+      "close": 217.37,
+      "volume": 2124953
+    },
+    {
+      "timestamp": "2026-05-12T15:05:00.000Z",
+      "time": "11:05",
+      "open": 217.38,
+      "high": 217.99,
+      "low": 217.06,
+      "close": 217.74,
+      "volume": 61985467
+    },
+    {
+      "timestamp": "2026-05-12T15:10:00.000Z",
+      "time": "11:10",
+      "open": 217.75,
+      "high": 217.84,
+      "low": 217.23,
+      "close": 217.35,
+      "volume": 1710529
+    },
+    {
+      "timestamp": "2026-05-12T15:15:00.000Z",
+      "time": "11:15",
+      "open": 217.33,
+      "high": 217.37,
+      "low": 216.31,
+      "close": 217.12,
+      "volume": 3455645
+    },
+    {
+      "timestamp": "2026-05-12T15:20:00.000Z",
+      "time": "11:20",
+      "open": 217.11,
+      "high": 217.29,
+      "low": 215.19,
+      "close": 215.48,
+      "volume": 3841488
+    },
+    {
+      "timestamp": "2026-05-12T15:25:00.000Z",
+      "time": "11:25",
+      "open": 215.34,
+      "high": 215.76,
+      "low": 215.01,
+      "close": 215.46,
+      "volume": 2661824
+    },
+    {
+      "timestamp": "2026-05-12T15:30:00.000Z",
+      "time": "11:30",
+      "open": 215.42,
+      "high": 216.81,
+      "low": 215.14,
+      "close": 216.65,
+      "volume": 1783218
+    },
+    {
+      "timestamp": "2026-05-12T15:35:00.000Z",
+      "time": "11:35",
+      "open": 216.63,
+      "high": 217.62,
+      "low": 216.04,
+      "close": 217.24,
+      "volume": 1862815
+    },
+    {
+      "timestamp": "2026-05-12T15:40:00.000Z",
+      "time": "11:40",
+      "open": 217.24,
+      "high": 217.54,
+      "low": 217.03,
+      "close": 217.28,
+      "volume": 1526214
+    },
+    {
+      "timestamp": "2026-05-12T15:45:00.000Z",
+      "time": "11:45",
+      "open": 217.28,
+      "high": 217.55,
+      "low": 217,
+      "close": 217.24,
+      "volume": 1314166
+    },
+    {
+      "timestamp": "2026-05-12T15:50:00.000Z",
+      "time": "11:50",
+      "open": 217.24,
+      "high": 217.62,
+      "low": 216.75,
+      "close": 217.3,
+      "volume": 159861600
+    },
+    {
+      "timestamp": "2026-05-12T15:55:00.000Z",
+      "time": "11:55",
+      "open": 217.31,
+      "high": 217.42,
+      "low": 216.71,
+      "close": 216.86,
+      "volume": 1366586
+    },
+    {
+      "timestamp": "2026-05-12T16:00:00.000Z",
+      "time": "12:00",
+      "open": 216.91,
+      "high": 217.99,
+      "low": 216.48,
+      "close": 217.89,
+      "volume": 1342943
+    },
+    {
+      "timestamp": "2026-05-12T16:05:00.000Z",
+      "time": "12:05",
+      "open": 217.92,
+      "high": 218.09,
+      "low": 217.43,
+      "close": 217.6,
+      "volume": 1094162
+    },
+    {
+      "timestamp": "2026-05-12T16:10:00.000Z",
+      "time": "12:10",
+      "open": 217.6,
+      "high": 218.26,
+      "low": 217.38,
+      "close": 218.16,
+      "volume": 1094813
+    },
+    {
+      "timestamp": "2026-05-12T16:15:00.000Z",
+      "time": "12:15",
+      "open": 218.17,
+      "high": 218.18,
+      "low": 217.4,
+      "close": 217.42,
+      "volume": 1034002
+    },
+    {
+      "timestamp": "2026-05-12T16:20:00.000Z",
+      "time": "12:20",
+      "open": 217.44,
+      "high": 217.65,
+      "low": 217.11,
+      "close": 217.37,
+      "volume": 1059491
+    },
+    {
+      "timestamp": "2026-05-12T16:25:00.000Z",
+      "time": "12:25",
+      "open": 217.37,
+      "high": 217.76,
+      "low": 217.23,
+      "close": 217.51,
+      "volume": 884118
+    },
+    {
+      "timestamp": "2026-05-12T16:30:00.000Z",
+      "time": "12:30",
+      "open": 217.52,
+      "high": 217.63,
+      "low": 217.03,
+      "close": 217.4,
+      "volume": 908959
+    },
+    {
+      "timestamp": "2026-05-12T16:35:00.000Z",
+      "time": "12:35",
+      "open": 217.4,
+      "high": 217.68,
+      "low": 217.33,
+      "close": 217.43,
+      "volume": 790149
+    },
+    {
+      "timestamp": "2026-05-12T16:40:00.000Z",
+      "time": "12:40",
+      "open": 217.44,
+      "high": 217.85,
+      "low": 216.8,
+      "close": 217.29,
+      "volume": 1255825
+    },
+    {
+      "timestamp": "2026-05-12T16:45:00.000Z",
+      "time": "12:45",
+      "open": 217.27,
+      "high": 217.52,
+      "low": 216.84,
+      "close": 217.24,
+      "volume": 832935
+    },
+    {
+      "timestamp": "2026-05-12T16:50:00.000Z",
+      "time": "12:50",
+      "open": 217.24,
+      "high": 217.26,
+      "low": 216.16,
+      "close": 216.49,
+      "volume": 965665
+    },
+    {
+      "timestamp": "2026-05-12T16:55:00.000Z",
+      "time": "12:55",
+      "open": 216.46,
+      "high": 216.55,
+      "low": 215.68,
+      "close": 215.9,
+      "volume": 1256541
+    },
+    {
+      "timestamp": "2026-05-12T17:00:00.000Z",
+      "time": "13:00",
+      "open": 215.92,
+      "high": 216.26,
+      "low": 215.53,
+      "close": 215.83,
+      "volume": 1357488
+    },
+    {
+      "timestamp": "2026-05-12T17:05:00.000Z",
+      "time": "13:05",
+      "open": 215.82,
+      "high": 216.53,
+      "low": 215.81,
+      "close": 216.16,
+      "volume": 1234823
+    },
+    {
+      "timestamp": "2026-05-12T17:10:00.000Z",
+      "time": "13:10",
+      "open": 216.2,
+      "high": 216.58,
+      "low": 216.1,
+      "close": 216.47,
+      "volume": 3447165
+    },
+    {
+      "timestamp": "2026-05-12T17:15:00.000Z",
+      "time": "13:15",
+      "open": 216.47,
+      "high": 217.39,
+      "low": 216.46,
+      "close": 217.29,
+      "volume": 1138549
+    },
+    {
+      "timestamp": "2026-05-12T17:20:00.000Z",
+      "time": "13:20",
+      "open": 217.29,
+      "high": 218.09,
+      "low": 217.27,
+      "close": 217.86,
+      "volume": 1369688
+    },
+    {
+      "timestamp": "2026-05-12T17:25:00.000Z",
+      "time": "13:25",
+      "open": 217.86,
+      "high": 217.94,
+      "low": 217.21,
+      "close": 217.72,
+      "volume": 103882830
+    },
+    {
+      "timestamp": "2026-05-12T17:30:00.000Z",
+      "time": "13:30",
+      "open": 217.72,
+      "high": 218.72,
+      "low": 217.67,
+      "close": 218.58,
+      "volume": 1549235
+    },
+    {
+      "timestamp": "2026-05-12T17:35:00.000Z",
+      "time": "13:35",
+      "open": 218.57,
+      "high": 218.67,
+      "low": 218.13,
+      "close": 218.33,
+      "volume": 1043445
+    },
+    {
+      "timestamp": "2026-05-12T17:40:00.000Z",
+      "time": "13:40",
+      "open": 218.37,
+      "high": 218.66,
+      "low": 218.29,
+      "close": 218.45,
+      "volume": 779956
+    },
+    {
+      "timestamp": "2026-05-12T17:45:00.000Z",
+      "time": "13:45",
+      "open": 218.46,
+      "high": 218.66,
+      "low": 218.21,
+      "close": 218.54,
+      "volume": 636471
+    },
+    {
+      "timestamp": "2026-05-12T17:50:00.000Z",
+      "time": "13:50",
+      "open": 218.55,
+      "high": 218.68,
+      "low": 218.2,
+      "close": 218.66,
+      "volume": 616727
+    },
+    {
+      "timestamp": "2026-05-12T17:55:00.000Z",
+      "time": "13:55",
+      "open": 218.68,
+      "high": 218.85,
+      "low": 218.36,
+      "close": 218.6,
+      "volume": 658080
+    },
+    {
+      "timestamp": "2026-05-12T18:00:00.000Z",
+      "time": "14:00",
+      "open": 218.59,
+      "high": 218.72,
+      "low": 218.13,
+      "close": 218.29,
+      "volume": 814491
+    },
+    {
+      "timestamp": "2026-05-12T18:05:00.000Z",
+      "time": "14:05",
+      "open": 218.28,
+      "high": 218.37,
+      "low": 217.85,
+      "close": 217.91,
+      "volume": 739391
+    },
+    {
+      "timestamp": "2026-05-12T18:10:00.000Z",
+      "time": "14:10",
+      "open": 217.9,
+      "high": 218.48,
+      "low": 217.77,
+      "close": 218.42,
+      "volume": 610524
+    },
+    {
+      "timestamp": "2026-05-12T18:15:00.000Z",
+      "time": "14:15",
+      "open": 218.37,
+      "high": 218.56,
+      "low": 217.82,
+      "close": 218.12,
+      "volume": 677274
+    },
+    {
+      "timestamp": "2026-05-12T18:20:00.000Z",
+      "time": "14:20",
+      "open": 218.11,
+      "high": 218.37,
+      "low": 218.02,
+      "close": 218.22,
+      "volume": 478220
+    },
+    {
+      "timestamp": "2026-05-12T18:25:00.000Z",
+      "time": "14:25",
+      "open": 218.25,
+      "high": 219.2,
+      "low": 218.24,
+      "close": 218.96,
+      "volume": 1289843
+    },
+    {
+      "timestamp": "2026-05-12T18:30:00.000Z",
+      "time": "14:30",
+      "open": 218.95,
+      "high": 219.71,
+      "low": 218.89,
+      "close": 219.45,
+      "volume": 1378716
+    },
+    {
+      "timestamp": "2026-05-12T18:35:00.000Z",
+      "time": "14:35",
+      "open": 219.44,
+      "high": 219.86,
+      "low": 219.24,
+      "close": 219.63,
+      "volume": 1313002
+    },
+    {
+      "timestamp": "2026-05-12T18:40:00.000Z",
+      "time": "14:40",
+      "open": 219.68,
+      "high": 220,
+      "low": 219.53,
+      "close": 219.66,
+      "volume": 998008
+    },
+    {
+      "timestamp": "2026-05-12T18:45:00.000Z",
+      "time": "14:45",
+      "open": 219.66,
+      "high": 219.66,
+      "low": 219,
+      "close": 219.52,
+      "volume": 1087811
+    },
+    {
+      "timestamp": "2026-05-12T18:50:00.000Z",
+      "time": "14:50",
+      "open": 219.51,
+      "high": 219.99,
+      "low": 219.36,
+      "close": 219.85,
+      "volume": 830682
+    },
+    {
+      "timestamp": "2026-05-12T18:55:00.000Z",
+      "time": "14:55",
+      "open": 219.85,
+      "high": 220.34,
+      "low": 219.25,
+      "close": 219.53,
+      "volume": 1662829
+    },
+    {
+      "timestamp": "2026-05-12T19:00:00.000Z",
+      "time": "15:00",
+      "open": 219.52,
+      "high": 220.1,
+      "low": 219.52,
+      "close": 219.98,
+      "volume": 857986
+    },
+    {
+      "timestamp": "2026-05-12T19:05:00.000Z",
+      "time": "15:05",
+      "open": 219.97,
+      "high": 220.61,
+      "low": 219.66,
+      "close": 220.38,
+      "volume": 1442731
+    },
+    {
+      "timestamp": "2026-05-12T19:10:00.000Z",
+      "time": "15:10",
+      "open": 220.38,
+      "high": 220.68,
+      "low": 220.13,
+      "close": 220.59,
+      "volume": 1020078
+    },
+    {
+      "timestamp": "2026-05-12T19:15:00.000Z",
+      "time": "15:15",
+      "open": 220.59,
+      "high": 221.06,
+      "low": 220.59,
+      "close": 221.03,
+      "volume": 1674138
+    },
+    {
+      "timestamp": "2026-05-12T19:20:00.000Z",
+      "time": "15:20",
+      "open": 221.03,
+      "high": 221.14,
+      "low": 220.26,
+      "close": 220.49,
+      "volume": 1409089
+    },
+    {
+      "timestamp": "2026-05-12T19:25:00.000Z",
+      "time": "15:25",
+      "open": 220.49,
+      "high": 220.88,
+      "low": 220.37,
+      "close": 220.73,
+      "volume": 965143
+    },
+    {
+      "timestamp": "2026-05-12T19:30:00.000Z",
+      "time": "15:30",
+      "open": 220.74,
+      "high": 221.43,
+      "low": 220.71,
+      "close": 221.33,
+      "volume": 1500426
+    },
+    {
+      "timestamp": "2026-05-12T19:35:00.000Z",
+      "time": "15:35",
+      "open": 221.35,
+      "high": 221.6,
+      "low": 221.21,
+      "close": 221.58,
+      "volume": 1234214
+    },
+    {
+      "timestamp": "2026-05-12T19:40:00.000Z",
+      "time": "15:40",
+      "open": 221.57,
+      "high": 221.74,
+      "low": 221.26,
+      "close": 221.28,
+      "volume": 1377743
+    },
+    {
+      "timestamp": "2026-05-12T19:45:00.000Z",
+      "time": "15:45",
+      "open": 221.28,
+      "high": 221.29,
+      "low": 220.45,
+      "close": 220.7,
+      "volume": 1722995
+    },
+    {
+      "timestamp": "2026-05-12T19:50:00.000Z",
+      "time": "15:50",
+      "open": 220.71,
+      "high": 221.28,
+      "low": 220.32,
+      "close": 220.33,
+      "volume": 2358982
+    },
+    {
+      "timestamp": "2026-05-12T19:55:00.000Z",
+      "time": "15:55",
+      "open": 220.33,
+      "high": 221.03,
+      "low": 220.15,
+      "close": 220.87,
+      "volume": 4709636
+    }
+  ],
+  "regions": [
+    {
+      "id": "opening-drive",
+      "label": "Opening Drive",
+      "code": "OD",
+      "timeframe": "5m",
+      "metrics": [
+        "price",
+        "tap",
+        "volume"
+      ],
+      "direction": "bullish",
+      "strength": 86,
+      "startTimestamp": "2026-05-12T13:30:00.000Z",
+      "endTimestamp": "2026-05-12T13:55:00.000Z",
+      "priceLow": 217.01,
+      "priceHigh": 223.75,
+      "thesis": "Acceptance from the open sets the first liquidity shelf.",
+      "detail": "Opening run spans 09:30 to 09:55, anchoring the first tradable impulse."
+    },
+    {
+      "id": "momentum-bend",
+      "label": "Momentum Bend",
+      "code": "MB",
+      "timeframe": "15m",
+      "metrics": [
+        "rsi",
+        "macd",
+        "lift"
+      ],
+      "direction": "bearish",
+      "strength": 92,
+      "startTimestamp": "2026-05-12T14:00:00.000Z",
+      "endTimestamp": "2026-05-12T15:55:00.000Z",
+      "priceLow": 215.01,
+      "priceHigh": 221.78,
+      "thesis": "Momentum turns bearish as the early trend absorbs participation.",
+      "detail": "The 10:00-11:55 pocket checks whether the first move is extending or compressing."
+    },
+    {
+      "id": "gamma-shelf",
+      "label": "Gamma Shelf",
+      "code": "GS",
+      "timeframe": "30m",
+      "metrics": [
+        "price",
+        "tap",
+        "ghost"
+      ],
+      "direction": "bullish",
+      "strength": 86,
+      "startTimestamp": "2026-05-12T13:30:00.000Z",
+      "endTimestamp": "2026-05-12T13:55:00.000Z",
+      "priceLow": 217.01,
+      "priceHigh": 223.75,
+      "thesis": "Repeated reactions cluster near 223.75 and define the session shelf.",
+      "detail": "The shelf is derived from the local high window between 09:30 and 09:55."
+    },
+    {
+      "id": "risk-cone",
+      "label": "Risk Cone",
+      "code": "RC",
+      "timeframe": "1h",
+      "metrics": [
+        "risk",
+        "volume",
+        "macd"
+      ],
+      "direction": "bearish",
+      "strength": 90,
+      "startTimestamp": "2026-05-12T13:35:00.000Z",
+      "endTimestamp": "2026-05-12T14:50:00.000Z",
+      "priceLow": 217.35,
+      "priceHigh": 223.75,
+      "thesis": "Risk expands while price rotates through a 6.4 point rejection band.",
+      "detail": "The risk cone is pinned to the high-response window from 09:35 to 10:50."
+    },
+    {
+      "id": "auction-drift",
+      "label": "Auction Drift",
+      "code": "AD",
+      "timeframe": "4h",
+      "metrics": [
+        "lift",
+        "rsi",
+        "risk"
+      ],
+      "direction": "bullish",
+      "strength": 92,
+      "startTimestamp": "2026-05-12T18:25:00.000Z",
+      "endTimestamp": "2026-05-12T19:55:00.000Z",
+      "priceLow": 218.24,
+      "priceHigh": 221.74,
+      "thesis": "Late auction drift resolves bullish into the closing mark.",
+      "detail": "The closing read follows the final regular-session sequence from 14:25 to 15:55."
+    }
+  ]
+}

@@ -1,48 +1,89 @@
 import "@testing-library/jest-dom/vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { act } from "react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { App } from "./App";
-import { candles, marketRegions, metricOptions } from "./data/nvdaMap";
 
-describe("NVDA signal map", () => {
-  it("lets the analyst multi-select highlighted chart metrics", () => {
-    render(<App />);
+beforeEach(() => {
+  vi.stubGlobal("fetch", vi.fn(() => new Promise(() => undefined)));
+});
 
-    expect(screen.getByText("3 overlays active")).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: /TAP Vector/i }));
-    fireEvent.click(screen.getByRole("button", { name: /RSI Curvature/i }));
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
-    expect(screen.getByText("5 overlays active")).toBeInTheDocument();
-    expect(screen.getByLabelText("RSI Curvature overlay")).toHaveAttribute("aria-pressed", "true");
+describe("NVDA at a Glance", () => {
+  it("renders the immersive 3D bar chart with measured timeframes and indicators", async () => {
+    await act(async () => {
+      render(<App />);
+    });
+
+    expect(screen.getByRole("heading", { name: "Immersive 3D Bars" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "10m timeframe" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: "4h timeframe" })).toBeInTheDocument();
+    expect(screen.getByText("RSI Evaluation")).toBeInTheDocument();
+    expect(screen.getByText("MACD Evaluation")).toBeInTheDocument();
   });
 
-  it("wires the header to real page sections", () => {
-    render(<App />);
+  it("lets the analyst switch timeframe, zoom, and choose additional graph formats", async () => {
+    await act(async () => {
+      render(<App />);
+    });
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "4h timeframe" }));
+      fireEvent.click(screen.getByRole("button", { name: "Zoom in" }));
+      fireEvent.click(screen.getByRole("button", { name: "Line graph format" }));
+    });
+
+    expect(screen.getByRole("button", { name: "4h timeframe" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByText("Depth 1.35x")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Line graph format" })).toHaveAttribute("aria-pressed", "true");
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "Pylab Snapshot format" }));
+    });
+
+    expect(screen.getByRole("img", { name: "Pylab-generated NVDA price RSI MACD overview" })).toBeInTheDocument();
+  });
+
+  it("wires the header to real page sections", async () => {
+    await act(async () => {
+      render(<App />);
+    });
 
     expect(screen.getByRole("link", { name: "Overview" })).toHaveAttribute("href", "#overview");
     expect(screen.getByRole("link", { name: "Map" })).toHaveAttribute("href", "#map");
+    expect(screen.getByRole("link", { name: "Audit" })).toHaveAttribute("href", "#audit");
     expect(screen.getByRole("link", { name: "Thesis" })).toHaveAttribute("href", "#thesis");
     expect(screen.getByRole("link", { name: "Voice" })).toHaveAttribute("href", "#voice");
     expect(document.querySelector("#overview")).toBeInTheDocument();
     expect(document.querySelector("#map")).toBeInTheDocument();
+    expect(document.querySelector("#audit")).toBeInTheDocument();
     expect(document.querySelector("#thesis")).toBeInTheDocument();
     expect(document.querySelector("#voice")).toBeInTheDocument();
   });
 
-  it("switches between dark and light themes", () => {
-    render(<App />);
+  it("switches between dark and light themes", async () => {
+    await act(async () => {
+      render(<App />);
+    });
 
     const shell = screen.getByTestId("app-shell");
     expect(shell).toHaveAttribute("data-theme", "dark");
 
-    fireEvent.click(screen.getByRole("button", { name: "Switch to light theme" }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "Switch to light theme" }));
+    });
 
     expect(shell).toHaveAttribute("data-theme", "light");
     expect(screen.getByRole("button", { name: "Switch to dark theme" })).toBeInTheDocument();
   });
 
-  it("offers layout choices on load", () => {
-    render(<App />);
+  it("offers layout choices on load", async () => {
+    await act(async () => {
+      render(<App />);
+    });
 
     const shell = screen.getByTestId("app-shell");
     expect(shell).toHaveAttribute("data-layout", "default");
@@ -50,86 +91,53 @@ describe("NVDA signal map", () => {
     expect(screen.getByRole("button", { name: "Use Focus layout" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Use Research layout" })).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("button", { name: "Use Research layout" }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "Use Research layout" }));
+    });
 
     expect(shell).toHaveAttribute("data-layout", "research");
     expect(screen.getByRole("button", { name: "Use Research layout" })).toHaveAttribute("aria-pressed", "true");
   });
 
-  it("shows derived mathematical analysis for the session", () => {
-    render(<App />);
+  it("shows derived mathematical analysis for the selected measured timeframe", async () => {
+    await act(async () => {
+      render(<App />);
+    });
 
     expect(screen.getByText("Math Stack")).toBeInTheDocument();
-    expect(screen.getByText("VWAP")).toBeInTheDocument();
-    expect(screen.getByText("Session Return")).toBeInTheDocument();
-    expect(screen.getByText("Realized Vol")).toBeInTheDocument();
-    expect(screen.getByText("Reward/Risk")).toBeInTheDocument();
-    expect(screen.getByText("Balanced")).toBeInTheDocument();
+    expect(screen.getAllByText("VWAP").length).toBeGreaterThan(0);
+    expect(screen.getByText("Measured Range")).toBeInTheDocument();
+    expect(screen.getByText("RSI Regime")).toBeInTheDocument();
+    expect(screen.getByText("MACD Bias")).toBeInTheDocument();
   });
 
-  it("ties metric filters to the visible map layers", () => {
-    render(<App />);
+  it("shows the built-in data and UI audit with the 8 PM Eastern refresh timer", async () => {
+    await act(async () => {
+      render(<App />);
+    });
+
+    expect(screen.getByText("Data Source")).toBeInTheDocument();
+    expect(screen.getByText("UI Audit")).toBeInTheDocument();
+    expect(screen.getByText("Next Refresh")).toBeInTheDocument();
+    expect(screen.getByText(/remaining/i)).toBeInTheDocument();
+  });
+
+  it("toggles indicator layers on the 3D chart", async () => {
+    await act(async () => {
+      render(<App />);
+    });
 
     expect(screen.getByTestId("price-layer")).toBeInTheDocument();
-    expect(screen.getByTestId("volume-layer")).toBeInTheDocument();
-    expect(screen.getByTestId("risk-layer")).toBeInTheDocument();
-    expect(screen.queryByTestId("tap-layer")).not.toBeInTheDocument();
+    expect(screen.getByTestId("rsi-layer")).toBeInTheDocument();
+    expect(screen.getByTestId("macd-layer")).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("button", { name: "Price Structure overlay" }));
-    fireEvent.click(screen.getByRole("button", { name: "Volume Velocity overlay" }));
-    fireEvent.click(screen.getByRole("button", { name: "Risk Cone overlay" }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "RSI overlay" }));
+      fireEvent.click(screen.getByRole("button", { name: "MACD overlay" }));
+    });
 
-    expect(screen.queryByTestId("price-layer")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("volume-layer")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("risk-layer")).not.toBeInTheDocument();
-    expect(screen.getAllByText("No regions lit")).toHaveLength(2);
-
-    fireEvent.click(screen.getByRole("button", { name: "TAP Vector overlay" }));
-
-    expect(screen.getByTestId("tap-layer")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Opening Drive" })).toBeInTheDocument();
-  });
-
-  it("keeps the selected region aligned with active filters", () => {
-    render(<App />);
-
-    fireEvent.click(screen.getByRole("button", { name: "Risk Cone region" }));
-    expect(screen.getByRole("heading", { name: "Risk Cone" })).toBeInTheDocument();
-
-    fireEvent.click(screen.getByRole("button", { name: "Volume Velocity overlay" }));
-    fireEvent.click(screen.getByRole("button", { name: "Risk Cone overlay" }));
-
-    expect(screen.getByRole("heading", { name: "Opening Drive" })).toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: "Risk Cone" })).not.toBeInTheDocument();
-  });
-
-  it("selects regions from the HTML list and keyboard-accessible map controls", () => {
-    render(<App />);
-
-    fireEvent.click(screen.getByRole("button", { name: "Select Risk Cone" }));
-    expect(screen.getByRole("heading", { name: "Risk Cone" })).toBeInTheDocument();
-
-    fireEvent.click(screen.getByRole("button", { name: "RSI Curvature overlay" }));
-    const momentumRegion = screen.getByRole("button", { name: "Momentum Bend region" });
-    fireEvent.keyDown(momentumRegion, { key: " " });
-
-    expect(screen.getByRole("heading", { name: "Momentum Bend" })).toBeInTheDocument();
-  });
-});
-
-describe("NVDA map data", () => {
-  it("uses only registered metrics for regions", () => {
-    const metricIds = new Set(metricOptions.map((metric) => metric.id));
-
-    for (const region of marketRegions) {
-      expect(region.metrics.every((metric) => metricIds.has(metric))).toBe(true);
-    }
-  });
-
-  it("keeps candle prices within their high-low range", () => {
-    for (const candle of candles) {
-      expect(candle.low).toBeLessThanOrEqual(Math.min(candle.open, candle.close));
-      expect(candle.high).toBeGreaterThanOrEqual(Math.max(candle.open, candle.close));
-    }
+    expect(screen.queryByTestId("rsi-layer")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("macd-layer")).not.toBeInTheDocument();
+    expect(screen.getByText("3 overlays active")).toBeInTheDocument();
   });
 });

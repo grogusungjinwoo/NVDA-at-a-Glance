@@ -7,4 +7,11 @@ describe("GitHub Pages deployment config", () => {
 
     expect(viteConfig).toContain('base: "/NVDA-at-a-Glance/"');
   });
+
+  it("refreshes market data before scheduled Pages builds", () => {
+    const workflow = readFileSync(".github/workflows/deploy.yml", "utf8");
+
+    expect(workflow).toContain("0 0,1 * * *");
+    expect(workflow).toContain("npm run refresh:data");
+  });
 });

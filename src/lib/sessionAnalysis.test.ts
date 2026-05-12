@@ -14,10 +14,14 @@ describe("session analysis", () => {
     expect(analysis.rangeDollars).toBe(22);
     expect(analysis.rangePct).toBe(22);
     expect(analysis.totalVolume).toBe(30);
+    expect(analysis.averageVolume).toBe(15);
     expect(analysis.vwap).toBe(106.33);
+    expect(analysis.closeVsVwapPct).toBe(3.45);
     expect(analysis.realizedVolatilityPct).toBe(6.74);
+    expect(analysis.maxDrawdownPct).toBe(18.18);
     expect(analysis.pressureScore).toBe(75);
     expect(analysis.rewardRiskRatio).toBe(0.1);
+    expect(analysis.trendEfficiencyPct).toBe(45.45);
     expect(analysis.trendLabel).toBe("Constructive");
   });
 });

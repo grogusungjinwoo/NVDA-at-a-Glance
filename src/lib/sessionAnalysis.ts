@@ -1,4 +1,4 @@
-import type { Candle } from "../data/nvdaMap";
+import type { MarketBar } from "./marketData";
 
 export interface SessionAnalysis {
   open: number;
@@ -9,10 +9,14 @@ export interface SessionAnalysis {
   rangeDollars: number;
   rangePct: number;
   totalVolume: number;
+  averageVolume: number;
   vwap: number;
+  closeVsVwapPct: number;
   realizedVolatilityPct: number;
+  maxDrawdownPct: number;
   pressureScore: number;
   rewardRiskRatio: number;
+  trendEfficiencyPct: number;
   trendLabel: "Constructive" | "Balanced" | "Defensive";
 }
 
@@ -21,7 +25,7 @@ function round(value: number, places = 2): number {
   return Math.round((value + Number.EPSILON) * scale) / scale;
 }
 
-export function computeSessionAnalysis(candles: Candle[]): SessionAnalysis {
+export function computeSessionAnalysis(candles: MarketBar[]): SessionAnalysis {
   if (candles.length === 0) {
     return {
       open: 0,
@@ -32,10 +36,14 @@ export function computeSessionAnalysis(candles: Candle[]): SessionAnalysis {
       rangeDollars: 0,
       rangePct: 0,
       totalVolume: 0,
+      averageVolume: 0,
       vwap: 0,
+      closeVsVwapPct: 0,
       realizedVolatilityPct: 0,
+      maxDrawdownPct: 0,
       pressureScore: 0,
       rewardRiskRatio: 0,
+      trendEfficiencyPct: 0,
       trendLabel: "Balanced"
     };
   }
@@ -49,6 +57,7 @@ export function computeSessionAnalysis(candles: Candle[]): SessionAnalysis {
     const typicalPrice = (candle.high + candle.low + candle.close) / 3;
     return sum + typicalPrice * candle.volume;
   }, 0);
+  const vwap = totalVolume === 0 ? 0 : vwapNumerator / totalVolume;
   const pressureTotal = candles.reduce((sum, candle) => {
     const range = candle.high - candle.low;
     return sum + (range === 0 ? 0.5 : (candle.close - candle.low) / range);
@@ -62,6 +71,13 @@ export function computeSessionAnalysis(candles: Candle[]): SessionAnalysis {
   const upsideRoom = Math.max(high - lastClose, 0);
   const pressureScore = (pressureTotal / candles.length) * 100;
   const sessionReturnPct = ((lastClose - open) / open) * 100;
+  const trendEfficiencyPct = ((Math.abs(lastClose - open) / Math.max(high - low, 0.01)) * 100);
+  let peak = candles[0].high;
+  let maxDrawdownPct = 0;
+  for (const candle of candles) {
+    peak = Math.max(peak, candle.high);
+    maxDrawdownPct = Math.min(maxDrawdownPct, ((candle.low - peak) / peak) * 100);
+  }
   const trendLabel = sessionReturnPct > 0.35 && pressureScore >= 50
     ? "Constructive"
     : sessionReturnPct < -0.35 && pressureScore < 50
@@ -77,10 +93,14 @@ export function computeSessionAnalysis(candles: Candle[]): SessionAnalysis {
     rangeDollars: round(high - low),
     rangePct: round(((high - low) / open) * 100),
     totalVolume: round(totalVolume),
-    vwap: totalVolume === 0 ? 0 : round(vwapNumerator / totalVolume),
+    averageVolume: round(totalVolume / candles.length),
+    vwap: round(vwap),
+    closeVsVwapPct: vwap === 0 ? 0 : round(((lastClose - vwap) / vwap) * 100),
     realizedVolatilityPct: round(realizedVolatility),
+    maxDrawdownPct: round(Math.abs(maxDrawdownPct)),
     pressureScore: round(pressureScore),
     rewardRiskRatio: downsideRoom === 0 ? 0 : round(upsideRoom / downsideRoom),
+    trendEfficiencyPct: round(trendEfficiencyPct),
     trendLabel
   };
 }
