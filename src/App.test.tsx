@@ -41,6 +41,32 @@ describe("NVDA signal map", () => {
     expect(screen.getByRole("button", { name: "Switch to dark theme" })).toBeInTheDocument();
   });
 
+  it("offers layout choices on load", () => {
+    render(<App />);
+
+    const shell = screen.getByTestId("app-shell");
+    expect(shell).toHaveAttribute("data-layout", "default");
+    expect(screen.getByRole("button", { name: "Use Default layout" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: "Use Focus layout" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Use Research layout" })).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Use Research layout" }));
+
+    expect(shell).toHaveAttribute("data-layout", "research");
+    expect(screen.getByRole("button", { name: "Use Research layout" })).toHaveAttribute("aria-pressed", "true");
+  });
+
+  it("shows derived mathematical analysis for the session", () => {
+    render(<App />);
+
+    expect(screen.getByText("Math Stack")).toBeInTheDocument();
+    expect(screen.getByText("VWAP")).toBeInTheDocument();
+    expect(screen.getByText("Session Return")).toBeInTheDocument();
+    expect(screen.getByText("Realized Vol")).toBeInTheDocument();
+    expect(screen.getByText("Reward/Risk")).toBeInTheDocument();
+    expect(screen.getByText("Balanced")).toBeInTheDocument();
+  });
+
   it("ties metric filters to the visible map layers", () => {
     render(<App />);
 

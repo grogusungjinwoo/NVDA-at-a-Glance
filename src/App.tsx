@@ -4,6 +4,7 @@ import {
   BarChart3,
   CircleDot,
   Crosshair,
+  Gauge,
   Layers3,
   LineChart,
   Moon,
@@ -15,6 +16,7 @@ import {
   Zap
 } from "lucide-react";
 import { buildHighlightSummary, toggleSelection } from "./lib/highlightModel";
+import { computeSessionAnalysis } from "./lib/sessionAnalysis";
 import { candles, marketRegions, metricOptions, type MarketRegion, type MetricId } from "./data/nvdaMap";
 
 const metricIcons: Record<MetricId, typeof Activity> = {
@@ -29,9 +31,20 @@ const metricIcons: Record<MetricId, typeof Activity> = {
 };
 
 const defaultSelected: MetricId[] = ["price", "volume", "risk"];
+const layoutOptions = [
+  { id: "default", label: "Default", description: "Balanced map, filters, details, and math." },
+  { id: "focus", label: "Focus", description: "Chart-first view for fast scanning." },
+  { id: "research", label: "Research", description: "Analysis-first view for deeper review." }
+] as const;
+
+type LayoutMode = (typeof layoutOptions)[number]["id"];
 
 function formatPrice(value: number): string {
   return `$${value.toFixed(2)}`;
+}
+
+function formatPercent(value: number): string {
+  return `${value > 0 ? "+" : ""}${value.toFixed(2)}%`;
 }
 
 function directionLabel(direction: MarketRegion["direction"] | "mixed"): string {
@@ -43,7 +56,9 @@ export function App() {
   const [selectedMetrics, setSelectedMetrics] = useState<MetricId[]>(defaultSelected);
   const [focusedRegionId, setFocusedRegionId] = useState(marketRegions[0].id);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [layoutMode, setLayoutMode] = useState<LayoutMode>("default");
   const summary = useMemo(() => buildHighlightSummary(metricOptions, selectedMetrics), [selectedMetrics]);
+  const sessionAnalysis = useMemo(() => computeSessionAnalysis(candles), []);
   const activeRegions = useMemo(
     () => marketRegions.filter((region) => region.metrics.some((metric) => selectedMetrics.includes(metric))),
     [selectedMetrics]
@@ -80,7 +95,7 @@ export function App() {
   }
 
   return (
-    <div className="terminal-shell" data-testid="app-shell" data-theme={theme}>
+    <div className="terminal-shell" data-testid="app-shell" data-theme={theme} data-layout={layoutMode}>
       <header className="topbar">
         <a className="brand-mark" href="#map" aria-label="NVDA Signal Map home">
           <span>NV</span>
@@ -123,6 +138,21 @@ export function App() {
             <dd>{marketRegions.length}</dd>
           </div>
         </dl>
+        <div className="layout-chooser" role="group" aria-label="Layout choices">
+          {layoutOptions.map((option) => (
+            <button
+              aria-label={`Use ${option.label} layout`}
+              aria-pressed={layoutMode === option.id}
+              className={layoutMode === option.id ? "layout-choice active" : "layout-choice"}
+              key={option.id}
+              onClick={() => setLayoutMode(option.id)}
+              type="button"
+            >
+              <strong>{option.label}</strong>
+              <span>{option.description}</span>
+            </button>
+          ))}
+        </div>
       </section>
 
       <main className="map-stage" id="map">
@@ -340,6 +370,43 @@ export function App() {
               <p>Turn on at least one metric filter to restore chart regions and detail readouts.</p>
             </div>
           )}
+        </aside>
+
+        <aside className="math-panel" aria-label="Mathematical analysis">
+          <div className="panel-title gold">
+            <Gauge size={13} />
+            <span>Math Stack</span>
+          </div>
+          <div className="math-lede">
+            <strong>{sessionAnalysis.trendLabel}</strong>
+            <span>{formatPercent(sessionAnalysis.sessionReturnPct)} session impulse from {formatPrice(sessionAnalysis.open)} open.</span>
+          </div>
+          <dl className="math-grid">
+            <div>
+              <dt>VWAP</dt>
+              <dd>{formatPrice(sessionAnalysis.vwap)}</dd>
+            </div>
+            <div>
+              <dt>Session Return</dt>
+              <dd>{formatPercent(sessionAnalysis.sessionReturnPct)}</dd>
+            </div>
+            <div>
+              <dt>Range</dt>
+              <dd>{formatPrice(sessionAnalysis.rangeDollars)} / {sessionAnalysis.rangePct.toFixed(2)}%</dd>
+            </div>
+            <div>
+              <dt>Realized Vol</dt>
+              <dd>{sessionAnalysis.realizedVolatilityPct.toFixed(2)}%</dd>
+            </div>
+            <div>
+              <dt>Pressure Score</dt>
+              <dd>{sessionAnalysis.pressureScore.toFixed(0)} / 100</dd>
+            </div>
+            <div>
+              <dt>Reward/Risk</dt>
+              <dd>{sessionAnalysis.rewardRiskRatio.toFixed(2)}x</dd>
+            </div>
+          </dl>
         </aside>
 
         <footer className="status-strip">
