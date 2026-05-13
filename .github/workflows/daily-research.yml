@@ -1,0 +1,71 @@
+name: Daily NVDA Research Refresh
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 0 * * *"
+    - cron: "15 1 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-nvda-research-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check 8:15 PM America/New_York gate
+        id: time_gate
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [[ "$(TZ=America/New_York date +'%H:%M')" == "20:15" ]]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.time_gate.outputs.should_run == 'true'
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        if: steps.time_gate.outputs.should_run == 'true'
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.time_gate.outputs.should_run == 'true'
+        run: npm ci
+
+      - name: Fetch and generate NVDA research artifacts
+        if: steps.time_gate.outputs.should_run == 'true'
+        run: npm run refresh:data
+
+      - name: Validate tests and build
+        if: steps.time_gate.outputs.should_run == 'true'
+        run: |
+          npm test
+          npm run build
+
+      - name: Commit generated artifacts
+        if: steps.time_gate.outputs.should_run == 'true'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data public/reports src/data/nvdaSession.json
+          if git diff --cached --quiet; then
+            echo "No generated artifact changes to commit."
+          else
+            git commit -m "chore: refresh NVDA research artifacts"
+            git push
+          fi

@@ -1,0 +1,99 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 2399 >>
+stream
+BT
+/F1 18 Tf
+54 760 Td
+(NVDA Daily Quant Research) Tj
+/F1 10 Tf
+0 -18 Td
+(2026-05-13) Tj
+0 -18 Td
+(Session summary) Tj
+0 -18 Td
+(NVDA delayed research data for 2026-05-13: 6 signal modules evaluated; session return +0.47%.) Tj
+0 -18 Td
+(Educational research output only. Not financial advice.) Tj
+0 -18 Td
+(Validation) Tj
+0 -18 Td
+(Accuracy check: WARN) Tj
+0 -18 Td
+(30m 09:30-10:00 ET candle close: PASS close 224.1) Tj
+0 -18 Td
+(1h 09:30-10:30 ET window: PASS close 224.44) Tj
+0 -18 Td
+(Late 15:30-close ET window: PASS close 225.87) Tj
+0 -18 Td
+(Generated chart artifacts) Tj
+0 -18 Td
+(Chart artifact: Pylab technical overview \(pylab/nvda-pylab-overview.png\)) Tj
+0 -18 Td
+(Live UI screenshot: Live UI overview screenshot \(reports/2026-05-13/live-ui-overview.jpg\)) Tj
+0 -18 Td
+(Chart artifact: Math and level map \(reports/2026-05-13/charts/levels.svg\)) Tj
+0 -18 Td
+(Chart artifact: 4D signal view \(reports/2026-05-13/charts/4d-view.svg\)) Tj
+0 -18 Td
+(Chart artifact: 2D shared surface slice \(reports/2026-05-13/charts/2d-slice.svg\)) Tj
+0 -18 Td
+(Chart artifact: 10m price and volume \(reports/2026-05-13/charts/price-volume-10m.svg\)) Tj
+0 -18 Td
+(Chart artifact: 10m RSI \(reports/2026-05-13/charts/rsi-10m.svg\)) Tj
+0 -18 Td
+(Chart artifact: 10m MACD \(reports/2026-05-13/charts/macd-10m.svg\)) Tj
+0 -18 Td
+(Chart artifact: 10m StochRSI \(reports/2026-05-13/charts/stoch-rsi-10m.svg\)) Tj
+0 -18 Td
+(Chart artifact: 10m PRE/Lift \(reports/2026-05-13/charts/pre-lift-10m.svg\)) Tj
+0 -18 Td
+(Chart artifact: 1h price and volume \(reports/2026-05-13/charts/price-volume-1h.svg\)) Tj
+0 -18 Td
+(Chart artifact: 1h RSI \(reports/2026-05-13/charts/rsi-1h.svg\)) Tj
+0 -18 Td
+(Chart artifact: 1h MACD \(reports/2026-05-13/charts/macd-1h.svg\)) Tj
+0 -18 Td
+(Chart artifact: 1h StochRSI \(reports/2026-05-13/charts/stoch-rsi-1h.svg\)) Tj
+0 -18 Td
+(Chart artifact: 1h PRE/Lift \(reports/2026-05-13/charts/pre-lift-1h.svg\)) Tj
+0 -18 Td
+(Chart artifact: 4h price and volume \(reports/2026-05-13/charts/price-volume-4h.svg\)) Tj
+0 -18 Td
+(Chart artifact: 4h RSI \(reports/2026-05-13/charts/rsi-4h.svg\)) Tj
+0 -18 Td
+(Chart artifact: 4h MACD \(reports/2026-05-13/charts/macd-4h.svg\)) Tj
+0 -18 Td
+(Chart artifact: 4h StochRSI \(reports/2026-05-13/charts/stoch-rsi-4h.svg\)) Tj
+0 -18 Td
+(Chart artifact: 4h PRE/Lift \(reports/2026-05-13/charts/pre-lift-4h.svg\)) Tj
+0 -18 Td
+(Indicator snapshots) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f
+0000000009 00000 n
+0000000058 00000 n
+0000000115 00000 n
+0000000241 00000 n
+0000000311 00000 n
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2762
+%%EOF

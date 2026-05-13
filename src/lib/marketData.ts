@@ -1,4 +1,5 @@
-export type TimeframeKey = "10m" | "15m" | "30m" | "1h" | "2h" | "4h";
+export type TimeframeKey = "10m" | "1h" | "4h";
+export type MarketSessionSegment = "pre" | "regular" | "post";
 
 export interface MarketBar {
   time: string;
@@ -7,6 +8,11 @@ export interface MarketBar {
   low: number;
   close: number;
   volume: number;
+  vwap?: number;
+  session?: MarketSessionSegment;
+  sourceIntervalMinutes?: number;
+  sourceBarCount?: number;
+  isPartial?: boolean;
 }
 
 export interface MacdSeries {
@@ -16,11 +22,32 @@ export interface MacdSeries {
   slope: Array<number | null>;
 }
 
+export interface StochRsiSeries {
+  value: Array<number | null>;
+  k: Array<number | null>;
+  d: Array<number | null>;
+  rsiLength: number;
+  stochLength: number;
+}
+
+export interface PreLiftSeries {
+  phi: number;
+  deltaMinutes: Array<number | null>;
+  angleRadians: Array<number | null>;
+  angleDegrees: Array<number | null>;
+  pre: Array<number | null>;
+  lift: Array<number | null>;
+}
+
 export interface TimeframeSeries {
   timeframe: TimeframeKey;
+  intervalMinutes: number;
+  sourceTimeframe: "5m" | "10m";
   bars: MarketBar[];
   rsi: Array<number | null>;
   macd: MacdSeries;
+  stochRsi: StochRsiSeries;
+  preLift: PreLiftSeries;
 }
 
 export interface FrameSummary {
@@ -39,14 +66,15 @@ export interface FrameSummary {
 
 export const TIMEFRAMES: Array<{ key: TimeframeKey; minutes: number }> = [
   { key: "10m", minutes: 10 },
-  { key: "15m", minutes: 15 },
-  { key: "30m", minutes: 30 },
   { key: "1h", minutes: 60 },
-  { key: "2h", minutes: 120 },
   { key: "4h", minutes: 240 }
 ];
 
 const NEW_YORK_TIME_ZONE = "America/New_York";
+const PRE_MARKET_OPEN_MINUTES = 4 * 60;
+const REGULAR_OPEN_MINUTES = 9 * 60 + 30;
+const REGULAR_CLOSE_MINUTES = 16 * 60;
+const POST_MARKET_CLOSE_MINUTES = 20 * 60;
 
 interface ZonedParts {
   year: number;
@@ -72,6 +100,25 @@ function lastFinite(values: Array<number | null>): number | null {
     if (isFiniteNumber(values[index])) return values[index];
   }
   return null;
+}
+
+export function validateOhlcvBars(baseBars: MarketBar[]): string[] {
+  const errors: string[] = [];
+
+  baseBars.forEach((bar, index) => {
+    const prefix = `bar ${index}`;
+    const time = new Date(bar.time).getTime();
+    if (!Number.isFinite(time)) errors.push(`${prefix}: invalid timestamp`);
+    if (![bar.open, bar.high, bar.low, bar.close, bar.volume].every(isFiniteNumber)) {
+      errors.push(`${prefix}: non-finite OHLCV value`);
+      return;
+    }
+    if (bar.volume < 0) errors.push(`${prefix}: negative volume`);
+    if (bar.low > Math.min(bar.open, bar.close)) errors.push(`${prefix}: low is above body`);
+    if (bar.high < Math.max(bar.open, bar.close)) errors.push(`${prefix}: high is below body`);
+  });
+
+  return errors;
 }
 
 function getZonedParts(date: Date): ZonedParts {
@@ -115,6 +162,16 @@ function getSessionOpenUtc(time: number): number {
   return zonedTimeToUtc({ ...parts, hour: 9, minute: 30, second: 0 });
 }
 
+export function classifyMarketSession(value: string | Date): MarketSessionSegment {
+  const date = typeof value === "string" ? new Date(value) : value;
+  const parts = getZonedParts(date);
+  const minutes = parts.hour * 60 + parts.minute;
+
+  if (minutes < REGULAR_OPEN_MINUTES) return "pre";
+  if (minutes < REGULAR_CLOSE_MINUTES) return "regular";
+  return "post";
+}
+
 export function resampleBars(baseBars: MarketBar[], targetMinutes: number): MarketBar[] {
   const bucketMs = targetMinutes * 60_000;
   const buckets = new Map<number, MarketBar[]>();
@@ -131,14 +188,27 @@ export function resampleBars(baseBars: MarketBar[], targetMinutes: number): Mark
 
   return [...buckets.entries()]
     .sort(([left], [right]) => left - right)
-    .map(([bucketStart, bars]) => ({
-      time: new Date(bucketStart).toISOString(),
-      open: round(bars[0].open)!,
-      high: round(Math.max(...bars.map((bar) => bar.high)))!,
-      low: round(Math.min(...bars.map((bar) => bar.low)))!,
-      close: round(bars[bars.length - 1].close)!,
-      volume: Math.round(bars.reduce((sum, bar) => sum + bar.volume, 0))
-    }));
+    .map(([bucketStart, bars]) => {
+      const volume = bars.reduce((sum, bar) => sum + bar.volume, 0);
+      const vwapNumerator = bars.reduce((sum, bar) => {
+        const typical = (bar.high + bar.low + bar.close) / 3;
+        return sum + typical * bar.volume;
+      }, 0);
+
+      return {
+        time: new Date(bucketStart).toISOString(),
+        open: round(bars[0].open)!,
+        high: round(Math.max(...bars.map((bar) => bar.high)))!,
+        low: round(Math.min(...bars.map((bar) => bar.low)))!,
+        close: round(bars[bars.length - 1].close)!,
+        volume: Math.round(volume),
+        vwap: round(volume === 0 ? bars[bars.length - 1].close : vwapNumerator / volume)!,
+        session: classifyMarketSession(new Date(bucketStart)),
+        sourceIntervalMinutes: targetMinutes,
+        sourceBarCount: bars.reduce((sum, bar) => sum + (bar.sourceBarCount ?? 1), 0),
+        isPartial: bars.some((bar) => bar.isPartial) || bars.length < Math.max(1, targetMinutes / 5)
+      };
+    });
 }
 
 export function computeEma(series: Array<number | null>, length: number): Array<number | null> {
@@ -194,6 +264,57 @@ export function computeMacd(close: number[], fast = 12, slow = 26, signalLength 
   };
 }
 
+function movingAverage(values: Array<number | null>, length: number): Array<number | null> {
+  return values.map((_, index) => {
+    const window = values.slice(Math.max(0, index - length + 1), index + 1);
+    if (window.length < length || window.some((value) => value === null)) return null;
+    return round(window.reduce<number>((sum, value) => sum + (value ?? 0), 0) / length);
+  });
+}
+
+export function computeStochRsi(close: number[], rsiLength = 14, stochLength = 14, smoothLength = 3): StochRsiSeries {
+  const rsi = computeRsi(close, rsiLength);
+  const value = rsi.map((current, index) => {
+    if (current === null) return null;
+    const window = rsi.slice(Math.max(0, index - stochLength + 1), index + 1);
+    if (window.length < stochLength || window.some((item) => item === null)) return null;
+    const finiteWindow = window as number[];
+    const low = Math.min(...finiteWindow);
+    const high = Math.max(...finiteWindow);
+    const range = high - low;
+    return round(range === 0 ? 0 : ((current - low) / range) * 100);
+  });
+  const k = movingAverage(value, smoothLength);
+  const d = movingAverage(k, smoothLength);
+
+  return { value, k, d, rsiLength, stochLength };
+}
+
+export function computePreLift(bars: MarketBar[], phi = 1.618): PreLiftSeries {
+  const volumeMax = Math.max(...bars.map((bar) => bar.volume), 1);
+  const deltaMinutes = bars.map((bar, index) => {
+    if (index === 0) return null;
+    const current = new Date(bar.time).getTime();
+    const previous = new Date(bars[index - 1].time).getTime();
+    if (!Number.isFinite(current) || !Number.isFinite(previous) || current <= previous) return null;
+    return (current - previous) / 60_000;
+  });
+  const angleRadians = deltaMinutes.map((delta) => delta === null || delta === 0 ? null : round(Math.atan(phi / delta), 6));
+  const angleDegrees = angleRadians.map((angle) => angle === null ? null : round((angle * 180) / Math.PI, 4));
+  const pre = bars.map((bar, index) => {
+    const angle = angleDegrees[index];
+    if (angle === null || bar.open === 0) return null;
+    return round(((bar.close - bar.open) / bar.open) * angle, 4);
+  });
+  const lift = bars.map((bar, index) => {
+    const angle = angleDegrees[index];
+    if (angle === null) return null;
+    return round((bar.volume / volumeMax) * angle, 4);
+  });
+
+  return { phi, deltaMinutes, angleRadians, angleDegrees, pre, lift };
+}
+
 export function buildTimeframeSeries(baseBars: MarketBar[]): Record<TimeframeKey, TimeframeSeries> {
   return Object.fromEntries(
     TIMEFRAMES.map(({ key, minutes }) => {
@@ -203,9 +324,13 @@ export function buildTimeframeSeries(baseBars: MarketBar[]): Record<TimeframeKey
         key,
         {
           timeframe: key,
+          intervalMinutes: minutes,
+          sourceTimeframe: key === "10m" ? "5m" : "10m",
           bars,
           rsi: computeRsi(closes),
-          macd: computeMacd(closes)
+          macd: computeMacd(closes),
+          stochRsi: computeStochRsi(closes),
+          preLift: computePreLift(bars)
         }
       ];
     })

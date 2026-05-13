@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  schedule:
-    # 8:00 PM Eastern is 00:00 UTC during daylight saving time and 01:00 UTC during standard time.
-    - cron: "0 0,1 * * *"
   workflow_dispatch:
 
 permissions:
@@ -33,9 +30,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Refresh market data
-        run: npm run refresh:data
 
       - name: Test
         run: npm test

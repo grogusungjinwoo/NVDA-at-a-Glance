@@ -20,20 +20,29 @@ import {
 } from "lucide-react";
 import measuredData from "./data/nvdaSession.json";
 import type { MarketSession } from "./data/nvdaMap";
+import { CalendarHistory, type CalendarReportManifestItem } from "./components/CalendarHistory";
+import { ChartGallery } from "./components/ChartGallery";
+import { MathVisualizations } from "./components/MathVisualizations";
+import { ThreeChartScene } from "./components/ThreeChartScene";
 import { formatEasternTimestamp, formatRefreshCountdown, getNextRefreshTime } from "./lib/refreshSchedule";
 import { computeSessionAnalysis } from "./lib/sessionAnalysis";
 import {
   TIMEFRAMES,
   buildTimeframeSeries,
+  classifyMarketSession,
   summarizeFrame,
   type MarketBar,
   type TimeframeKey,
   type TimeframeSeries
 } from "./lib/marketData";
+import { buildAccuracyCheck, type ArtifactReference, type ChartImageReference } from "./lib/accuracyModel";
+import { buildGammaProfile, demoOptionChain, scanUnusualOptions } from "./lib/optionsModel";
+import { buildDailyReport } from "./lib/reportModel";
+import { buildResearchFindings } from "./lib/researchSignals";
 
 type Theme = "dark" | "light";
 type LayoutMode = "default" | "focus" | "research";
-type GraphFormat = "3d" | "line" | "candles" | "area" | "volume" | "rsi" | "macd" | "pylab";
+type GraphFormat = "hybrid" | "line" | "candles" | "area" | "volume" | "rsi" | "macd" | "pylab";
 type OverlayId = "price" | "volume" | "rsi" | "macd" | "vwap";
 type DataStatus = "packaged" | "loading" | "synced" | "error";
 
@@ -46,7 +55,7 @@ const layoutOptions: Array<{ id: LayoutMode; label: string; description: string 
 ];
 
 const graphFormats: Array<{ id: GraphFormat; label: string; icon: typeof BarChart3; ariaLabel: string }> = [
-  { id: "3d", label: "Immersive 3D Bars", icon: Box, ariaLabel: "Immersive 3D Bars format" },
+  { id: "hybrid", label: "Hybrid 3D", icon: Box, ariaLabel: "Hybrid 3D format" },
   { id: "line", label: "Line", icon: LineChart, ariaLabel: "Line graph format" },
   { id: "candles", label: "Candles", icon: CandlestickChart, ariaLabel: "Candles format" },
   { id: "area", label: "Area", icon: AreaChart, ariaLabel: "Area format" },
@@ -64,6 +73,13 @@ const overlayOptions: Array<{ id: OverlayId; label: string; color: string }> = [
   { id: "vwap", label: "VWAP", color: "#6fd3a1" }
 ];
 
+const researchAnchors = [
+  { label: "Rink 2023 technical-rule cost caveat", href: "https://link.springer.com/article/10.1007/s11408-023-00433-2" },
+  { label: "Wiest 2022/2023 momentum evidence", href: "https://link.springer.com/article/10.1007/s11408-022-00417-8" },
+  { label: "Zarattini, Barbon, Aziz ORB filters", href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4729284" },
+  { label: "Deng et al. 2022 candlestick context", href: "https://journals.sagepub.com/doi/10.1177/21582440221117803" }
+];
+
 function sessionToBars(session: MarketSession): MarketBar[] {
   return session.candles.map((bar): MarketBar => ({
     time: bar.timestamp,
@@ -71,7 +87,10 @@ function sessionToBars(session: MarketSession): MarketBar[] {
     high: bar.high,
     low: bar.low,
     close: bar.close,
-    volume: bar.volume
+    volume: bar.volume,
+    session: classifyMarketSession(bar.timestamp),
+    sourceIntervalMinutes: 5,
+    sourceBarCount: 1
   }))
   .filter((bar) => bar.volume > 0);
 }
@@ -102,6 +121,12 @@ function formatTime(value: string | null): string {
     hour: "numeric",
     minute: "2-digit"
   }).format(new Date(value));
+}
+
+function offsetIsoDate(date: string, days: number): string {
+  const parsed = new Date(`${date}T12:00:00.000Z`);
+  parsed.setUTCDate(parsed.getUTCDate() + days);
+  return parsed.toISOString().slice(0, 10);
 }
 
 function lastFinite(values: Array<number | null>): number | null {
@@ -195,6 +220,36 @@ function GraphPreview({ format, series }: { format: GraphFormat; series: Timefra
   );
 }
 
+function MiniTimeframeChart({ series, testId }: { series: TimeframeSeries; testId: string }) {
+  const bars = series.bars.slice(-28);
+  const closes = bars.map((bar) => bar.close);
+  const high = Math.max(...bars.map((bar) => bar.high), 1);
+  const low = Math.min(...bars.map((bar) => bar.low), 0);
+  const range = high - low || 1;
+  const volumeMax = Math.max(...bars.map((bar) => bar.volume), 1);
+  const closePath = seriesPath(closes, 260, 78);
+  const y = (value: number) => 88 - ((value - low) / range) * 72;
+
+  return (
+    <svg className="comparison-mini-chart" data-testid={testId} viewBox="0 0 280 118" role="img" aria-label={`${series.timeframe} compact 2D OHLCV chart`}>
+      <rect width="280" height="118" rx="8" />
+      <path className="comparison-mini-line" d={closePath} transform="translate(10 8)" />
+      {bars.map((bar, index) => {
+        const x = 12 + index * (256 / Math.max(bars.length - 1, 1));
+        const up = bar.close >= bar.open;
+        const volumeHeight = (bar.volume / volumeMax) * 18;
+        return (
+          <g className={up ? "comparison-mini-candle up" : "comparison-mini-candle down"} key={bar.time}>
+            <line x1={x} x2={x} y1={y(bar.high)} y2={y(bar.low)} />
+            <rect x={x - 2.5} y={Math.min(y(bar.open), y(bar.close))} width="5" height={Math.max(Math.abs(y(bar.close) - y(bar.open)), 2)} rx="1" />
+            <rect className="comparison-mini-volume" x={x - 2.5} y={110 - volumeHeight} width="5" height={volumeHeight} rx="1" />
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
 export function App() {
   const [session, setSession] = useState<MarketSession>(initialSession);
   const [dataStatus, setDataStatus] = useState<DataStatus>("packaged");
@@ -203,19 +258,26 @@ export function App() {
   const [layoutMode, setLayoutMode] = useState<LayoutMode>("default");
   const [timeframe, setTimeframe] = useState<TimeframeKey>("10m");
   const [zoom, setZoom] = useState(1);
-  const [format, setFormat] = useState<GraphFormat>("3d");
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [format, setFormat] = useState<GraphFormat>("hybrid");
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [activeOverlays, setActiveOverlays] = useState<OverlayId[]>(["price", "volume", "rsi", "macd", "vwap"]);
   const measuredBars = useMemo(() => sessionToBars(session), [session]);
   const frames = useMemo(() => buildTimeframeSeries(measuredBars), [measuredBars]);
   const activeSeries = frames[timeframe];
   const summary = useMemo(() => summarizeFrame(activeSeries), [activeSeries]);
   const analysis = useMemo(() => computeSessionAnalysis(activeSeries.bars), [activeSeries]);
-  const visibleBars = activeSeries.bars.slice(-Math.max(12, Math.round(52 / zoom)));
-  const selectedBar = selectedIndex === null ? visibleBars.at(-1)! : visibleBars[Math.min(selectedIndex, visibleBars.length - 1)];
+  const visibleBars = useMemo(() => activeSeries.bars.slice(-Math.max(12, Math.round(52 / zoom))), [activeSeries.bars, zoom]);
+  const selectedBar = selectedTime === null
+    ? visibleBars.at(-1)!
+    : activeSeries.bars.find((bar) => bar.time === selectedTime) ?? visibleBars.at(-1)!;
+  const selectedSeriesIndex = activeSeries.bars.findIndex((bar) => bar.time === selectedBar.time);
+  const selectedRsi = selectedSeriesIndex >= 0 ? activeSeries.rsi[selectedSeriesIndex] : null;
+  const selectedMacdLine = selectedSeriesIndex >= 0 ? activeSeries.macd.line[selectedSeriesIndex] : null;
+  const selectedMacdSignal = selectedSeriesIndex >= 0 ? activeSeries.macd.signal[selectedSeriesIndex] : null;
+  const selectedMacdHistogram = selectedSeriesIndex >= 0 ? activeSeries.macd.hist[selectedSeriesIndex] : null;
+  const selectedRsiRegime = selectedRsi === null ? "unknown" : selectedRsi >= 70 ? "overbought" : selectedRsi <= 30 ? "oversold" : "neutral";
   const high = Math.max(...visibleBars.map((bar) => bar.high));
   const low = Math.min(...visibleBars.map((bar) => bar.low));
-  const range = high - low || 1;
   const volumeMax = Math.max(...visibleBars.map((bar) => bar.volume), 1);
   const vwap = vwapForBars(activeSeries.bars);
   const latestRsi = lastFinite(activeSeries.rsi);
@@ -224,6 +286,117 @@ export function App() {
   const nextRefresh = getNextRefreshTime(now);
   const countdown = formatRefreshCountdown(now);
   const currentFormatLabel = graphFormats.find((item) => item.id === format)?.label ?? "Graph";
+  const comparisonFrames = useMemo(() => TIMEFRAMES.map(({ key }) => {
+    const series = frames[key];
+    const bars = series.bars.slice(-Math.min(Math.max(series.bars.length, 1), 24));
+    const fallbackBar = bars.at(-1) ?? { time: "", open: 0, high: 0, low: 0, close: 0, volume: 0 };
+    return {
+      key,
+      series,
+      bars,
+      summary: summarizeFrame(series),
+      high: Math.max(...bars.map((bar) => bar.high), fallbackBar.high),
+      low: Math.min(...bars.map((bar) => bar.low), fallbackBar.low),
+      volumeMax: Math.max(...bars.map((bar) => bar.volume), 1),
+      vwap: vwapForBars(series.bars)
+    };
+  }), [frames]);
+  const researchFindings = useMemo(() => buildResearchFindings(activeSeries.bars), [activeSeries]);
+  const unusualOptions = useMemo(() => scanUnusualOptions(demoOptionChain, summary.latestClose), [summary.latestClose]);
+  const gammaProfile = useMemo(() => buildGammaProfile(demoOptionChain, summary.latestClose), [summary.latestClose]);
+  const chartImages = useMemo<ChartImageReference[]>(() => [
+    {
+      id: "pylab-overview",
+      label: "Pylab technical overview",
+      kind: "pylab",
+      path: "pylab/nvda-pylab-overview.png",
+      required: true
+    },
+    {
+      id: "interactive-three-chart",
+      label: "Interactive 3D chart capture",
+      kind: "chart",
+      path: `reports/${session.sessionDate}/three-chart.png`,
+      required: false
+    },
+    {
+      id: "live-ui-overview",
+      label: "Live UI overview screenshot",
+      kind: "screenshot",
+      path: `reports/${session.sessionDate}/live-ui-overview.jpg`,
+      required: false
+    }
+  ], [session.sessionDate]);
+  const indicatorSnapshots = useMemo(() => Object.fromEntries(TIMEFRAMES.map(({ key }) => {
+    const frame = frames[key];
+    const latestIndex = frame.bars.length - 1;
+    return [
+      key,
+      {
+        timeframe: key,
+        latestBarTime: frame.bars.at(-1)?.time ?? "",
+        rsi: lastFinite(frame.rsi),
+        macdHistogram: lastFinite(frame.macd.hist),
+        macdSlope: lastFinite(frame.macd.slope),
+        stochRsi: lastFinite(frame.stochRsi.value),
+        preLiftAngleDegrees: lastFinite(frame.preLift.angleDegrees),
+        lift: frame.preLift.lift[latestIndex] ?? null
+      }
+    ];
+  })), [frames]);
+  const reportArtifacts = useMemo<ArtifactReference[]>(() => [
+    { id: "report-json", label: "Report JSON", kind: "report", path: `reports/${session.sessionDate}/report.json`, required: true },
+    { id: "report-pdf", label: "Report PDF", kind: "pdf", path: `reports/${session.sessionDate}/report.pdf`, required: true },
+    { id: "report-calendar", label: "Report calendar", kind: "calendar", path: "reports/calendar.ics", required: true },
+    ...chartImages
+  ], [chartImages, session.sessionDate]);
+  const accuracyCheck = useMemo(() => buildAccuracyCheck({
+    tradingDate: session.sessionDate,
+    generatedAt: session.retrievedAt,
+    bars: measuredBars,
+    indicatorFrames: Object.fromEntries(TIMEFRAMES.map(({ key }) => [
+      key,
+      {
+        rsi: frames[key].rsi,
+        macd: { hist: frames[key].macd.hist, slope: frames[key].macd.slope },
+        stochRsi: { value: frames[key].stochRsi.value },
+        preLift: { angleRadians: frames[key].preLift.angleRadians, lift: frames[key].preLift.lift }
+      }
+    ])),
+    sessionPolicy: {
+      includeExtendedHours: true,
+      aggregationAnchor: "regular-open",
+      expectedSegments: [
+        { id: "pre", startEt: "04:00", endEt: "09:30" },
+        { id: "regular", startEt: "09:30", endEt: "16:00" },
+        { id: "post", startEt: "16:00", endEt: "20:00" }
+      ]
+    },
+    findings: researchFindings,
+    artifacts: reportArtifacts,
+    availablePaths: reportArtifacts.filter((artifact) => artifact.required).map((artifact) => artifact.path)
+  }), [frames, measuredBars, reportArtifacts, researchFindings, session.retrievedAt, session.sessionDate]);
+  const dailyReport = useMemo(() => buildDailyReport({
+    tradingDate: session.sessionDate,
+    generatedAt: session.retrievedAt,
+    bars: activeSeries.bars,
+    findings: researchFindings,
+    accuracy: accuracyCheck,
+    chartImages,
+    indicatorSnapshots
+  }), [accuracyCheck, activeSeries.bars, chartImages, indicatorSnapshots, researchFindings, session.retrievedAt, session.sessionDate]);
+  const reportManifest = useMemo<CalendarReportManifestItem[]>(() => {
+    const dates = [offsetIsoDate(session.sessionDate, -1), session.sessionDate, offsetIsoDate(session.sessionDate, 1)];
+    return dates.map((date) => ({
+      date,
+      title: `NVDA research report ${date}`,
+      reportPath: `reports/${date}/report.json`,
+      pdfPath: `reports/${date}/report.pdf`,
+      generatedAt: date === session.sessionDate ? session.retrievedAt : `${date}T20:15:00.000Z`
+    }));
+  }, [session.retrievedAt, session.sessionDate]);
+  const reportPdfHref = `${import.meta.env.BASE_URL}${dailyReport.pdfPath}`;
+  const reportCalendarHref = `${import.meta.env.BASE_URL}${dailyReport.calendarPath}`;
 
   const loadPublishedSession = useCallback(async (refresh = false) => {
     if (typeof fetch !== "function") return;
@@ -239,7 +412,7 @@ export function App() {
       if (!isMarketSession(payload)) throw new Error("Published session payload is invalid");
       setSession(payload);
       setDataStatus("synced");
-      setSelectedIndex(null);
+      setSelectedTime(null);
     } catch {
       setDataStatus("error");
     }
@@ -396,7 +569,7 @@ export function App() {
             </div>
             <strong>{activeOverlays.length} overlays active</strong>
             <p>{summary.bias} / {timeframe}</p>
-            <small>{format === "3d" ? "interactive depth enabled" : "comparison preview"}</small>
+            <small>{format === "hybrid" ? "interactive depth enabled" : "comparison preview"}</small>
           </div>
         </aside>
 
@@ -411,7 +584,7 @@ export function App() {
                   key={option.key}
                   onClick={() => {
                     setTimeframe(option.key);
-                    setSelectedIndex(null);
+                    setSelectedTime(null);
                   }}
                   type="button"
                 >
@@ -449,62 +622,112 @@ export function App() {
             })}
           </div>
 
-          <div className={format === "3d" ? "immersive-field" : "immersive-field preview-mode"}>
+          <div className={format === "hybrid" ? "immersive-field" : "immersive-field preview-mode"}>
             <div className="field-header">
               <div>
                 <h2>{currentFormatLabel}</h2>
-                <p>{format === "3d" ? "Click a bar to inspect its measured OHLCV, RSI, and MACD context." : `${currentFormatLabel} format preview`}</p>
+                <p>{format === "hybrid" ? "Drag, wheel, hover, or use arrows to inspect measured OHLCV, volume, VWAP, RSI, and MACD context." : `${currentFormatLabel} format preview`}</p>
               </div>
               <span>{visibleBars.length} bars visible</span>
             </div>
 
-            {format === "3d" ? (
-              <div className="bar-scene" style={{ "--zoom": zoom } as CSSProperties}>
-                <div className="floor-grid" />
-                {activeOverlays.includes("vwap") && (
-                  <div
-                    className="vwap-plane"
-                    style={{ "--vwap-y": `${76 - ((vwap - low) / range) * 62}%` } as CSSProperties}
-                    data-testid="vwap-layer"
-                  />
-                )}
-                <div className="bar-lane" data-testid="price-layer">
-                  {visibleBars.map((bar, index) => {
-                    const closeHeight = 18 + ((bar.close - low) / range) * 68;
-                    const volumeDepth = 18 + (bar.volume / volumeMax) * 64;
-                    const up = bar.close >= bar.open;
-                    const sourceIndex = activeSeries.bars.findIndex((item) => item.time === bar.time);
-                    const rsiValue = activeSeries.rsi[sourceIndex] ?? null;
-                    const macdValue = activeSeries.macd.hist[sourceIndex] ?? null;
-                    return (
-                      <button
-                        aria-label={`${formatTime(bar.time)} bar`}
-                        className={selectedBar?.time === bar.time ? "market-bar active" : "market-bar"}
-                        key={bar.time}
-                        onClick={() => setSelectedIndex(index)}
-                        style={{
-                          "--bar-height": `${closeHeight}%`,
-                          "--bar-depth": `${volumeDepth}px`,
-                          "--bar-color": up ? "#6fd3a1" : "#ef4e5f",
-                          "--bar-index": index
-                        } as CSSProperties}
-                        type="button"
-                      >
-                        <span className="bar-face front" />
-                        <span className="bar-face side" />
-                        <span className="bar-face top" />
-                        {activeOverlays.includes("volume") && <i className="volume-stem" data-testid={index === 0 ? "volume-layer" : undefined} />}
-                        {activeOverlays.includes("rsi") && <em className="indicator-dot rsi" data-testid={index === 0 ? "rsi-layer" : undefined} style={{ "--rsi": `${rsiValue ?? 50}%` } as CSSProperties} />}
-                        {activeOverlays.includes("macd") && <em className={macdValue !== null && macdValue >= 0 ? "indicator-dot macd positive" : "indicator-dot macd"} data-testid={index === 0 ? "macd-layer" : undefined} />}
-                      </button>
-                    );
-                  })}
+            {format === "hybrid" ? (
+              <div className="bar-scene" data-render-state={visibleBars.length > 0 ? "ready" : "empty"} data-testid="bar-scene" style={{ "--zoom": zoom } as CSSProperties}>
+                <ThreeChartScene
+                  bars={visibleBars}
+                  high={high}
+                  low={low}
+                  volumeMax={volumeMax}
+                  vwap={vwap}
+                  zoom={zoom}
+                  showVolume={activeOverlays.includes("volume")}
+                  showVwap={activeOverlays.includes("vwap")}
+                  showFullscreenControl
+                  onSelectBar={(index) => setSelectedTime(visibleBars[index]?.time ?? null)}
+                  onZoom={(nextZoom) => setZoom(Math.round(nextZoom * 100) / 100)}
+                />
+                <span className="layer-sentinel" data-testid="price-layer" />
+                {activeOverlays.includes("volume") && <span className="layer-sentinel" data-testid="volume-layer" />}
+                {activeOverlays.includes("rsi") && <span className="layer-sentinel" data-testid="rsi-layer" />}
+                {activeOverlays.includes("macd") && <span className="layer-sentinel" data-testid="macd-layer" />}
+                {activeOverlays.includes("vwap") && <span className="layer-sentinel" data-testid="vwap-layer" />}
+                <div className="bar-access-points" aria-label="Visible timestamped bars">
+                  {visibleBars.map((bar, index) => (
+                    <button
+                      aria-label={`${formatTime(bar.time)} bar`}
+                      className={selectedBar.time === bar.time ? "market-bar access-bar active" : "market-bar access-bar"}
+                      data-testid="market-bar"
+                      key={bar.time}
+                      onClick={() => setSelectedTime(visibleBars[index]?.time ?? null)}
+                      style={{ "--bar-access-x": `${visibleBars.length <= 1 ? 50 : (index / (visibleBars.length - 1)) * 100}%` } as CSSProperties}
+                      type="button"
+                    />
+                  ))}
                 </div>
               </div>
             ) : (
               <GraphPreview format={format} series={activeSeries} />
             )}
           </div>
+
+          <section className="timeframe-comparison" aria-label="Multi-timeframe comparison charts">
+            <div className="comparison-title">
+              <div>
+                <span>Multi-Timeframe Strip</span>
+                <strong>Scroll sideways to compare every active frame</strong>
+              </div>
+              <small>10m floor / 1h / 4h</small>
+            </div>
+            <div className="comparison-rail" data-testid="timeframe-comparison-strip">
+              {comparisonFrames.map((frame) => (
+                <article
+                  className={timeframe === frame.key ? "timeframe-comparison-card active" : "timeframe-comparison-card"}
+                  data-testid={`timeframe-comparison-card-${frame.key}`}
+                  key={frame.key}
+                >
+                  <button
+                    aria-label={`Open ${frame.key} comparison chart`}
+                    aria-pressed={timeframe === frame.key}
+                    className="comparison-card-header"
+                    onClick={() => {
+                      setTimeframe(frame.key);
+                      setSelectedTime(frame.bars.at(-1)?.time ?? null);
+                    }}
+                    type="button"
+                  >
+                    <span>{frame.key}</span>
+                    <strong>{formatPrice(frame.summary.latestClose)}</strong>
+                    <em>{frame.summary.bias}</em>
+                  </button>
+                  <button
+                    className="comparison-mini-chart-button"
+                    type="button"
+                    aria-label={`Select ${frame.key} mini chart`}
+                    onClick={() => {
+                      setTimeframe(frame.key);
+                      setSelectedTime(frame.bars.at(-1)?.time ?? null);
+                    }}
+                  >
+                    <MiniTimeframeChart series={frame.series} testId={`comparison-mini-chart-${frame.key}`} />
+                  </button>
+                  <dl>
+                    <div>
+                      <dt>Bars</dt>
+                      <dd>{frame.series.bars.length}</dd>
+                    </div>
+                    <div>
+                      <dt>RSI</dt>
+                      <dd>{frame.summary.rsiValue ?? "n/a"}</dd>
+                    </div>
+                    <div>
+                      <dt>Vol</dt>
+                      <dd>{formatCompact(frame.summary.volume)}</dd>
+                    </div>
+                  </dl>
+                </article>
+              ))}
+            </div>
+          </section>
         </section>
 
         <aside className="detail-card graph-detail" aria-label="Selected bar details">
@@ -532,13 +755,13 @@ export function App() {
           <div className="indicator-readouts">
             <section>
               <span>RSI Evaluation</span>
-              <strong>{summary.rsiValue ?? "n/a"}</strong>
-              <p>{summary.rsiRegime}</p>
+              <strong>{selectedRsi ?? "n/a"}</strong>
+              <p>{selectedRsiRegime}</p>
             </section>
             <section>
               <span>MACD Evaluation</span>
-              <strong>{summary.macdHistogram ?? "n/a"}</strong>
-              <p>line {summary.macdLine ?? "n/a"} / signal {summary.macdSignal ?? "n/a"}</p>
+              <strong>{selectedMacdHistogram ?? "n/a"}</strong>
+              <p>line {selectedMacdLine ?? "n/a"} / signal {selectedMacdSignal ?? "n/a"}</p>
             </section>
           </div>
         </aside>
@@ -589,10 +812,118 @@ export function App() {
         </aside>
       </main>
 
+      <section className="expansion-scroll-section" aria-label="Expanded scrolling analysis surface">
+        <ChartGallery
+          series={activeSeries}
+          pylabImage={{
+            alt: "Pylab NVDA overview",
+            src: `${import.meta.env.BASE_URL}pylab/nvda-pylab-overview.png`
+          }}
+        />
+        <section className="accuracy-section" aria-label="Accuracy check">
+          <div className="expansion-heading">
+            <span>Validation</span>
+            <h2>Accuracy Check</h2>
+          </div>
+          <div className={`accuracy-status-pill ${accuracyCheck.status}`}>
+            <strong>{accuracyCheck.status.toUpperCase()}</strong>
+            <span>{accuracyCheck.checks.filter((check) => check.status === "pass").length}/{accuracyCheck.checks.length} core checks passed</span>
+          </div>
+          <div className="accuracy-grid">
+            <article>
+              <strong>Data Integrity</strong>
+              <p>{accuracyCheck.checks.find((check) => check.id === "ohlcv")?.detail ?? "OHLCV validation feeds every visible chart."}</p>
+            </article>
+            <article>
+              <strong>Signal Outcome</strong>
+              <p>{accuracyCheck.outcome ? `${accuracyCheck.outcome.scorePct}% of prior signals aligned with the next close.` : "Outcome scoring starts when the following session close is available."}</p>
+            </article>
+            {accuracyCheck.scanWindows.map((window) => (
+              <article key={window.id}>
+                <strong>{window.label}</strong>
+                <p>{window.status.toUpperCase()} / close {window.close === null ? "n/a" : formatPrice(window.close)} / {window.barCount} bars</p>
+              </article>
+            ))}
+            <article>
+              <strong>PDF and Pylab Artifacts</strong>
+              <p>{accuracyCheck.artifactReferences.filter((artifact) => artifact.status === "pass").length}/{accuracyCheck.artifactReferences.length} report, PDF, calendar, and chart references are linked.</p>
+            </article>
+          </div>
+        </section>
+        <CalendarHistory className="calendar-history-section" basePath={import.meta.env.BASE_URL} currentDate={session.sessionDate} manifest={reportManifest} />
+        <MathVisualizations series={activeSeries} />
+      </section>
+
+      <section className="research-section" aria-label="Research signal terminal">
+        <div className="research-header">
+          <div>
+            <span className="eyebrow">Delayed research data</span>
+            <h2>Evidence-Based Signal Stack</h2>
+            <p>Every badge is educational, includes limitations, and keeps tactical reads in conversation with buy-and-hold.</p>
+          </div>
+          <div className="report-actions">
+            <a href={reportPdfHref}>Download PDF report</a>
+            <a href={reportCalendarHref}>Open report calendar</a>
+          </div>
+        </div>
+
+        <div className="research-grid">
+          {researchFindings.map((finding) => (
+            <article className={`signal-card ${finding.direction}`} key={finding.id}>
+              <header>
+                <span>{finding.direction}</span>
+                <strong>{finding.confidence}%</strong>
+              </header>
+              <h3>{finding.label}</h3>
+              <ul>
+                {finding.evidence.slice(0, 2).map((item) => <li key={item}>{item}</li>)}
+              </ul>
+              <small>{finding.limitations[0]}</small>
+            </article>
+          ))}
+        </div>
+
+        <div className="research-panels">
+          <article className="options-panel">
+            <h3>Options Chain Proxy</h3>
+            <p>{gammaProfile.disclaimer}</p>
+            <dl>
+              <div>
+                <dt>Gamma-neutral estimate</dt>
+                <dd>{gammaProfile.gammaNeutralEstimate ? `$${gammaProfile.gammaNeutralEstimate}` : "n/a"}</dd>
+              </div>
+              <div>
+                <dt>Net gamma proxy</dt>
+                <dd>{formatCompact(gammaProfile.netGammaProxy)}</dd>
+              </div>
+            </dl>
+            {unusualOptions.map((hit) => (
+              <div className="option-hit" key={hit.contractId}>
+                <strong>{hit.contractId}</strong>
+                <span>{hit.type.toUpperCase()} {hit.expiry} ${hit.strike} / score {hit.score}</span>
+              </div>
+            ))}
+          </article>
+
+          <article className="report-panel">
+            <h3>Daily Report Calendar</h3>
+            <p>{dailyReport.summary}</p>
+            <strong>{dailyReport.disclaimer}</strong>
+            <ul className="anchor-list" aria-label="Research anchors">
+              {researchAnchors.map((anchor) => (
+                <li key={anchor.href}>
+                  <a href={anchor.href}>{anchor.label}</a>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <section className="insight-section" id="thesis">
         <span className="eyebrow">Thesis</span>
         <h2>Measured bars replaced the stale synthetic map values.</h2>
-        <p>The chart now derives 10m, 15m, 30m, 1h, 2h, and 4h bars from canonical 5m OHLCV, with buckets aligned to the 09:30 New York regular-session open.</p>
+        <p>The chart now derives canonical 10m bars from measured source OHLCV, then aggregates 1h and 4h frames from those 10m bars with buckets aligned to the 09:30 New York regular-session open.</p>
       </section>
 
       <section className="voice-section" id="voice">

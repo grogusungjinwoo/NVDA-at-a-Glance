@@ -1,0 +1,30 @@
+{
+  "reports": [
+    {
+      "date": "2026-05-13",
+      "title": "NVDA research report 2026-05-13",
+      "reportPath": "reports/2026-05-13/report.json",
+      "pdfPath": "reports/2026-05-13/report.pdf",
+      "generatedAt": "2026-05-13T21:56:32.719Z",
+      "previous": {
+        "date": "2026-05-12",
+        "title": "NVDA research report 2026-05-12",
+        "reportPath": "reports/2026-05-12/report.json",
+        "pdfPath": "reports/2026-05-12/report.pdf"
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "title": "NVDA research report 2026-05-12",
+      "reportPath": "reports/2026-05-12/report.json",
+      "pdfPath": "reports/2026-05-12/report.pdf",
+      "generatedAt": "2026-05-13T00:28:26.669Z",
+      "next": {
+        "date": "2026-05-13",
+        "title": "NVDA research report 2026-05-13",
+        "reportPath": "reports/2026-05-13/report.json",
+        "pdfPath": "reports/2026-05-13/report.pdf"
+      }
+    }
+  ]
+}

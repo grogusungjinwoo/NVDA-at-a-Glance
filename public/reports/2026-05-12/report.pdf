@@ -1,0 +1,79 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 1957 >>
+stream
+BT
+/F1 18 Tf
+54 760 Td
+(NVDA Daily Quant Research) Tj
+/F1 10 Tf
+0 -18 Td
+(2026-05-12) Tj
+0 -18 Td
+(NVDA delayed research data for 2026-05-12: 6 signal modules evaluated; session return +1.07%.) Tj
+0 -18 Td
+(Educational research output only. Not financial advice.) Tj
+0 -18 Td
+(Momentum Confluence: BULLISH \(62%\)) Tj
+0 -18 Td
+(RSI 57.65 and MACD histogram 0.3402. Momentum is evaluated as confluence against recent price and volume.) Tj
+0 -18 Td
+(MACD and StochRSI are confluence inputs only, not standalone edge claims. Recent technical-rule evidence is mi) Tj
+0 -18 Td
+(Opening Range Breakout: NEUTRAL \(38%\)) Tj
+0 -18 Td
+(Opening proxy range 217.01 to 223.75. Requires stocks-in-play, stop, target, and slippage assumptions.) Tj
+0 -18 Td
+(ORB must be filtered by RVOL and compared with buy-and-hold. No personalized financial advice.) Tj
+0 -18 Td
+(Daily High/Low and Fib Map: BULLISH \(52%\)) Tj
+0 -18 Td
+(Session high 223.75, low 215.01. Fib 61.8% 220.41.) Tj
+0 -18 Td
+(Fib levels are references, not proof of support or resistance. Daily highs/lows require market-structure conte) Tj
+0 -18 Td
+(FVG / Imbalance Zones: NEUTRAL \(48%\)) Tj
+0 -18 Td
+(6 three-candle imbalance zones detected. Zones are tracked for fill status and invalidation in the UI model.) Tj
+0 -18 Td
+(ICT/FVG is treated as a testable imbalance zone, not doctrine. Volume confirmation is required.) Tj
+0 -18 Td
+(Buy-and-Hold Baseline: BULLISH \(55%\)) Tj
+0 -18 Td
+(Session buy-and-hold return +1.07%. All tactical reads are compared against this baseline.) Tj
+0 -18 Td
+(Baseline ignores taxes, borrowing costs, and overnight risk. Costs and slippage can dominate intraday edges.) Tj
+0 -18 Td
+(Profitable-Company Dip Proxy: BULLISH \(42%\)) Tj
+0 -18 Td
+(Latest close 220.87 versus prior 220.7. Quality/profitability requires separate fundamental data.) Tj
+0 -18 Td
+(This is a dip-versus-strength comparison only. Gamma-neutral market-maker behavior is proxied from options dat) Tj
+ET
+endstream
+endobj
+xref
+0 6
+
+
+
+
+
+
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2320
+%%EOF

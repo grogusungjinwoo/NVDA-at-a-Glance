@@ -1,0 +1,96 @@
+{
+  "symbol": "NVDA",
+  "tradingDate": "2026-05-12",
+  "generatedAt": "2026-05-13T00:28:26.669Z",
+  "summary": "NVDA delayed research data for 2026-05-12: 6 signal modules evaluated; session return +1.07%.",
+  "findings": [
+    {
+      "id": "momentum",
+      "label": "Momentum Confluence",
+      "direction": "bullish",
+      "confidence": 62,
+      "evidence": [
+        "RSI 57.65 and MACD histogram 0.3402.",
+        "Momentum is evaluated as confluence against recent price and volume."
+      ],
+      "limitations": [
+        "MACD and StochRSI are confluence inputs only, not standalone edge claims.",
+        "Recent technical-rule evidence is mixed after costs."
+      ]
+    },
+    {
+      "id": "orb",
+      "label": "Opening Range Breakout",
+      "direction": "neutral",
+      "confidence": 38,
+      "evidence": [
+        "Opening proxy range 217.01 to 223.75.",
+        "Requires stocks-in-play, stop, target, and slippage assumptions."
+      ],
+      "limitations": [
+        "ORB must be filtered by RVOL and compared with buy-and-hold.",
+        "No personalized financial advice."
+      ]
+    },
+    {
+      "id": "daily-levels",
+      "label": "Daily High/Low and Fib Map",
+      "direction": "bullish",
+      "confidence": 52,
+      "evidence": [
+        "Session high 223.75, low 215.01.",
+        "Fib 61.8% 220.41."
+      ],
+      "limitations": [
+        "Fib levels are references, not proof of support or resistance.",
+        "Daily highs/lows require market-structure context."
+      ]
+    },
+    {
+      "id": "imbalance",
+      "label": "FVG / Imbalance Zones",
+      "direction": "neutral",
+      "confidence": 48,
+      "evidence": [
+        "6 three-candle imbalance zones detected.",
+        "Zones are tracked for fill status and invalidation in the UI model."
+      ],
+      "limitations": [
+        "ICT/FVG is treated as a testable imbalance zone, not doctrine.",
+        "Volume confirmation is required."
+      ]
+    },
+    {
+      "id": "buy-hold",
+      "label": "Buy-and-Hold Baseline",
+      "direction": "bullish",
+      "confidence": 55,
+      "evidence": [
+        "Session buy-and-hold return +1.07%.",
+        "All tactical reads are compared against this baseline."
+      ],
+      "limitations": [
+        "Baseline ignores taxes, borrowing costs, and overnight risk.",
+        "Costs and slippage can dominate intraday edges."
+      ]
+    },
+    {
+      "id": "quality-dip",
+      "label": "Profitable-Company Dip Proxy",
+      "direction": "bullish",
+      "confidence": 42,
+      "evidence": [
+        "Latest close 220.87 versus prior 220.7.",
+        "Quality/profitability requires separate fundamental data."
+      ],
+      "limitations": [
+        "This is a dip-versus-strength comparison only.",
+        "Gamma-neutral market-maker behavior is proxied from options data."
+      ]
+    }
+  ],
+  "pdfPath": "reports/2026-05-12/report.pdf",
+  "reportPath": "reports/2026-05-12/report.json",
+  "calendarPath": "reports/calendar.ics",
+  "disclaimer": "Educational research output only. Not financial advice."
+}

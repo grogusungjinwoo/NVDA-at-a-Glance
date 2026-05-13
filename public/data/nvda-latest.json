@@ -1,0 +1,3262 @@
+{
+  "symbol": "NVDA",
+  "tradingDate": "2026-05-13",
+  "generatedAt": "2026-05-13T21:56:32.719Z",
+  "label": "Delayed research data",
+  "source": "Yahoo Finance chart API",
+  "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?range=1d&interval=5m&includePrePost=true",
+  "sessionPolicy": {
+    "includeExtendedHours": true,
+    "aggregationAnchor": "regular-open",
+    "expectedSegments": [
+      {
+        "id": "pre",
+        "startEt": "04:00",
+        "endEt": "09:30"
+      },
+      {
+        "id": "regular",
+        "startEt": "09:30",
+        "endEt": "16:00"
+      },
+      {
+        "id": "post",
+        "startEt": "16:00",
+        "endEt": "20:00"
+      }
+    ]
+  },
+  "stock": {
+    "bars": [
+      {
+        "time": "2026-05-13T13:30:00.000Z",
+        "open": 224.93,
+        "high": 226.88,
+        "low": 224.12,
+        "close": 226.79,
+        "volume": 16711694,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T13:35:00.000Z",
+        "open": 226.79,
+        "high": 227.16,
+        "low": 225.2,
+        "close": 225.82,
+        "volume": 5151306,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T13:40:00.000Z",
+        "open": 225.8,
+        "high": 225.81,
+        "low": 224.4,
+        "close": 224.57,
+        "volume": 3264583,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T13:45:00.000Z",
+        "open": 224.58,
+        "high": 224.8,
+        "low": 221.84,
+        "close": 222.55,
+        "volume": 4346027,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T13:50:00.000Z",
+        "open": 222.53,
+        "high": 224.15,
+        "low": 221.57,
+        "close": 224.01,
+        "volume": 4086502,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T13:55:00.000Z",
+        "open": 224.03,
+        "high": 224.6,
+        "low": 223.31,
+        "close": 224.1,
+        "volume": 2581348,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T14:00:00.000Z",
+        "open": 224.1,
+        "high": 224.24,
+        "low": 223.18,
+        "close": 223.59,
+        "volume": 1766904,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T14:05:00.000Z",
+        "open": 223.58,
+        "high": 223.96,
+        "low": 223.06,
+        "close": 223.32,
+        "volume": 1949042,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T14:10:00.000Z",
+        "open": 223.29,
+        "high": 224.28,
+        "low": 223.13,
+        "close": 224.03,
+        "volume": 1560446,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T14:15:00.000Z",
+        "open": 224.02,
+        "high": 224.87,
+        "low": 223.6,
+        "close": 224.02,
+        "volume": 1948065,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T14:20:00.000Z",
+        "open": 224.05,
+        "high": 225.17,
+        "low": 223.85,
+        "close": 224.67,
+        "volume": 2007106,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T14:25:00.000Z",
+        "open": 224.68,
+        "high": 225.05,
+        "low": 224.33,
+        "close": 224.44,
+        "volume": 1491040,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T14:30:00.000Z",
+        "open": 224.46,
+        "high": 224.83,
+        "low": 223.7,
+        "close": 224.6,
+        "volume": 1874580,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T14:35:00.000Z",
+        "open": 224.59,
+        "high": 225.09,
+        "low": 224.18,
+        "close": 224.38,
+        "volume": 1506389,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T14:40:00.000Z",
+        "open": 224.38,
+        "high": 225.43,
+        "low": 224.31,
+        "close": 225.25,
+        "volume": 1699851,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T14:45:00.000Z",
+        "open": 225.25,
+        "high": 225.46,
+        "low": 224.47,
+        "close": 225.18,
+        "volume": 1820731,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T14:50:00.000Z",
+        "open": 225.16,
+        "high": 225.99,
+        "low": 224.99,
+        "close": 225.82,
+        "volume": 1774920,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T14:55:00.000Z",
+        "open": 225.82,
+        "high": 226.46,
+        "low": 225.72,
+        "close": 226.41,
+        "volume": 2127409,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T15:00:00.000Z",
+        "open": 226.41,
+        "high": 226.99,
+        "low": 226.25,
+        "close": 226.76,
+        "volume": 2398405,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T15:05:00.000Z",
+        "open": 226.75,
+        "high": 227.56,
+        "low": 226.42,
+        "close": 227.54,
+        "volume": 3729525,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T15:10:00.000Z",
+        "open": 227.53,
+        "high": 227.57,
+        "low": 226.23,
+        "close": 226.68,
+        "volume": 2799945,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T15:15:00.000Z",
+        "open": 226.69,
+        "high": 227.24,
+        "low": 226.62,
+        "close": 226.99,
+        "volume": 1708969,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T15:20:00.000Z",
+        "open": 226.99,
+        "high": 226.99,
+        "low": 225.92,
+        "close": 226.1,
+        "volume": 1524858,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T15:25:00.000Z",
+        "open": 226.09,
+        "high": 226.35,
+        "low": 225.74,
+        "close": 226.21,
+        "volume": 1308610,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T15:30:00.000Z",
+        "open": 226.22,
+        "high": 226.25,
+        "low": 225.71,
+        "close": 226.24,
+        "volume": 1064492,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T15:35:00.000Z",
+        "open": 226.24,
+        "high": 226.55,
+        "low": 226.15,
+        "close": 226.3,
+        "volume": 1191863,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T15:40:00.000Z",
+        "open": 226.35,
+        "high": 227.24,
+        "low": 226.31,
+        "close": 227.15,
+        "volume": 1336812,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T15:45:00.000Z",
+        "open": 227.13,
+        "high": 227.17,
+        "low": 226.8,
+        "close": 227.02,
+        "volume": 1096809,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T15:50:00.000Z",
+        "open": 227.01,
+        "high": 227.35,
+        "low": 226.52,
+        "close": 227.25,
+        "volume": 1430560,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T15:55:00.000Z",
+        "open": 227.23,
+        "high": 227.28,
+        "low": 226.55,
+        "close": 226.55,
+        "volume": 1210397,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T16:00:00.000Z",
+        "open": 226.56,
+        "high": 227.31,
+        "low": 226.38,
+        "close": 227.13,
+        "volume": 1349498,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T16:05:00.000Z",
+        "open": 227.15,
+        "high": 227.2,
+        "low": 226.75,
+        "close": 227.15,
+        "volume": 1145811,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T16:10:00.000Z",
+        "open": 227.16,
+        "high": 227.72,
+        "low": 227.05,
+        "close": 227.66,
+        "volume": 1522668,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T16:15:00.000Z",
+        "open": 227.67,
+        "high": 227.84,
+        "low": 226.9,
+        "close": 227.1,
+        "volume": 1706293,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T16:20:00.000Z",
+        "open": 227.1,
+        "high": 227.68,
+        "low": 226.86,
+        "close": 227.56,
+        "volume": 1275355,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T16:25:00.000Z",
+        "open": 227.55,
+        "high": 227.68,
+        "low": 227.21,
+        "close": 227.33,
+        "volume": 957904,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T16:30:00.000Z",
+        "open": 227.3,
+        "high": 227.44,
+        "low": 227.04,
+        "close": 227.33,
+        "volume": 906397,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T16:35:00.000Z",
+        "open": 227.34,
+        "high": 227.65,
+        "low": 227.13,
+        "close": 227.16,
+        "volume": 938961,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T16:40:00.000Z",
+        "open": 227.16,
+        "high": 227.34,
+        "low": 226.91,
+        "close": 227,
+        "volume": 1180703,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T16:45:00.000Z",
+        "open": 226.99,
+        "high": 227.09,
+        "low": 226.66,
+        "close": 226.86,
+        "volume": 1329582,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T16:50:00.000Z",
+        "open": 226.87,
+        "high": 227,
+        "low": 226.7,
+        "close": 226.97,
+        "volume": 727176,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T16:55:00.000Z",
+        "open": 226.96,
+        "high": 227.16,
+        "low": 226.74,
+        "close": 226.8,
+        "volume": 786137,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T17:00:00.000Z",
+        "open": 226.83,
+        "high": 227.16,
+        "low": 226.7,
+        "close": 226.96,
+        "volume": 760559,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T17:05:00.000Z",
+        "open": 226.94,
+        "high": 227.22,
+        "low": 226.87,
+        "close": 226.92,
+        "volume": 829391,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T17:10:00.000Z",
+        "open": 226.91,
+        "high": 227.12,
+        "low": 226.9,
+        "close": 227.04,
+        "volume": 852555,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T17:15:00.000Z",
+        "open": 227.03,
+        "high": 227.29,
+        "low": 227.01,
+        "close": 227.18,
+        "volume": 656589,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T17:20:00.000Z",
+        "open": 227.2,
+        "high": 227.34,
+        "low": 226.82,
+        "close": 226.84,
+        "volume": 879462,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T17:25:00.000Z",
+        "open": 226.85,
+        "high": 227.04,
+        "low": 226.75,
+        "close": 226.95,
+        "volume": 709153,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T17:30:00.000Z",
+        "open": 226.93,
+        "high": 227.02,
+        "low": 226.36,
+        "close": 226.47,
+        "volume": 1035108,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T17:35:00.000Z",
+        "open": 226.47,
+        "high": 226.51,
+        "low": 226.05,
+        "close": 226.07,
+        "volume": 890966,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T17:40:00.000Z",
+        "open": 226.07,
+        "high": 226.37,
+        "low": 226.05,
+        "close": 226.32,
+        "volume": 806739,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T17:45:00.000Z",
+        "open": 226.3,
+        "high": 226.42,
+        "low": 225.96,
+        "close": 226,
+        "volume": 988284,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T17:50:00.000Z",
+        "open": 226.01,
+        "high": 226.24,
+        "low": 225.86,
+        "close": 225.88,
+        "volume": 848073,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T17:55:00.000Z",
+        "open": 225.86,
+        "high": 226.15,
+        "low": 225.41,
+        "close": 225.47,
+        "volume": 1244342,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T18:00:00.000Z",
+        "open": 225.48,
+        "high": 226.3,
+        "low": 225.43,
+        "close": 226.11,
+        "volume": 1377814,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T18:05:00.000Z",
+        "open": 226.12,
+        "high": 226.72,
+        "low": 226.03,
+        "close": 226.63,
+        "volume": 1147931,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T18:10:00.000Z",
+        "open": 226.62,
+        "high": 227.03,
+        "low": 226.54,
+        "close": 227.01,
+        "volume": 1080295,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T18:15:00.000Z",
+        "open": 227.01,
+        "high": 227.31,
+        "low": 226.98,
+        "close": 227.27,
+        "volume": 1156684,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T18:20:00.000Z",
+        "open": 227.26,
+        "high": 227.43,
+        "low": 227.11,
+        "close": 227.18,
+        "volume": 895832,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T18:25:00.000Z",
+        "open": 227.21,
+        "high": 227.35,
+        "low": 226.93,
+        "close": 226.96,
+        "volume": 857629,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T18:30:00.000Z",
+        "open": 226.96,
+        "high": 227.16,
+        "low": 226.86,
+        "close": 227.15,
+        "volume": 688518,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T18:35:00.000Z",
+        "open": 227.16,
+        "high": 227.16,
+        "low": 226.84,
+        "close": 227.05,
+        "volume": 615531,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T18:40:00.000Z",
+        "open": 227.08,
+        "high": 227.2,
+        "low": 226.8,
+        "close": 226.83,
+        "volume": 600839,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T18:45:00.000Z",
+        "open": 226.82,
+        "high": 227.01,
+        "low": 226.62,
+        "close": 226.85,
+        "volume": 812512,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T18:50:00.000Z",
+        "open": 226.86,
+        "high": 227.09,
+        "low": 226.73,
+        "close": 227.08,
+        "volume": 643800,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T18:55:00.000Z",
+        "open": 227.09,
+        "high": 227.17,
+        "low": 226.35,
+        "close": 226.46,
+        "volume": 856231,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T19:00:00.000Z",
+        "open": 226.45,
+        "high": 226.75,
+        "low": 226.32,
+        "close": 226.35,
+        "volume": 770387,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T19:05:00.000Z",
+        "open": 226.36,
+        "high": 226.93,
+        "low": 226.3,
+        "close": 226.91,
+        "volume": 893262,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T19:10:00.000Z",
+        "open": 226.89,
+        "high": 227.16,
+        "low": 226.72,
+        "close": 227.04,
+        "volume": 1049931,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T19:15:00.000Z",
+        "open": 227.04,
+        "high": 227.14,
+        "low": 226.9,
+        "close": 227.03,
+        "volume": 775704,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T19:20:00.000Z",
+        "open": 227.04,
+        "high": 227.05,
+        "low": 226.31,
+        "close": 226.38,
+        "volume": 938055,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T19:25:00.000Z",
+        "open": 226.36,
+        "high": 226.8,
+        "low": 226.31,
+        "close": 226.78,
+        "volume": 1004503,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T19:30:00.000Z",
+        "open": 226.79,
+        "high": 226.81,
+        "low": 226.36,
+        "close": 226.48,
+        "volume": 806042,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T19:35:00.000Z",
+        "open": 226.47,
+        "high": 226.57,
+        "low": 226.23,
+        "close": 226.34,
+        "volume": 862181,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T19:40:00.000Z",
+        "open": 226.35,
+        "high": 226.45,
+        "low": 226.2,
+        "close": 226.23,
+        "volume": 797458,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T19:45:00.000Z",
+        "open": 226.22,
+        "high": 226.29,
+        "low": 226.03,
+        "close": 226.13,
+        "volume": 1060468,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T19:50:00.000Z",
+        "open": 226.12,
+        "high": 226.12,
+        "low": 225.08,
+        "close": 225.43,
+        "volume": 3172874,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T19:55:00.000Z",
+        "open": 225.44,
+        "high": 226,
+        "low": 225.33,
+        "close": 225.87,
+        "volume": 4360936,
+        "session": "regular",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      },
+      {
+        "time": "2026-05-13T20:00:00.000Z",
+        "open": 225.89,
+        "high": 225.99,
+        "low": 225.57,
+        "close": 225.98,
+        "volume": 9283050,
+        "session": "post",
+        "sourceIntervalMinutes": 5,
+        "sourceBarCount": 1
+      }
+    ],
+    "latestClose": 225.98,
+    "previousClose": 220.78,
+    "regularMarketPrice": 225.83
+  },
+  "timeframes": {
+    "10m": {
+      "timeframe": "10m",
+      "intervalMinutes": 10,
+      "sourceTimeframe": "5m",
+      "bars": [
+        {
+          "time": "2026-05-13T13:30:00.000Z",
+          "open": 224.93,
+          "high": 227.16,
+          "low": 224.12,
+          "close": 225.82,
+          "volume": 21863000,
+          "vwap": 225.96,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T13:40:00.000Z",
+          "open": 225.8,
+          "high": 225.81,
+          "low": 221.84,
+          "close": 222.55,
+          "volume": 7610610,
+          "vwap": 223.86,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T13:50:00.000Z",
+          "open": 222.53,
+          "high": 224.6,
+          "low": 221.57,
+          "close": 224.1,
+          "volume": 6667850,
+          "vwap": 223.54,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T14:00:00.000Z",
+          "open": 224.1,
+          "high": 224.24,
+          "low": 223.06,
+          "close": 223.32,
+          "volume": 3715946,
+          "vwap": 223.55,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T14:10:00.000Z",
+          "open": 223.29,
+          "high": 224.87,
+          "low": 223.13,
+          "close": 224.02,
+          "volume": 3508511,
+          "vwap": 224.01,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T14:20:00.000Z",
+          "open": 224.05,
+          "high": 225.17,
+          "low": 223.85,
+          "close": 224.44,
+          "volume": 3498146,
+          "vwap": 224.58,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T14:30:00.000Z",
+          "open": 224.46,
+          "high": 225.09,
+          "low": 223.7,
+          "close": 224.38,
+          "volume": 3380969,
+          "vwap": 224.45,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T14:40:00.000Z",
+          "open": 224.38,
+          "high": 225.46,
+          "low": 224.31,
+          "close": 225.18,
+          "volume": 3520582,
+          "vwap": 225.02,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T14:50:00.000Z",
+          "open": 225.16,
+          "high": 226.46,
+          "low": 224.99,
+          "close": 226.41,
+          "volume": 3902329,
+          "vwap": 225.93,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T15:00:00.000Z",
+          "open": 226.41,
+          "high": 227.56,
+          "low": 226.25,
+          "close": 227.54,
+          "volume": 6127930,
+          "vwap": 226.98,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T15:10:00.000Z",
+          "open": 227.53,
+          "high": 227.57,
+          "low": 226.23,
+          "close": 226.99,
+          "volume": 4508914,
+          "vwap": 226.87,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T15:20:00.000Z",
+          "open": 226.99,
+          "high": 226.99,
+          "low": 225.74,
+          "close": 226.21,
+          "volume": 2833468,
+          "vwap": 226.23,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T15:30:00.000Z",
+          "open": 226.22,
+          "high": 226.55,
+          "low": 225.71,
+          "close": 226.3,
+          "volume": 2256355,
+          "vwap": 226.21,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T15:40:00.000Z",
+          "open": 226.35,
+          "high": 227.24,
+          "low": 226.31,
+          "close": 227.02,
+          "volume": 2433621,
+          "vwap": 226.94,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T15:50:00.000Z",
+          "open": 227.01,
+          "high": 227.35,
+          "low": 226.52,
+          "close": 226.55,
+          "volume": 2640957,
+          "vwap": 226.93,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T16:00:00.000Z",
+          "open": 226.56,
+          "high": 227.31,
+          "low": 226.38,
+          "close": 227.15,
+          "volume": 2495309,
+          "vwap": 226.98,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T16:10:00.000Z",
+          "open": 227.16,
+          "high": 227.84,
+          "low": 226.9,
+          "close": 227.1,
+          "volume": 3228961,
+          "vwap": 227.37,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T16:20:00.000Z",
+          "open": 227.1,
+          "high": 227.68,
+          "low": 226.86,
+          "close": 227.33,
+          "volume": 2233259,
+          "vwap": 227.38,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T16:30:00.000Z",
+          "open": 227.3,
+          "high": 227.65,
+          "low": 227.04,
+          "close": 227.16,
+          "volume": 1845358,
+          "vwap": 227.29,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T16:40:00.000Z",
+          "open": 227.16,
+          "high": 227.34,
+          "low": 226.66,
+          "close": 226.86,
+          "volume": 2510285,
+          "vwap": 226.97,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T16:50:00.000Z",
+          "open": 226.87,
+          "high": 227.16,
+          "low": 226.7,
+          "close": 226.8,
+          "volume": 1513313,
+          "vwap": 226.9,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T17:00:00.000Z",
+          "open": 226.83,
+          "high": 227.22,
+          "low": 226.7,
+          "close": 226.92,
+          "volume": 1589950,
+          "vwap": 226.97,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T17:10:00.000Z",
+          "open": 226.91,
+          "high": 227.29,
+          "low": 226.9,
+          "close": 227.18,
+          "volume": 1509144,
+          "vwap": 227.08,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T17:20:00.000Z",
+          "open": 227.2,
+          "high": 227.34,
+          "low": 226.75,
+          "close": 226.95,
+          "volume": 1588615,
+          "vwap": 226.96,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T17:30:00.000Z",
+          "open": 226.93,
+          "high": 227.02,
+          "low": 226.05,
+          "close": 226.07,
+          "volume": 1926074,
+          "vwap": 226.43,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T17:40:00.000Z",
+          "open": 226.07,
+          "high": 226.42,
+          "low": 225.96,
+          "close": 226,
+          "volume": 1795023,
+          "vwap": 226.18,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T17:50:00.000Z",
+          "open": 226.01,
+          "high": 226.24,
+          "low": 225.41,
+          "close": 225.47,
+          "volume": 2092415,
+          "vwap": 225.81,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T18:00:00.000Z",
+          "open": 225.48,
+          "high": 226.72,
+          "low": 225.43,
+          "close": 226.63,
+          "volume": 2525745,
+          "vwap": 226.18,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T18:10:00.000Z",
+          "open": 226.62,
+          "high": 227.31,
+          "low": 226.54,
+          "close": 227.27,
+          "volume": 2236979,
+          "vwap": 227.03,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T18:20:00.000Z",
+          "open": 227.26,
+          "high": 227.43,
+          "low": 226.93,
+          "close": 226.96,
+          "volume": 1753461,
+          "vwap": 227.16,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T18:30:00.000Z",
+          "open": 226.96,
+          "high": 227.16,
+          "low": 226.84,
+          "close": 227.05,
+          "volume": 1304049,
+          "vwap": 227.04,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T18:40:00.000Z",
+          "open": 227.08,
+          "high": 227.2,
+          "low": 226.62,
+          "close": 226.85,
+          "volume": 1413351,
+          "vwap": 226.88,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T18:50:00.000Z",
+          "open": 226.86,
+          "high": 227.17,
+          "low": 226.35,
+          "close": 226.46,
+          "volume": 1500031,
+          "vwap": 226.79,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T19:00:00.000Z",
+          "open": 226.45,
+          "high": 226.93,
+          "low": 226.3,
+          "close": 226.91,
+          "volume": 1663649,
+          "vwap": 226.6,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T19:10:00.000Z",
+          "open": 226.89,
+          "high": 227.16,
+          "low": 226.72,
+          "close": 227.03,
+          "volume": 1825635,
+          "vwap": 226.99,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T19:20:00.000Z",
+          "open": 227.04,
+          "high": 227.05,
+          "low": 226.31,
+          "close": 226.78,
+          "volume": 1942558,
+          "vwap": 226.61,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T19:30:00.000Z",
+          "open": 226.79,
+          "high": 226.81,
+          "low": 226.23,
+          "close": 226.34,
+          "volume": 1668223,
+          "vwap": 226.46,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T19:40:00.000Z",
+          "open": 226.35,
+          "high": 226.45,
+          "low": 226.03,
+          "close": 226.13,
+          "volume": 1857926,
+          "vwap": 226.21,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T19:50:00.000Z",
+          "open": 226.12,
+          "high": 226.12,
+          "low": 225.08,
+          "close": 225.87,
+          "volume": 7533810,
+          "vwap": 225.65,
+          "session": "regular",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 2,
+          "isPartial": false
+        },
+        {
+          "time": "2026-05-13T20:00:00.000Z",
+          "open": 225.89,
+          "high": 225.99,
+          "low": 225.57,
+          "close": 225.98,
+          "volume": 9283050,
+          "vwap": 225.85,
+          "session": "post",
+          "sourceIntervalMinutes": 10,
+          "sourceBarCount": 1,
+          "isPartial": true
+        }
+      ],
+      "rsi": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        52.91,
+        55.21,
+        54.97,
+        55.93,
+        55,
+        53.32,
+        52.97,
+        53.62,
+        55.08,
+        53.48,
+        47.76,
+        47.33,
+        44.06,
+        51.88,
+        55.57,
+        53.43,
+        53.99,
+        52.49,
+        49.61,
+        52.83,
+        53.68,
+        51.59,
+        48.06,
+        46.42,
+        44.41,
+        45.49
+      ],
+      "macd": {
+        "line": [
+          0,
+          -0.2609,
+          -0.3386,
+          -0.4579,
+          -0.4903,
+          -0.4766,
+          -0.4652,
+          -0.3871,
+          -0.2235,
+          -0.0026,
+          0.1267,
+          0.1643,
+          0.199,
+          0.2814,
+          0.3053,
+          0.3684,
+          0.4096,
+          0.4556,
+          0.4729,
+          0.4571,
+          0.4347,
+          0.4218,
+          0.4276,
+          0.409,
+          0.3195,
+          0.2402,
+          0.133,
+          0.1401,
+          0.1951,
+          0.2112,
+          0.2286,
+          0.2237,
+          0.1862,
+          0.1905,
+          0.2014,
+          0.1876,
+          0.1396,
+          0.0837,
+          0.0181,
+          -0.0247
+        ],
+        "signal": [
+          0,
+          -0.0522,
+          -0.1095,
+          -0.1791,
+          -0.2414,
+          -0.2884,
+          -0.3238,
+          -0.3364,
+          -0.3139,
+          -0.2516,
+          -0.1759,
+          -0.1079,
+          -0.0465,
+          0.0191,
+          0.0763,
+          0.1347,
+          0.1897,
+          0.2429,
+          0.2889,
+          0.3225,
+          0.345,
+          0.3603,
+          0.3738,
+          0.3808,
+          0.3686,
+          0.3429,
+          0.3009,
+          0.2687,
+          0.254,
+          0.2454,
+          0.2421,
+          0.2384,
+          0.2279,
+          0.2205,
+          0.2166,
+          0.2108,
+          0.1966,
+          0.174,
+          0.1428,
+          0.1093
+        ],
+        "hist": [
+          0,
+          -0.2087,
+          -0.2292,
+          -0.2787,
+          -0.2489,
+          -0.1882,
+          -0.1414,
+          -0.0507,
+          0.0904,
+          0.249,
+          0.3026,
+          0.2722,
+          0.2455,
+          0.2624,
+          0.229,
+          0.2336,
+          0.2199,
+          0.2127,
+          0.184,
+          0.1346,
+          0.0898,
+          0.0615,
+          0.0538,
+          0.0282,
+          -0.0491,
+          -0.1027,
+          -0.1679,
+          -0.1287,
+          -0.059,
+          -0.0343,
+          -0.0135,
+          -0.0147,
+          -0.0418,
+          -0.0299,
+          -0.0153,
+          -0.0232,
+          -0.057,
+          -0.0903,
+          -0.1247,
+          -0.134
+        ],
+        "slope": [
+          null,
+          -0.2087,
+          -0.0205,
+          -0.0496,
+          0.0298,
+          0.0608,
+          0.0467,
+          0.0907,
+          0.1411,
+          0.1587,
+          0.0536,
+          -0.0305,
+          -0.0266,
+          0.0168,
+          -0.0334,
+          0.0047,
+          -0.0137,
+          -0.0072,
+          -0.0287,
+          -0.0494,
+          -0.0448,
+          -0.0283,
+          -0.0076,
+          -0.0257,
+          -0.0772,
+          -0.0537,
+          -0.0652,
+          0.0392,
+          0.0697,
+          0.0247,
+          0.0208,
+          -0.0012,
+          -0.0271,
+          0.0119,
+          0.0147,
+          -0.0079,
+          -0.0338,
+          -0.0334,
+          -0.0344,
+          -0.0093
+        ]
+      },
+      "stochRsi": {
+        "value": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          65.88,
+          96.97,
+          78.94,
+          83.66,
+          73.24,
+          48.22,
+          76.19,
+          83.58,
+          65.42,
+          34.75,
+          20.5,
+          3.04,
+          12.42
+        ],
+        "k": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          80.6,
+          86.52,
+          78.61,
+          68.37,
+          65.88,
+          69.33,
+          75.06,
+          61.25,
+          40.22,
+          19.43,
+          11.99
+        ],
+        "d": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          81.91,
+          77.83,
+          70.95,
+          67.86,
+          70.09,
+          68.55,
+          58.84,
+          40.3,
+          23.88
+        ],
+        "rsiLength": 14,
+        "stochLength": 14
+      },
+      "preLift": {
+        "phi": 1.618,
+        "deltaMinutes": [
+          null,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "angleRadians": [
+          null,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041,
+          0.16041
+        ],
+        "angleDegrees": [
+          null,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908,
+          9.1908
+        ],
+        "pre": [
+          null,
+          -0.1323,
+          0.0648,
+          -0.032,
+          0.03,
+          0.016,
+          -0.0033,
+          0.0328,
+          0.051,
+          0.0459,
+          -0.0218,
+          -0.0316,
+          0.0033,
+          0.0272,
+          -0.0186,
+          0.0239,
+          -0.0024,
+          0.0093,
+          -0.0057,
+          -0.0121,
+          -0.0028,
+          0.0036,
+          0.0109,
+          -0.0101,
+          -0.0348,
+          -0.0028,
+          -0.022,
+          0.0469,
+          0.0264,
+          -0.0121,
+          0.0036,
+          -0.0093,
+          -0.0162,
+          0.0187,
+          0.0057,
+          -0.0105,
+          -0.0182,
+          -0.0089,
+          -0.0102,
+          0.0037
+        ],
+        "lift": [
+          null,
+          3.1994,
+          2.803,
+          1.5621,
+          1.4749,
+          1.4706,
+          1.4213,
+          1.48,
+          1.6405,
+          2.5761,
+          1.8955,
+          1.1911,
+          0.9485,
+          1.023,
+          1.1102,
+          1.049,
+          1.3574,
+          0.9388,
+          0.7758,
+          1.0553,
+          0.6362,
+          0.6684,
+          0.6344,
+          0.6678,
+          0.8097,
+          0.7546,
+          0.8796,
+          1.0618,
+          0.9404,
+          0.7371,
+          0.5482,
+          0.5941,
+          0.6306,
+          0.6994,
+          0.7675,
+          0.8166,
+          0.7013,
+          0.781,
+          3.1671,
+          3.9024
+        ]
+      }
+    },
+    "1h": {
+      "timeframe": "1h",
+      "intervalMinutes": 60,
+      "sourceTimeframe": "10m",
+      "bars": [
+        {
+          "time": "2026-05-13T13:30:00.000Z",
+          "open": 224.93,
+          "high": 227.16,
+          "low": 221.57,
+          "close": 224.44,
+          "volume": 46864063,
+          "vwap": 224.61,
+          "session": "regular",
+          "sourceIntervalMinutes": 60,
+          "sourceBarCount": 12,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T14:30:00.000Z",
+          "open": 224.46,
+          "high": 227.57,
+          "low": 223.7,
+          "close": 226.21,
+          "volume": 24274192,
+          "vwap": 226.11,
+          "session": "regular",
+          "sourceIntervalMinutes": 60,
+          "sourceBarCount": 12,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T15:30:00.000Z",
+          "open": 226.22,
+          "high": 227.84,
+          "low": 225.71,
+          "close": 227.33,
+          "volume": 15288462,
+          "vwap": 226.92,
+          "session": "regular",
+          "sourceIntervalMinutes": 60,
+          "sourceBarCount": 12,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T16:30:00.000Z",
+          "open": 227.3,
+          "high": 227.65,
+          "low": 226.66,
+          "close": 226.95,
+          "volume": 10556665,
+          "vwap": 227.03,
+          "session": "regular",
+          "sourceIntervalMinutes": 60,
+          "sourceBarCount": 12,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T17:30:00.000Z",
+          "open": 226.93,
+          "high": 227.43,
+          "low": 225.41,
+          "close": 226.96,
+          "volume": 12329697,
+          "vwap": 226.43,
+          "session": "regular",
+          "sourceIntervalMinutes": 60,
+          "sourceBarCount": 12,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T18:30:00.000Z",
+          "open": 226.96,
+          "high": 227.2,
+          "low": 226.3,
+          "close": 226.78,
+          "volume": 9649273,
+          "vwap": 226.82,
+          "session": "regular",
+          "sourceIntervalMinutes": 60,
+          "sourceBarCount": 12,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T19:30:00.000Z",
+          "open": 226.79,
+          "high": 226.81,
+          "low": 225.08,
+          "close": 225.98,
+          "volume": 20343009,
+          "vwap": 225.87,
+          "session": "regular",
+          "sourceIntervalMinutes": 60,
+          "sourceBarCount": 7,
+          "isPartial": true
+        }
+      ],
+      "rsi": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "macd": {
+        "line": [
+          0,
+          0.1412,
+          0.3396,
+          0.4608,
+          0.5513,
+          0.6016,
+          0.5703
+        ],
+        "signal": [
+          0,
+          0.0282,
+          0.0905,
+          0.1646,
+          0.2419,
+          0.3138,
+          0.3651
+        ],
+        "hist": [
+          0,
+          0.113,
+          0.2491,
+          0.2962,
+          0.3094,
+          0.2877,
+          0.2052
+        ],
+        "slope": [
+          null,
+          0.113,
+          0.1361,
+          0.0472,
+          0.0132,
+          -0.0217,
+          -0.0826
+        ]
+      },
+      "stochRsi": {
+        "value": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "k": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "d": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "rsiLength": 14,
+        "stochLength": 14
+      },
+      "preLift": {
+        "phi": 1.618,
+        "deltaMinutes": [
+          null,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "angleRadians": [
+          null,
+          0.02696,
+          0.02696,
+          0.02696,
+          0.02696,
+          0.02696,
+          0.02696
+        ],
+        "angleDegrees": [
+          null,
+          1.5447,
+          1.5447,
+          1.5447,
+          1.5447,
+          1.5447,
+          1.5447
+        ],
+        "pre": [
+          null,
+          0.012,
+          0.0076,
+          -0.0024,
+          0.0002,
+          -0.0012,
+          -0.0055
+        ],
+        "lift": [
+          null,
+          0.8001,
+          0.5039,
+          0.348,
+          0.4064,
+          0.3181,
+          0.6705
+        ]
+      }
+    },
+    "4h": {
+      "timeframe": "4h",
+      "intervalMinutes": 240,
+      "sourceTimeframe": "10m",
+      "bars": [
+        {
+          "time": "2026-05-13T13:30:00.000Z",
+          "open": 224.93,
+          "high": 227.84,
+          "low": 221.57,
+          "close": 226.95,
+          "volume": 96983382,
+          "vwap": 225.62,
+          "session": "regular",
+          "sourceIntervalMinutes": 240,
+          "sourceBarCount": 48,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T17:30:00.000Z",
+          "open": 226.93,
+          "high": 227.43,
+          "low": 225.08,
+          "close": 225.98,
+          "volume": 42321979,
+          "vwap": 226.25,
+          "session": "regular",
+          "sourceIntervalMinutes": 240,
+          "sourceBarCount": 31,
+          "isPartial": true
+        }
+      ],
+      "rsi": [
+        null,
+        null
+      ],
+      "macd": {
+        "line": [
+          0,
+          -0.0774
+        ],
+        "signal": [
+          0,
+          -0.0155
+        ],
+        "hist": [
+          0,
+          -0.0619
+        ],
+        "slope": [
+          null,
+          -0.0619
+        ]
+      },
+      "stochRsi": {
+        "value": [
+          null,
+          null
+        ],
+        "k": [
+          null,
+          null
+        ],
+        "d": [
+          null,
+          null
+        ],
+        "rsiLength": 14,
+        "stochLength": 14
+      },
+      "preLift": {
+        "phi": 1.618,
+        "deltaMinutes": [
+          null,
+          240
+        ],
+        "angleRadians": [
+          null,
+          0.006742
+        ],
+        "angleDegrees": [
+          null,
+          0.3863
+        ],
+        "pre": [
+          null,
+          -0.0016
+        ],
+        "lift": [
+          null,
+          0.1686
+        ]
+      }
+    }
+  },
+  "levels": {
+    "dailyHigh": 227.84,
+    "dailyLow": 221.57,
+    "fibonacci": [
+      {
+        "ratio": 0,
+        "label": "0%",
+        "price": 221.57
+      },
+      {
+        "ratio": 0.236,
+        "label": "23.6%",
+        "price": 223.05
+      },
+      {
+        "ratio": 0.382,
+        "label": "38.2%",
+        "price": 223.97
+      },
+      {
+        "ratio": 0.5,
+        "label": "50%",
+        "price": 224.71
+      },
+      {
+        "ratio": 0.618,
+        "label": "61.8%",
+        "price": 225.44
+      },
+      {
+        "ratio": 0.786,
+        "label": "78.6%",
+        "price": 226.5
+      },
+      {
+        "ratio": 1,
+        "label": "100%",
+        "price": 227.84
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "momentum",
+      "label": "Momentum Confluence",
+      "direction": "bearish",
+      "confidence": 62,
+      "evidence": [
+        "RSI 45.49 and MACD histogram -0.134.",
+        "Momentum is evaluated as confluence against recent price and volume."
+      ],
+      "limitations": [
+        "MACD and StochRSI are confluence inputs only, not standalone edge claims.",
+        "Recent technical-rule evidence is mixed after costs."
+      ]
+    },
+    {
+      "id": "orb",
+      "label": "Opening Range Breakout",
+      "direction": "neutral",
+      "confidence": 38,
+      "evidence": [
+        "Opening proxy range 221.57 to 227.16.",
+        "Requires stocks-in-play, stop, target, and slippage assumptions."
+      ],
+      "limitations": [
+        "ORB must be filtered by RVOL and compared with buy-and-hold.",
+        "No personalized financial advice."
+      ]
+    },
+    {
+      "id": "daily-levels",
+      "label": "Daily High/Low and Fib Map",
+      "direction": "bullish",
+      "confidence": 52,
+      "evidence": [
+        "Session high 227.84, low 221.57.",
+        "Fib 61.8% 225.44."
+      ],
+      "limitations": [
+        "Fib levels are references, not proof of support or resistance.",
+        "Daily highs/lows require market-structure context."
+      ]
+    },
+    {
+      "id": "imbalance",
+      "label": "FVG / Imbalance Zones",
+      "direction": "neutral",
+      "confidence": 48,
+      "evidence": [
+        "6 three-candle imbalance zones detected.",
+        "Zones are tracked for fill status and invalidation in the UI model."
+      ],
+      "limitations": [
+        "ICT/FVG is treated as a testable imbalance zone, not doctrine.",
+        "Volume confirmation is required."
+      ]
+    },
+    {
+      "id": "buy-hold",
+      "label": "Buy-and-Hold Baseline",
+      "direction": "bullish",
+      "confidence": 55,
+      "evidence": [
+        "Session buy-and-hold return +0.47%.",
+        "All tactical reads are compared against this baseline."
+      ],
+      "limitations": [
+        "Baseline ignores taxes, borrowing costs, and overnight risk.",
+        "Costs and slippage can dominate intraday edges."
+      ]
+    },
+    {
+      "id": "quality-dip",
+      "label": "Profitable-Company Dip Proxy",
+      "direction": "bullish",
+      "confidence": 42,
+      "evidence": [
+        "Latest close 225.98 versus prior 225.87.",
+        "Quality/profitability requires separate fundamental data."
+      ],
+      "limitations": [
+        "This is a dip-versus-strength comparison only.",
+        "Gamma-neutral market-maker behavior is proxied from options data."
+      ]
+    }
+  ],
+  "accuracy": {
+    "status": "warn",
+    "tradingDate": "2026-05-13",
+    "generatedAt": "2026-05-13T21:56:32.719Z",
+    "checks": [
+      {
+        "id": "ohlcv",
+        "label": "OHLCV validity",
+        "status": "pass",
+        "detail": "79 OHLCV bars are valid."
+      },
+      {
+        "id": "timestamp-order",
+        "label": "Timestamp order",
+        "status": "pass",
+        "detail": "79 bars are strictly ordered."
+      },
+      {
+        "id": "session-open",
+        "label": "Extended-hours session alignment",
+        "status": "warn",
+        "detail": "Extended hours were requested, but the provider payload started at the regular 09:30 ET open."
+      },
+      {
+        "id": "scan-windows",
+        "label": "Expected scan windows",
+        "status": "pass",
+        "detail": "All expected scan windows have data."
+      },
+      {
+        "id": "indicator-availability",
+        "label": "Indicator availability",
+        "status": "warn",
+        "detail": "1h missing RSI and StochRSI.; 4h missing RSI and StochRSI."
+      },
+      {
+        "id": "artifact-references",
+        "label": "Artifact references",
+        "status": "pass",
+        "detail": "All required artifact references are available."
+      }
+    ],
+    "scanWindows": [
+      {
+        "id": "open-30m",
+        "label": "30m 09:30-10:00 ET candle close",
+        "startEt": "09:30 ET",
+        "endEt": "10:00 ET",
+        "startTime": "2026-05-13T13:30:00.000Z",
+        "endTime": "2026-05-13T14:00:00.000Z",
+        "status": "pass",
+        "barCount": 6,
+        "closeTime": "2026-05-13T14:00:00.000Z",
+        "close": 224.1,
+        "volume": 36141460,
+        "detail": "6 bars found; close 224.1 at 10:00 ET."
+      },
+      {
+        "id": "open-1h",
+        "label": "1h 09:30-10:30 ET window",
+        "startEt": "09:30 ET",
+        "endEt": "10:30 ET",
+        "startTime": "2026-05-13T13:30:00.000Z",
+        "endTime": "2026-05-13T14:30:00.000Z",
+        "status": "pass",
+        "barCount": 12,
+        "closeTime": "2026-05-13T14:30:00.000Z",
+        "close": 224.44,
+        "volume": 46864063,
+        "detail": "12 bars found; close 224.44 at 10:30 ET."
+      },
+      {
+        "id": "late-session",
+        "label": "Late 15:30-close ET window",
+        "startEt": "15:30 ET",
+        "endEt": "16:00 ET",
+        "startTime": "2026-05-13T19:30:00.000Z",
+        "endTime": "2026-05-13T20:00:00.000Z",
+        "status": "pass",
+        "barCount": 6,
+        "closeTime": "2026-05-13T20:00:00.000Z",
+        "close": 225.87,
+        "volume": 11059959,
+        "detail": "6 bars found; close 225.87 at 16:00 ET."
+      }
+    ],
+    "indicatorAvailability": [
+      {
+        "timeframe": "10m",
+        "status": "pass",
+        "rsiAvailable": true,
+        "macdAvailable": true,
+        "macdSlopeAvailable": true,
+        "stochRsiAvailable": true,
+        "preLiftAvailable": true,
+        "detail": "10m RSI, MACD histogram/slope, StochRSI, and PRE/Lift are available."
+      },
+      {
+        "timeframe": "1h",
+        "status": "warn",
+        "rsiAvailable": false,
+        "macdAvailable": true,
+        "macdSlopeAvailable": true,
+        "stochRsiAvailable": false,
+        "preLiftAvailable": true,
+        "detail": "1h missing RSI and StochRSI."
+      },
+      {
+        "timeframe": "4h",
+        "status": "warn",
+        "rsiAvailable": false,
+        "macdAvailable": true,
+        "macdSlopeAvailable": true,
+        "stochRsiAvailable": false,
+        "preLiftAvailable": true,
+        "detail": "4h missing RSI and StochRSI."
+      }
+    ],
+    "artifactReferences": [
+      {
+        "id": "report-json",
+        "label": "Report JSON",
+        "kind": "report",
+        "path": "reports/2026-05-13/report.json",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "report-pdf",
+        "label": "Report PDF",
+        "kind": "pdf",
+        "path": "reports/2026-05-13/report.pdf",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "calendar-ics",
+        "label": "Calendar ICS",
+        "kind": "calendar",
+        "path": "reports/calendar.ics",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "pylab-overview",
+        "label": "Pylab technical overview",
+        "kind": "pylab",
+        "path": "pylab/nvda-pylab-overview.png",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "live-ui-overview",
+        "label": "Live UI overview screenshot",
+        "kind": "screenshot",
+        "path": "reports/2026-05-13/live-ui-overview.jpg",
+        "required": false,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "levels",
+        "label": "Math and level map",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/levels.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "four-d-view",
+        "label": "4D signal view",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/4d-view.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "two-d-slice",
+        "label": "2D shared surface slice",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/2d-slice.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "price-volume-10m",
+        "label": "10m price and volume",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/price-volume-10m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "rsi-10m",
+        "label": "10m RSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/rsi-10m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "macd-10m",
+        "label": "10m MACD",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/macd-10m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "stoch-rsi-10m",
+        "label": "10m StochRSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/stoch-rsi-10m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "pre-lift-10m",
+        "label": "10m PRE/Lift",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/pre-lift-10m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "price-volume-1h",
+        "label": "1h price and volume",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/price-volume-1h.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "rsi-1h",
+        "label": "1h RSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/rsi-1h.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "macd-1h",
+        "label": "1h MACD",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/macd-1h.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "stoch-rsi-1h",
+        "label": "1h StochRSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/stoch-rsi-1h.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "pre-lift-1h",
+        "label": "1h PRE/Lift",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/pre-lift-1h.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "price-volume-4h",
+        "label": "4h price and volume",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/price-volume-4h.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "rsi-4h",
+        "label": "4h RSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/rsi-4h.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "macd-4h",
+        "label": "4h MACD",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/macd-4h.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "stoch-rsi-4h",
+        "label": "4h StochRSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/stoch-rsi-4h.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "pre-lift-4h",
+        "label": "4h PRE/Lift",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/pre-lift-4h.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      }
+    ]
+  },
+  "chartImages": [
+    {
+      "id": "pylab-overview",
+      "label": "Pylab technical overview",
+      "kind": "pylab",
+      "path": "pylab/nvda-pylab-overview.png",
+      "required": true
+    },
+    {
+      "id": "live-ui-overview",
+      "label": "Live UI overview screenshot",
+      "kind": "screenshot",
+      "path": "reports/2026-05-13/live-ui-overview.jpg",
+      "required": false
+    },
+    {
+      "id": "levels",
+      "label": "Math and level map",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/levels.svg",
+      "required": true
+    },
+    {
+      "id": "four-d-view",
+      "label": "4D signal view",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/4d-view.svg",
+      "required": true
+    },
+    {
+      "id": "two-d-slice",
+      "label": "2D shared surface slice",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/2d-slice.svg",
+      "required": true
+    },
+    {
+      "id": "price-volume-10m",
+      "label": "10m price and volume",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/price-volume-10m.svg",
+      "required": true
+    },
+    {
+      "id": "rsi-10m",
+      "label": "10m RSI",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/rsi-10m.svg",
+      "required": true
+    },
+    {
+      "id": "macd-10m",
+      "label": "10m MACD",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/macd-10m.svg",
+      "required": true
+    },
+    {
+      "id": "stoch-rsi-10m",
+      "label": "10m StochRSI",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/stoch-rsi-10m.svg",
+      "required": true
+    },
+    {
+      "id": "pre-lift-10m",
+      "label": "10m PRE/Lift",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/pre-lift-10m.svg",
+      "required": true
+    },
+    {
+      "id": "price-volume-1h",
+      "label": "1h price and volume",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/price-volume-1h.svg",
+      "required": true
+    },
+    {
+      "id": "rsi-1h",
+      "label": "1h RSI",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/rsi-1h.svg",
+      "required": true
+    },
+    {
+      "id": "macd-1h",
+      "label": "1h MACD",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/macd-1h.svg",
+      "required": true
+    },
+    {
+      "id": "stoch-rsi-1h",
+      "label": "1h StochRSI",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/stoch-rsi-1h.svg",
+      "required": true
+    },
+    {
+      "id": "pre-lift-1h",
+      "label": "1h PRE/Lift",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/pre-lift-1h.svg",
+      "required": true
+    },
+    {
+      "id": "price-volume-4h",
+      "label": "4h price and volume",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/price-volume-4h.svg",
+      "required": true
+    },
+    {
+      "id": "rsi-4h",
+      "label": "4h RSI",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/rsi-4h.svg",
+      "required": true
+    },
+    {
+      "id": "macd-4h",
+      "label": "4h MACD",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/macd-4h.svg",
+      "required": true
+    },
+    {
+      "id": "stoch-rsi-4h",
+      "label": "4h StochRSI",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/stoch-rsi-4h.svg",
+      "required": true
+    },
+    {
+      "id": "pre-lift-4h",
+      "label": "4h PRE/Lift",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/pre-lift-4h.svg",
+      "required": true
+    }
+  ],
+  "indicatorSnapshots": {
+    "10m": {
+      "timeframe": "10m",
+      "rsi": 45.49,
+      "macdHistogram": -0.134,
+      "macdSlope": -0.0093,
+      "stochRsi": 12.42,
+      "preLiftAngleDegrees": 9.1908,
+      "preLift": 3.9024
+    },
+    "1h": {
+      "timeframe": "1h",
+      "rsi": null,
+      "macdHistogram": 0.2052,
+      "macdSlope": -0.0826,
+      "stochRsi": null,
+      "preLiftAngleDegrees": 1.5447,
+      "preLift": 0.6705
+    },
+    "4h": {
+      "timeframe": "4h",
+      "rsi": null,
+      "macdHistogram": -0.0619,
+      "macdSlope": -0.0619,
+      "stochRsi": null,
+      "preLiftAngleDegrees": 0.3863,
+      "preLift": 0.1686
+    }
+  },
+  "researchAnchors": [
+    {
+      "label": "Rink 2023 technical-rule cost caveat",
+      "href": "https://link.springer.com/article/10.1007/s11408-023-00433-2"
+    },
+    {
+      "label": "Wiest 2022/2023 momentum evidence",
+      "href": "https://link.springer.com/article/10.1007/s11408-022-00417-8"
+    },
+    {
+      "label": "Zarattini, Barbon, Aziz ORB filters",
+      "href": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4729284"
+    },
+    {
+      "label": "Deng et al. 2022 candlestick context",
+      "href": "https://journals.sagepub.com/doi/10.1177/21582440221117803"
+    }
+  ],
+  "options": {
+    "provider": "demo-persisted",
+    "chain": [
+      {
+        "contractId": "NVDA260619C00220000",
+        "expiry": "2026-06-19",
+        "strike": 220,
+        "type": "call",
+        "volume": 18400,
+        "openInterest": 4250,
+        "iv": 0.44,
+        "delta": 0.42,
+        "gamma": 0.012,
+        "last": 9.85
+      },
+      {
+        "contractId": "NVDA260619P00190000",
+        "expiry": "2026-06-19",
+        "strike": 190,
+        "type": "put",
+        "volume": 3200,
+        "openInterest": 7800,
+        "iv": 0.39,
+        "delta": -0.28,
+        "gamma": 0.009,
+        "last": 4.1
+      },
+      {
+        "contractId": "NVDA260717C00240000",
+        "expiry": "2026-07-17",
+        "strike": 240,
+        "type": "call",
+        "volume": 22100,
+        "openInterest": 3100,
+        "iv": 0.48,
+        "delta": 0.31,
+        "gamma": 0.01,
+        "last": 7.2
+      },
+      {
+        "contractId": "NVDA260717P00180000",
+        "expiry": "2026-07-17",
+        "strike": 180,
+        "type": "put",
+        "volume": 2100,
+        "openInterest": 2800,
+        "iv": 0.42,
+        "delta": -0.2,
+        "gamma": 0.007,
+        "last": 3.35
+      }
+    ],
+    "unusualOptions": [
+      {
+        "contractId": "NVDA260717C00240000",
+        "expiry": "2026-07-17",
+        "strike": 240,
+        "type": "call",
+        "volume": 22100,
+        "openInterest": 3100,
+        "iv": 0.48,
+        "delta": 0.31,
+        "gamma": 0.01,
+        "last": 7.2,
+        "volumeOpenInterestRatio": 7.13,
+        "notionalProxy": 15912000,
+        "score": 299.2,
+        "evidence": [
+          "22,100 volume against 3,100 OI."
+        ],
+        "limitations": [
+          "Demo/persisted chain only; live scans require a licensed provider."
+        ]
+      },
+      {
+        "contractId": "NVDA260619C00220000",
+        "expiry": "2026-06-19",
+        "strike": 220,
+        "type": "call",
+        "volume": 18400,
+        "openInterest": 4250,
+        "iv": 0.44,
+        "delta": 0.42,
+        "gamma": 0.012,
+        "last": 9.85,
+        "volumeOpenInterestRatio": 4.33,
+        "notionalProxy": 18124000,
+        "score": 201.6,
+        "evidence": [
+          "18,400 volume against 4,250 OI."
+        ],
+        "limitations": [
+          "Demo/persisted chain only; live scans require a licensed provider."
+        ]
+      }
+    ],
+    "gammaProfile": {
+      "byStrike": [
+        {
+          "strike": 180,
+          "callGamma": 0,
+          "putGamma": -442920.8,
+          "netGammaProxy": -442920.8
+        },
+        {
+          "strike": 190,
+          "callGamma": 0,
+          "putGamma": -1586379.6,
+          "netGammaProxy": -1586379.6
+        },
+        {
+          "strike": 220,
+          "callGamma": 1152498,
+          "putGamma": 0,
+          "netGammaProxy": 1152498
+        },
+        {
+          "strike": 240,
+          "callGamma": 700538,
+          "putGamma": 0,
+          "netGammaProxy": 700538
+        }
+      ],
+      "gammaNeutralEstimate": 180,
+      "netGammaProxy": -176264.4,
+      "disclaimer": "Dealer gamma is a proxy from public chain OI/Greeks; actual market-maker inventory is not observable."
+    },
+    "limitations": [
+      "Live options-chain scans require a paid/licensed provider such as Polygon/Massive.",
+      "Gamma-neutral/dealer positioning is a public OI/Greeks proxy, not observed inventory."
+    ]
+  },
+  "report": {
+    "jsonPath": "reports/2026-05-13/report.json",
+    "pdfPath": "reports/2026-05-13/report.pdf",
+    "calendarPath": "reports/calendar.ics",
+    "calendarLinks": {
+      "previous": {
+        "date": "2026-05-12",
+        "title": "NVDA research report 2026-05-12",
+        "reportPath": "reports/2026-05-12/report.json",
+        "pdfPath": "reports/2026-05-12/report.pdf"
+      }
+    },
+    "chartImages": [
+      {
+        "id": "pylab-overview",
+        "label": "Pylab technical overview",
+        "kind": "pylab",
+        "path": "pylab/nvda-pylab-overview.png",
+        "required": true
+      },
+      {
+        "id": "live-ui-overview",
+        "label": "Live UI overview screenshot",
+        "kind": "screenshot",
+        "path": "reports/2026-05-13/live-ui-overview.jpg",
+        "required": false
+      },
+      {
+        "id": "levels",
+        "label": "Math and level map",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/levels.svg",
+        "required": true
+      },
+      {
+        "id": "four-d-view",
+        "label": "4D signal view",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/4d-view.svg",
+        "required": true
+      },
+      {
+        "id": "two-d-slice",
+        "label": "2D shared surface slice",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/2d-slice.svg",
+        "required": true
+      },
+      {
+        "id": "price-volume-10m",
+        "label": "10m price and volume",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/price-volume-10m.svg",
+        "required": true
+      },
+      {
+        "id": "rsi-10m",
+        "label": "10m RSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/rsi-10m.svg",
+        "required": true
+      },
+      {
+        "id": "macd-10m",
+        "label": "10m MACD",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/macd-10m.svg",
+        "required": true
+      },
+      {
+        "id": "stoch-rsi-10m",
+        "label": "10m StochRSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/stoch-rsi-10m.svg",
+        "required": true
+      },
+      {
+        "id": "pre-lift-10m",
+        "label": "10m PRE/Lift",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/pre-lift-10m.svg",
+        "required": true
+      },
+      {
+        "id": "price-volume-1h",
+        "label": "1h price and volume",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/price-volume-1h.svg",
+        "required": true
+      },
+      {
+        "id": "rsi-1h",
+        "label": "1h RSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/rsi-1h.svg",
+        "required": true
+      },
+      {
+        "id": "macd-1h",
+        "label": "1h MACD",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/macd-1h.svg",
+        "required": true
+      },
+      {
+        "id": "stoch-rsi-1h",
+        "label": "1h StochRSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/stoch-rsi-1h.svg",
+        "required": true
+      },
+      {
+        "id": "pre-lift-1h",
+        "label": "1h PRE/Lift",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/pre-lift-1h.svg",
+        "required": true
+      },
+      {
+        "id": "price-volume-4h",
+        "label": "4h price and volume",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/price-volume-4h.svg",
+        "required": true
+      },
+      {
+        "id": "rsi-4h",
+        "label": "4h RSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/rsi-4h.svg",
+        "required": true
+      },
+      {
+        "id": "macd-4h",
+        "label": "4h MACD",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/macd-4h.svg",
+        "required": true
+      },
+      {
+        "id": "stoch-rsi-4h",
+        "label": "4h StochRSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/stoch-rsi-4h.svg",
+        "required": true
+      },
+      {
+        "id": "pre-lift-4h",
+        "label": "4h PRE/Lift",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/pre-lift-4h.svg",
+        "required": true
+      }
+    ]
+  },
+  "disclaimer": "Educational research output only. Not financial advice."
+}

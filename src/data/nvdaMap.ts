@@ -12,6 +12,7 @@ export interface MetricOption extends HighlightSignal {
 export interface Candle {
   timestamp: string;
   time: string;
+  session?: "pre" | "regular" | "post";
   open: number;
   high: number;
   low: number;
@@ -41,6 +42,11 @@ export interface MarketSession {
   timezone: string;
   source: string;
   sourceUrl: string;
+  sessionPolicy?: {
+    includeExtendedHours: boolean;
+    aggregationAnchor: string;
+    expectedSegments: Array<{ id: "pre" | "regular" | "post"; startEt: string; endEt: string }>;
+  };
   retrievedAt: string;
   regularMarketPrice: number;
   previousClose: number;
