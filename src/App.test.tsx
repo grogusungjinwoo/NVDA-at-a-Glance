@@ -7,9 +7,20 @@ import measuredData from "./data/nvdaSession.json";
 import type { MarketSession } from "./data/nvdaMap";
 import { buildTimeframeSeries, type MarketBar } from "./lib/marketData";
 
-const packagedBars: MarketBar[] = (measuredData as MarketSession).candles
+const packagedSession = measuredData as MarketSession;
+const packagedCandles = packagedSession.sessions?.length
+  ? packagedSession.sessions.flatMap((historySession) =>
+      historySession.candles.map((bar) => ({
+        ...bar,
+        tradingDate: bar.tradingDate ?? historySession.tradingDate
+      }))
+    )
+  : packagedSession.candles;
+
+const packagedBars: MarketBar[] = packagedCandles
   .map((bar): MarketBar => ({
     time: bar.timestamp,
+    tradingDate: bar.tradingDate,
     open: bar.open,
     high: bar.high,
     low: bar.low,
@@ -42,7 +53,7 @@ function lastFiniteTest(values: Array<number | null>): number | null {
 
 function getIndicatorTarget() {
   const series = buildTimeframeSeries(packagedBars)["10m"];
-  const visibleBars = series.bars.slice(-52);
+  const visibleBars = series.bars;
   const latestRsi = lastFiniteTest(series.rsi);
   const latestMacd = lastFiniteTest(series.macd.hist);
 
@@ -65,7 +76,7 @@ function getIndicatorTarget() {
 
 function getStableZoomTarget(bars = packagedBars) {
   const series = buildTimeframeSeries(bars)["10m"];
-  const visibleBars = series.bars.slice(-52);
+  const visibleBars = series.bars;
   const visibleIndex = 20;
   return { bar: visibleBars[visibleIndex], visibleIndex, visibleCount: visibleBars.length };
 }
@@ -108,7 +119,66 @@ function buildLongMarketSession(): MarketSession {
   return {
     ...(measuredData as MarketSession),
     candles,
+    sessions: undefined,
     regularMarketPrice: candles.at(-1)!.close
+  };
+}
+
+function buildFourSessionMarketSession(): MarketSession {
+  const sessionSpecs = [
+    { date: "2026-05-08", day: 8, base: 200, status: "historical" as const },
+    { date: "2026-05-11", day: 11, base: 205, status: "historical" as const },
+    { date: "2026-05-12", day: 12, base: 210, status: "historical" as const },
+    { date: "2026-05-13", day: 13, base: 215, status: "current-intraday" as const }
+  ];
+
+  const sessions = sessionSpecs.map((sessionSpec) => {
+    const candles = [
+      { hour: 8, minute: 0, time: "04:00", session: "pre" as const, offset: 0 },
+      { hour: 13, minute: 30, time: "09:30", session: "regular" as const, offset: 1 },
+      { hour: 20, minute: 0, time: "16:00", session: "post" as const, offset: 2 },
+      { hour: 0, minute: 0, time: "20:00", session: "post" as const, offset: 3, nextUtcDay: true }
+    ].map((clock) => {
+      const open = sessionSpec.base + clock.offset;
+      const close = open + 0.5;
+      return {
+        timestamp: new Date(Date.UTC(2026, 4, sessionSpec.day + (clock.nextUtcDay ? 1 : 0), clock.hour, clock.minute)).toISOString(),
+        tradingDate: sessionSpec.date,
+        time: clock.time,
+        session: clock.session,
+        open,
+        high: close + 0.4,
+        low: open - 0.4,
+        close,
+        volume: 1_000_000 + clock.offset * 10_000
+      };
+    });
+
+    return {
+      tradingDate: sessionSpec.date,
+      status: sessionSpec.status,
+      candles,
+      coverage: {
+        firstTimestamp: candles[0].timestamp,
+        lastTimestamp: candles.at(-1)!.timestamp,
+        candleCount: candles.length,
+        hasPremarket: true,
+        hasRegular: true,
+        hasPostmarket: true
+      }
+    };
+  });
+
+  const latest = sessions.at(-1)!;
+
+  return {
+    ...(measuredData as MarketSession),
+    sessionDate: latest.tradingDate,
+    retrievedAt: "2026-05-14T00:16:00.000Z",
+    candles: latest.candles,
+    sessions,
+    regularMarketPrice: latest.candles.at(-1)!.close,
+    sourceUrl: "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?range=10d&interval=5m&includePrePost=true"
   };
 }
 
@@ -134,6 +204,7 @@ describe("NVDA at a Glance", () => {
     expect(scene).toHaveAttribute("data-render-state", "ready");
     expect(screen.getByTestId("three-scene")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "10m timeframe" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: "30m timeframe" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "1h timeframe" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "4h timeframe" })).toBeInTheDocument();
     expect(screen.getByText("RSI Evaluation")).toBeInTheDocument();
@@ -169,10 +240,12 @@ describe("NVDA at a Glance", () => {
 
     expect(screen.getByTestId("timeframe-comparison-strip")).toBeInTheDocument();
     expect(screen.getByTestId("timeframe-comparison-card-10m")).toBeInTheDocument();
+    expect(screen.getByTestId("timeframe-comparison-card-30m")).toBeInTheDocument();
     expect(screen.getByTestId("timeframe-comparison-card-1h")).toBeInTheDocument();
     expect(screen.getByTestId("timeframe-comparison-card-4h")).toBeInTheDocument();
     expect(screen.getAllByTestId("three-scene")).toHaveLength(1);
     expect(screen.getByTestId("comparison-mini-chart-10m")).toBeInTheDocument();
+    expect(screen.getByTestId("comparison-mini-chart-30m")).toBeInTheDocument();
     expect(screen.getByTestId("comparison-mini-chart-1h")).toBeInTheDocument();
     expect(screen.getByTestId("comparison-mini-chart-4h")).toBeInTheDocument();
 
@@ -182,6 +255,7 @@ describe("NVDA at a Glance", () => {
 
     expect(screen.getByRole("button", { name: "1h timeframe" })).toHaveAttribute("aria-pressed", "true");
     expect(screen.getByRole("button", { name: "Open 1h comparison chart" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: "Select 1h mini chart" })).toHaveAttribute("aria-pressed", "true");
   });
 
   it("wires the header to real page sections", async () => {
@@ -288,8 +362,31 @@ describe("NVDA at a Glance", () => {
 
     expect(screen.getByText("Data Source")).toBeInTheDocument();
     expect(screen.getByText("UI Audit")).toBeInTheDocument();
+    expect(screen.getByText("Last refresh")).toBeInTheDocument();
+    expect(screen.getByText(/preplanned after post-market close/i)).toBeInTheDocument();
     expect(screen.getByText("Next Refresh")).toBeInTheDocument();
     expect(screen.getByText(/remaining/i)).toBeInTheDocument();
+  });
+
+  it("loads four-session history into the 3D chart and marks extended and regular boundaries", async () => {
+    vi.stubGlobal("fetch", vi.fn(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve(buildFourSessionMarketSession())
+    })));
+
+    await act(async () => {
+      render(<App />);
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText("Published JSON synced")).toBeInTheDocument();
+    });
+
+    expect(screen.getByText(/4 sessions shown/i)).toBeInTheDocument();
+    expect(screen.getAllByText("4:00 AM").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("9:30 AM").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("4:00 PM").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("8:00 PM").length).toBeGreaterThanOrEqual(1);
   });
 
   it("toggles indicator layers on the 3D chart", async () => {

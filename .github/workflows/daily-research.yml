@@ -3,11 +3,13 @@ name: Daily NVDA Research Refresh
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 0 * * *"
-    - cron: "15 1 * * *"
+    - cron: "0 0 * * *"
+    - cron: "0 1 * * *"
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: daily-nvda-research-refresh
@@ -16,8 +18,11 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Check 8:15 PM America/New_York gate
+      - name: Check 8:00 PM America/New_York gate
         id: time_gate
         shell: bash
         run: |
@@ -25,7 +30,7 @@ jobs:
             echo "should_run=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          if [[ "$(TZ=America/New_York date +'%H:%M')" == "20:15" ]]; then
+          if [[ "$(TZ=America/New_York date +'%H:%M')" == "20:00" ]]; then
             echo "should_run=true" >> "$GITHUB_OUTPUT"
           else
             echo "should_run=false" >> "$GITHUB_OUTPUT"
@@ -69,3 +74,18 @@ jobs:
             git commit -m "chore: refresh NVDA research artifacts"
             git push
           fi
+
+      - name: Configure Pages
+        if: steps.time_gate.outputs.should_run == 'true'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: steps.time_gate.outputs.should_run == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy refreshed site to GitHub Pages
+        if: steps.time_gate.outputs.should_run == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4

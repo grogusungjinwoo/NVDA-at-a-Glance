@@ -1,9 +1,17 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import * as THREE from "three";
-import type { MarketBar } from "../lib/marketData";
+import type { MarketBar, MarketSessionMarker } from "../lib/marketData";
+
+export interface ThreeChartRenderQuality {
+  maxPixelRatio: number;
+  preserveDrawingBuffer: boolean;
+  candleDetail: "standard" | "high";
+}
 
 interface ThreeChartSceneProps {
   bars: MarketBar[];
+  sessionMarkers?: MarketSessionMarker[];
+  renderQuality?: ThreeChartRenderQuality;
   high: number;
   low: number;
   volumeMax: number;
@@ -23,6 +31,10 @@ interface ThreeChartSceneProps {
 function scalePrice(value: number, low: number, high: number): number {
   const range = high - low || 1;
   return -3.2 + ((value - low) / range) * 6.4;
+}
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(Math.max(value, min), max);
 }
 
 function safeCanvasContext(
@@ -78,6 +90,8 @@ function drawFallback(canvas: HTMLCanvasElement, bars: MarketBar[], high: number
 
 export function ThreeChartScene({
   bars,
+  sessionMarkers = [],
+  renderQuality = { maxPixelRatio: 2.5, preserveDrawingBuffer: false, candleDetail: "standard" },
   high,
   low,
   volumeMax,
@@ -109,6 +123,20 @@ export function ThreeChartScene({
     const mid = low + (high - low) / 2;
     return [high, mid, low].map((value) => `$${value.toFixed(2)}`);
   }, [high, low]);
+  const markerPositions = useMemo(() => {
+    const firstTime = Date.parse(bars[0]?.time ?? "");
+    const lastTime = Date.parse(bars.at(-1)?.time ?? "");
+    const span = Math.max(lastTime - firstTime, 1);
+
+    return sessionMarkers.map((marker) => {
+      const markerTime = Date.parse(marker.time);
+      const percent = Number.isFinite(markerTime) && Number.isFinite(firstTime) && Number.isFinite(lastTime)
+        ? clamp(((markerTime - firstTime) / span) * 100, 0, 100)
+        : 0;
+
+      return { ...marker, percent };
+    });
+  }, [bars, sessionMarkers]);
 
   useEffect(() => {
     zoomRef.current = zoom;
@@ -137,12 +165,17 @@ export function ThreeChartScene({
       dispose: () => void;
     };
     try {
-      renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, preserveDrawingBuffer: true });
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: renderQuality.candleDetail === "high",
+        alpha: false,
+        preserveDrawingBuffer: renderQuality.preserveDrawingBuffer
+      });
     } catch {
       drawFallback(canvas, bars, high, low, volumeMax);
       return;
     }
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, renderQuality.maxPixelRatio));
     renderer.setSize(width, height, false);
     renderer.setClearColor(0x07120f, 1);
 
@@ -182,8 +215,38 @@ export function ThreeChartScene({
     const totalWidth = (bars.length - 1) * spacing;
     const bodyWidth = 0.22;
     const bodyDepth = 0.3;
+    const bodyGeometry = new THREE.BoxGeometry(bodyWidth, 1, bodyDepth);
+    const volumeGeometry = new THREE.BoxGeometry(bodyWidth * 1.2, 1, bodyDepth * 1.2);
+    const upMaterial = new THREE.MeshStandardMaterial({
+      color: 0x6fd3a1,
+      emissive: 0x153627,
+      metalness: 0.1,
+      roughness: 0.38
+    });
+    const downMaterial = new THREE.MeshStandardMaterial({
+      color: 0xef4e5f,
+      emissive: 0x3d1016,
+      metalness: 0.1,
+      roughness: 0.38
+    });
     const wickMaterial = new THREE.LineBasicMaterial({ color: 0xeef5e8, transparent: true, opacity: 0.74 });
     const volumeMaterial = new THREE.MeshStandardMaterial({ color: 0xef8840, transparent: true, opacity: 0.66, roughness: 0.42 });
+    const markerMaterial = new THREE.LineBasicMaterial({ color: 0xd9b64f, transparent: true, opacity: 0.38 });
+
+    function markerXFor(time: string) {
+      const targetTime = Date.parse(time);
+      if (!Number.isFinite(targetTime) || bars.length <= 1) return 0;
+      let nearestIndex = 0;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+      bars.forEach((bar, index) => {
+        const distance = Math.abs(Date.parse(bar.time) - targetTime);
+        if (distance < nearestDistance) {
+          nearestIndex = index;
+          nearestDistance = distance;
+        }
+      });
+      return nearestIndex * spacing - totalWidth / 2;
+    }
 
     bars.forEach((bar, index) => {
       const x = index * spacing - totalWidth / 2;
@@ -194,14 +257,10 @@ export function ThreeChartScene({
       const up = bar.close >= bar.open;
       const bodyHeight = Math.max(Math.abs(closeY - openY), 0.06);
       const body = new THREE.Mesh(
-        new THREE.BoxGeometry(bodyWidth, bodyHeight, bodyDepth),
-        new THREE.MeshStandardMaterial({
-          color: up ? 0x6fd3a1 : 0xef4e5f,
-          emissive: up ? 0x153627 : 0x3d1016,
-          metalness: 0.1,
-          roughness: 0.38
-        })
+        bodyGeometry,
+        up ? upMaterial : downMaterial
       );
+      body.scale.y = bodyHeight;
       body.position.set(x, (openY + closeY) / 2, 0);
       body.userData.index = index;
       group.add(body);
@@ -214,10 +273,23 @@ export function ThreeChartScene({
 
       if (showVolume) {
         const volumeHeight = Math.max(0.08, (bar.volume / Math.max(volumeMax, 1)) * 1.45);
-        const volume = new THREE.Mesh(new THREE.BoxGeometry(bodyWidth * 1.2, volumeHeight, bodyDepth * 1.2), volumeMaterial);
+        const volume = new THREE.Mesh(volumeGeometry, volumeMaterial);
+        volume.scale.y = volumeHeight;
         volume.position.set(x, -4.25 + volumeHeight / 2, 0.62);
         group.add(volume);
       }
+    });
+
+    sessionMarkers.forEach((marker) => {
+      const x = markerXFor(marker.time);
+      const markerLine = new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints([
+          new THREE.Vector3(x, -4.3, -0.58),
+          new THREE.Vector3(x, 3.4, -0.58)
+        ]),
+        markerMaterial
+      );
+      group.add(markerLine);
     });
 
     if (showVwap) {
@@ -266,7 +338,7 @@ export function ThreeChartScene({
       });
       renderer.dispose();
     };
-  }, [bars, high, low, showVolume, showVwap, volumeMax, vwap]);
+  }, [bars, high, low, renderQuality, sessionMarkers, showVolume, showVwap, volumeMax, vwap]);
 
   useEffect(() => {
     if (bars.length === 0) {
@@ -356,6 +428,7 @@ export function ThreeChartScene({
         data-camera-pitch={cameraPitch.toFixed(2)}
         data-camera-yaw={cameraYaw.toFixed(2)}
         data-fullscreen={isFullscreen ? "true" : "false"}
+        data-render-quality={renderQuality.candleDetail}
         role="img"
         aria-label={ariaLabel}
         tabIndex={0}
@@ -408,6 +481,19 @@ export function ThreeChartScene({
       )}
       <div className="three-axis-labels" aria-hidden="true">
         {labels.map((label) => <span key={label}>{label}</span>)}
+      </div>
+      <div className="session-marker-layer" aria-hidden="true">
+        {markerPositions.map((marker) => (
+          <span
+            className={`session-marker ${marker.kind}`}
+            data-testid={`session-marker-${marker.id}`}
+            key={marker.id}
+            style={{ "--marker-x": `${marker.percent}%` } as CSSProperties}
+          >
+            <b>{marker.label}</b>
+            <em>{marker.tradingDate}</em>
+          </span>
+        ))}
       </div>
       <div className="volume-axis-label" aria-hidden="true">Vol {volumeMax.toLocaleString()}</div>
       {hoverBar && (

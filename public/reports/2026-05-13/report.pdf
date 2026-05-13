@@ -12,7 +12,7 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 5 0 obj
-<< /Length 2399 >>
+<< /Length 2475 >>
 stream
 BT
 /F1 18 Tf
@@ -60,6 +60,16 @@ BT
 0 -18 Td
 (Chart artifact: 10m PRE/Lift \(reports/2026-05-13/charts/pre-lift-10m.svg\)) Tj
 0 -18 Td
+(Chart artifact: 30m price and volume \(reports/2026-05-13/charts/price-volume-30m.svg\)) Tj
+0 -18 Td
+(Chart artifact: 30m RSI \(reports/2026-05-13/charts/rsi-30m.svg\)) Tj
+0 -18 Td
+(Chart artifact: 30m MACD \(reports/2026-05-13/charts/macd-30m.svg\)) Tj
+0 -18 Td
+(Chart artifact: 30m StochRSI \(reports/2026-05-13/charts/stoch-rsi-30m.svg\)) Tj
+0 -18 Td
+(Chart artifact: 30m PRE/Lift \(reports/2026-05-13/charts/pre-lift-30m.svg\)) Tj
+0 -18 Td
 (Chart artifact: 1h price and volume \(reports/2026-05-13/charts/price-volume-1h.svg\)) Tj
 0 -18 Td
 (Chart artifact: 1h RSI \(reports/2026-05-13/charts/rsi-1h.svg\)) Tj
@@ -71,16 +81,6 @@ BT
 (Chart artifact: 1h PRE/Lift \(reports/2026-05-13/charts/pre-lift-1h.svg\)) Tj
 0 -18 Td
 (Chart artifact: 4h price and volume \(reports/2026-05-13/charts/price-volume-4h.svg\)) Tj
-0 -18 Td
-(Chart artifact: 4h RSI \(reports/2026-05-13/charts/rsi-4h.svg\)) Tj
-0 -18 Td
-(Chart artifact: 4h MACD \(reports/2026-05-13/charts/macd-4h.svg\)) Tj
-0 -18 Td
-(Chart artifact: 4h StochRSI \(reports/2026-05-13/charts/stoch-rsi-4h.svg\)) Tj
-0 -18 Td
-(Chart artifact: 4h PRE/Lift \(reports/2026-05-13/charts/pre-lift-4h.svg\)) Tj
-0 -18 Td
-(Indicator snapshots) Tj
 ET
 endstream
 endobj
@@ -95,5 +95,5 @@ xref
 trailer
 << /Size 6 /Root 1 0 R >>
 startxref
-2762
+2838
 %%EOF

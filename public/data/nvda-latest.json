@@ -1,10 +1,10 @@
 {
   "symbol": "NVDA",
   "tradingDate": "2026-05-13",
-  "generatedAt": "2026-05-13T21:56:32.719Z",
+  "generatedAt": "2026-05-13T22:43:52.992Z",
   "label": "Delayed research data",
   "source": "Yahoo Finance chart API",
-  "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?range=1d&interval=5m&includePrePost=true",
+  "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?range=10d&interval=5m&includePrePost=true",
   "sessionPolicy": {
     "includeExtendedHours": true,
     "aggregationAnchor": "regular-open",
@@ -26,10 +26,3519 @@
       }
     ]
   },
+  "sessions": [
+    {
+      "tradingDate": "2026-05-08",
+      "status": "historical",
+      "candles": [
+        {
+          "timestamp": "2026-05-08T13:30:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "09:30",
+          "session": "regular",
+          "open": 213.03,
+          "high": 215.46,
+          "low": 212.89,
+          "close": 215.12,
+          "volume": 11020190
+        },
+        {
+          "timestamp": "2026-05-08T13:35:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "09:35",
+          "session": "regular",
+          "open": 215.09,
+          "high": 215.8,
+          "low": 214.37,
+          "close": 215.76,
+          "volume": 3761610
+        },
+        {
+          "timestamp": "2026-05-08T13:40:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "09:40",
+          "session": "regular",
+          "open": 215.8,
+          "high": 216.78,
+          "low": 215.05,
+          "close": 216.77,
+          "volume": 4197226
+        },
+        {
+          "timestamp": "2026-05-08T13:45:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "09:45",
+          "session": "regular",
+          "open": 216.78,
+          "high": 217.76,
+          "low": 216.42,
+          "close": 217.43,
+          "volume": 4242212
+        },
+        {
+          "timestamp": "2026-05-08T13:50:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "09:50",
+          "session": "regular",
+          "open": 217.45,
+          "high": 217.62,
+          "low": 216.57,
+          "close": 217.6,
+          "volume": 3635371
+        },
+        {
+          "timestamp": "2026-05-08T13:55:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "09:55",
+          "session": "regular",
+          "open": 217.6,
+          "high": 217.66,
+          "low": 216.67,
+          "close": 217.61,
+          "volume": 2720982
+        },
+        {
+          "timestamp": "2026-05-08T14:00:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "10:00",
+          "session": "regular",
+          "open": 217.61,
+          "high": 217.8,
+          "low": 216.4,
+          "close": 216.54,
+          "volume": 3126207
+        },
+        {
+          "timestamp": "2026-05-08T14:05:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "10:05",
+          "session": "regular",
+          "open": 216.54,
+          "high": 216.65,
+          "low": 215.98,
+          "close": 216.26,
+          "volume": 2209584
+        },
+        {
+          "timestamp": "2026-05-08T14:10:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "10:10",
+          "session": "regular",
+          "open": 216.25,
+          "high": 216.49,
+          "low": 215.68,
+          "close": 216.06,
+          "volume": 2374773
+        },
+        {
+          "timestamp": "2026-05-08T14:15:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "10:15",
+          "session": "regular",
+          "open": 216.03,
+          "high": 216.21,
+          "low": 215.13,
+          "close": 215.88,
+          "volume": 2243792
+        },
+        {
+          "timestamp": "2026-05-08T14:20:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "10:20",
+          "session": "regular",
+          "open": 215.9,
+          "high": 216.35,
+          "low": 215.65,
+          "close": 215.84,
+          "volume": 2060385
+        },
+        {
+          "timestamp": "2026-05-08T14:25:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "10:25",
+          "session": "regular",
+          "open": 215.84,
+          "high": 216.3,
+          "low": 215.2,
+          "close": 215.29,
+          "volume": 1730567
+        },
+        {
+          "timestamp": "2026-05-08T14:30:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "10:30",
+          "session": "regular",
+          "open": 215.31,
+          "high": 215.86,
+          "low": 214.9,
+          "close": 215.03,
+          "volume": 2003975
+        },
+        {
+          "timestamp": "2026-05-08T14:35:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "10:35",
+          "session": "regular",
+          "open": 215.01,
+          "high": 215.08,
+          "low": 214.31,
+          "close": 214.96,
+          "volume": 1866672
+        },
+        {
+          "timestamp": "2026-05-08T14:40:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "10:40",
+          "session": "regular",
+          "open": 214.95,
+          "high": 215.43,
+          "low": 214.49,
+          "close": 215.28,
+          "volume": 1837847
+        },
+        {
+          "timestamp": "2026-05-08T14:45:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "10:45",
+          "session": "regular",
+          "open": 215.29,
+          "high": 215.75,
+          "low": 215.06,
+          "close": 215.72,
+          "volume": 1324079
+        },
+        {
+          "timestamp": "2026-05-08T14:50:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "10:50",
+          "session": "regular",
+          "open": 215.7,
+          "high": 215.91,
+          "low": 215.47,
+          "close": 215.77,
+          "volume": 1159280
+        },
+        {
+          "timestamp": "2026-05-08T14:55:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "10:55",
+          "session": "regular",
+          "open": 215.77,
+          "high": 216.21,
+          "low": 215.61,
+          "close": 215.94,
+          "volume": 1579044
+        },
+        {
+          "timestamp": "2026-05-08T15:00:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "11:00",
+          "session": "regular",
+          "open": 215.89,
+          "high": 216.35,
+          "low": 215.62,
+          "close": 215.96,
+          "volume": 1373404
+        },
+        {
+          "timestamp": "2026-05-08T15:05:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "11:05",
+          "session": "regular",
+          "open": 215.98,
+          "high": 216.46,
+          "low": 215.96,
+          "close": 216.18,
+          "volume": 1467200
+        },
+        {
+          "timestamp": "2026-05-08T15:10:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "11:10",
+          "session": "regular",
+          "open": 216.19,
+          "high": 216.8,
+          "low": 216.08,
+          "close": 216.35,
+          "volume": 1724309
+        },
+        {
+          "timestamp": "2026-05-08T15:15:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "11:15",
+          "session": "regular",
+          "open": 216.36,
+          "high": 216.37,
+          "low": 215.38,
+          "close": 215.74,
+          "volume": 1557462
+        },
+        {
+          "timestamp": "2026-05-08T15:20:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "11:20",
+          "session": "regular",
+          "open": 215.75,
+          "high": 216.24,
+          "low": 215.71,
+          "close": 215.99,
+          "volume": 1116613
+        },
+        {
+          "timestamp": "2026-05-08T15:25:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "11:25",
+          "session": "regular",
+          "open": 216,
+          "high": 216.35,
+          "low": 215.9,
+          "close": 216.26,
+          "volume": 1062775
+        },
+        {
+          "timestamp": "2026-05-08T15:30:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "11:30",
+          "session": "regular",
+          "open": 216.28,
+          "high": 216.85,
+          "low": 215.9,
+          "close": 216.83,
+          "volume": 1510062
+        },
+        {
+          "timestamp": "2026-05-08T15:35:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "11:35",
+          "session": "regular",
+          "open": 216.85,
+          "high": 217.2,
+          "low": 216.84,
+          "close": 216.89,
+          "volume": 2029496
+        },
+        {
+          "timestamp": "2026-05-08T15:40:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "11:40",
+          "session": "regular",
+          "open": 216.88,
+          "high": 216.96,
+          "low": 216.2,
+          "close": 216.35,
+          "volume": 1094194
+        },
+        {
+          "timestamp": "2026-05-08T15:45:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "11:45",
+          "session": "regular",
+          "open": 216.36,
+          "high": 216.55,
+          "low": 216,
+          "close": 216.29,
+          "volume": 1139668
+        },
+        {
+          "timestamp": "2026-05-08T15:50:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "11:50",
+          "session": "regular",
+          "open": 216.28,
+          "high": 216.49,
+          "low": 216.01,
+          "close": 216.07,
+          "volume": 837069
+        },
+        {
+          "timestamp": "2026-05-08T15:55:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "11:55",
+          "session": "regular",
+          "open": 216.06,
+          "high": 216.1,
+          "low": 215.49,
+          "close": 215.51,
+          "volume": 954083
+        },
+        {
+          "timestamp": "2026-05-08T16:00:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "12:00",
+          "session": "regular",
+          "open": 215.49,
+          "high": 215.92,
+          "low": 215.47,
+          "close": 215.57,
+          "volume": 808869
+        },
+        {
+          "timestamp": "2026-05-08T16:05:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "12:05",
+          "session": "regular",
+          "open": 215.57,
+          "high": 215.66,
+          "low": 215.25,
+          "close": 215.38,
+          "volume": 1022629
+        },
+        {
+          "timestamp": "2026-05-08T16:10:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "12:10",
+          "session": "regular",
+          "open": 215.38,
+          "high": 215.64,
+          "low": 215.16,
+          "close": 215.48,
+          "volume": 1072797
+        },
+        {
+          "timestamp": "2026-05-08T16:15:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "12:15",
+          "session": "regular",
+          "open": 215.47,
+          "high": 215.67,
+          "low": 215.33,
+          "close": 215.34,
+          "volume": 696166
+        },
+        {
+          "timestamp": "2026-05-08T16:20:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "12:20",
+          "session": "regular",
+          "open": 215.35,
+          "high": 215.79,
+          "low": 215.28,
+          "close": 215.79,
+          "volume": 926689
+        },
+        {
+          "timestamp": "2026-05-08T16:25:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "12:25",
+          "session": "regular",
+          "open": 215.8,
+          "high": 216.18,
+          "low": 215.79,
+          "close": 215.89,
+          "volume": 1216390
+        },
+        {
+          "timestamp": "2026-05-08T16:30:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "12:30",
+          "session": "regular",
+          "open": 215.9,
+          "high": 215.98,
+          "low": 215.52,
+          "close": 215.77,
+          "volume": 899004
+        },
+        {
+          "timestamp": "2026-05-08T16:35:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "12:35",
+          "session": "regular",
+          "open": 215.79,
+          "high": 215.83,
+          "low": 215.42,
+          "close": 215.78,
+          "volume": 670443
+        },
+        {
+          "timestamp": "2026-05-08T16:40:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "12:40",
+          "session": "regular",
+          "open": 215.79,
+          "high": 216.1,
+          "low": 215.63,
+          "close": 215.68,
+          "volume": 804899
+        },
+        {
+          "timestamp": "2026-05-08T16:45:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "12:45",
+          "session": "regular",
+          "open": 215.68,
+          "high": 215.85,
+          "low": 215.53,
+          "close": 215.65,
+          "volume": 582632
+        },
+        {
+          "timestamp": "2026-05-08T16:50:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "12:50",
+          "session": "regular",
+          "open": 215.66,
+          "high": 215.71,
+          "low": 215.05,
+          "close": 215.2,
+          "volume": 947454
+        },
+        {
+          "timestamp": "2026-05-08T16:55:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "12:55",
+          "session": "regular",
+          "open": 215.2,
+          "high": 215.37,
+          "low": 215.01,
+          "close": 215.26,
+          "volume": 694133
+        },
+        {
+          "timestamp": "2026-05-08T17:00:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "13:00",
+          "session": "regular",
+          "open": 215.25,
+          "high": 215.67,
+          "low": 215.13,
+          "close": 215.6,
+          "volume": 792902
+        },
+        {
+          "timestamp": "2026-05-08T17:05:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "13:05",
+          "session": "regular",
+          "open": 215.6,
+          "high": 215.6,
+          "low": 215.09,
+          "close": 215.4,
+          "volume": 644190
+        },
+        {
+          "timestamp": "2026-05-08T17:10:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "13:10",
+          "session": "regular",
+          "open": 215.41,
+          "high": 215.55,
+          "low": 215.29,
+          "close": 215.49,
+          "volume": 606633
+        },
+        {
+          "timestamp": "2026-05-08T17:15:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "13:15",
+          "session": "regular",
+          "open": 215.49,
+          "high": 215.8,
+          "low": 215.42,
+          "close": 215.76,
+          "volume": 616178
+        },
+        {
+          "timestamp": "2026-05-08T17:20:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "13:20",
+          "session": "regular",
+          "open": 215.73,
+          "high": 216.07,
+          "low": 215.64,
+          "close": 215.8,
+          "volume": 849678
+        },
+        {
+          "timestamp": "2026-05-08T17:25:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "13:25",
+          "session": "regular",
+          "open": 215.81,
+          "high": 215.84,
+          "low": 215.43,
+          "close": 215.68,
+          "volume": 671463
+        },
+        {
+          "timestamp": "2026-05-08T17:30:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "13:30",
+          "session": "regular",
+          "open": 215.68,
+          "high": 215.8,
+          "low": 215.51,
+          "close": 215.63,
+          "volume": 582000
+        },
+        {
+          "timestamp": "2026-05-08T17:35:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "13:35",
+          "session": "regular",
+          "open": 215.64,
+          "high": 215.66,
+          "low": 215.3,
+          "close": 215.34,
+          "volume": 659612
+        },
+        {
+          "timestamp": "2026-05-08T17:40:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "13:40",
+          "session": "regular",
+          "open": 215.34,
+          "high": 215.66,
+          "low": 215.18,
+          "close": 215.26,
+          "volume": 622734
+        },
+        {
+          "timestamp": "2026-05-08T17:45:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "13:45",
+          "session": "regular",
+          "open": 215.26,
+          "high": 215.44,
+          "low": 215.12,
+          "close": 215.19,
+          "volume": 607272
+        },
+        {
+          "timestamp": "2026-05-08T17:50:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "13:50",
+          "session": "regular",
+          "open": 215.17,
+          "high": 215.18,
+          "low": 214.85,
+          "close": 215.11,
+          "volume": 1060251
+        },
+        {
+          "timestamp": "2026-05-08T17:55:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "13:55",
+          "session": "regular",
+          "open": 215.1,
+          "high": 215.27,
+          "low": 214.93,
+          "close": 214.95,
+          "volume": 1574566
+        },
+        {
+          "timestamp": "2026-05-08T18:00:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "14:00",
+          "session": "regular",
+          "open": 214.95,
+          "high": 215.53,
+          "low": 214.93,
+          "close": 215.45,
+          "volume": 851810
+        },
+        {
+          "timestamp": "2026-05-08T18:05:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "14:05",
+          "session": "regular",
+          "open": 215.46,
+          "high": 215.8,
+          "low": 215.28,
+          "close": 215.34,
+          "volume": 807789
+        },
+        {
+          "timestamp": "2026-05-08T18:10:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "14:10",
+          "session": "regular",
+          "open": 215.34,
+          "high": 215.44,
+          "low": 215.06,
+          "close": 215.3,
+          "volume": 691322
+        },
+        {
+          "timestamp": "2026-05-08T18:15:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "14:15",
+          "session": "regular",
+          "open": 215.31,
+          "high": 215.41,
+          "low": 215.17,
+          "close": 215.34,
+          "volume": 482674
+        },
+        {
+          "timestamp": "2026-05-08T18:20:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "14:20",
+          "session": "regular",
+          "open": 215.34,
+          "high": 215.61,
+          "low": 215.33,
+          "close": 215.56,
+          "volume": 559835
+        },
+        {
+          "timestamp": "2026-05-08T18:25:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "14:25",
+          "session": "regular",
+          "open": 215.57,
+          "high": 215.57,
+          "low": 215.3,
+          "close": 215.36,
+          "volume": 472139
+        },
+        {
+          "timestamp": "2026-05-08T18:30:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "14:30",
+          "session": "regular",
+          "open": 215.37,
+          "high": 215.47,
+          "low": 215.24,
+          "close": 215.29,
+          "volume": 466431
+        },
+        {
+          "timestamp": "2026-05-08T18:35:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "14:35",
+          "session": "regular",
+          "open": 215.31,
+          "high": 215.42,
+          "low": 215.24,
+          "close": 215.36,
+          "volume": 477767
+        },
+        {
+          "timestamp": "2026-05-08T18:40:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "14:40",
+          "session": "regular",
+          "open": 215.34,
+          "high": 215.35,
+          "low": 215.11,
+          "close": 215.12,
+          "volume": 522382
+        },
+        {
+          "timestamp": "2026-05-08T18:45:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "14:45",
+          "session": "regular",
+          "open": 215.11,
+          "high": 215.23,
+          "low": 215.02,
+          "close": 215.12,
+          "volume": 632861
+        },
+        {
+          "timestamp": "2026-05-08T18:50:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "14:50",
+          "session": "regular",
+          "open": 215.11,
+          "high": 215.31,
+          "low": 215.06,
+          "close": 215.2,
+          "volume": 652158
+        },
+        {
+          "timestamp": "2026-05-08T18:55:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "14:55",
+          "session": "regular",
+          "open": 215.21,
+          "high": 215.5,
+          "low": 214.96,
+          "close": 215.07,
+          "volume": 1091707
+        },
+        {
+          "timestamp": "2026-05-08T19:00:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "15:00",
+          "session": "regular",
+          "open": 215.06,
+          "high": 215.43,
+          "low": 215.06,
+          "close": 215.42,
+          "volume": 990640
+        },
+        {
+          "timestamp": "2026-05-08T19:05:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "15:05",
+          "session": "regular",
+          "open": 215.41,
+          "high": 215.82,
+          "low": 215.3,
+          "close": 215.67,
+          "volume": 1090586
+        },
+        {
+          "timestamp": "2026-05-08T19:10:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "15:10",
+          "session": "regular",
+          "open": 215.65,
+          "high": 215.7,
+          "low": 215.5,
+          "close": 215.51,
+          "volume": 689706
+        },
+        {
+          "timestamp": "2026-05-08T19:15:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "15:15",
+          "session": "regular",
+          "open": 215.51,
+          "high": 215.6,
+          "low": 215.26,
+          "close": 215.29,
+          "volume": 802803
+        },
+        {
+          "timestamp": "2026-05-08T19:20:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "15:20",
+          "session": "regular",
+          "open": 215.29,
+          "high": 215.4,
+          "low": 215,
+          "close": 215.09,
+          "volume": 1086802
+        },
+        {
+          "timestamp": "2026-05-08T19:25:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "15:25",
+          "session": "regular",
+          "open": 215.09,
+          "high": 215.14,
+          "low": 214.82,
+          "close": 214.85,
+          "volume": 1137457
+        },
+        {
+          "timestamp": "2026-05-08T19:30:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "15:30",
+          "session": "regular",
+          "open": 214.85,
+          "high": 215.03,
+          "low": 214.68,
+          "close": 214.83,
+          "volume": 1213214
+        },
+        {
+          "timestamp": "2026-05-08T19:35:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "15:35",
+          "session": "regular",
+          "open": 214.82,
+          "high": 215.12,
+          "low": 214.71,
+          "close": 215.09,
+          "volume": 852240
+        },
+        {
+          "timestamp": "2026-05-08T19:40:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "15:40",
+          "session": "regular",
+          "open": 215.1,
+          "high": 215.4,
+          "low": 215.07,
+          "close": 215.27,
+          "volume": 1150449
+        },
+        {
+          "timestamp": "2026-05-08T19:45:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "15:45",
+          "session": "regular",
+          "open": 215.26,
+          "high": 215.3,
+          "low": 214.96,
+          "close": 214.96,
+          "volume": 1125260
+        },
+        {
+          "timestamp": "2026-05-08T19:50:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "15:50",
+          "session": "regular",
+          "open": 214.96,
+          "high": 215.35,
+          "low": 214.9,
+          "close": 215.22,
+          "volume": 1889129
+        },
+        {
+          "timestamp": "2026-05-08T19:55:00.000Z",
+          "tradingDate": "2026-05-08",
+          "time": "15:55",
+          "session": "regular",
+          "open": 215.2,
+          "high": 215.47,
+          "low": 215.02,
+          "close": 215.21,
+          "volume": 5285987
+        }
+      ],
+      "regularMarketPrice": 215.21,
+      "coverage": {
+        "firstTimestamp": "2026-05-08T13:30:00.000Z",
+        "lastTimestamp": "2026-05-08T19:55:00.000Z",
+        "candleCount": 78,
+        "hasPremarket": false,
+        "hasRegular": true,
+        "hasPostmarket": false
+      }
+    },
+    {
+      "tradingDate": "2026-05-11",
+      "status": "historical",
+      "candles": [
+        {
+          "timestamp": "2026-05-11T13:30:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "09:30",
+          "session": "regular",
+          "open": 213.93,
+          "high": 215.92,
+          "low": 213.93,
+          "close": 215.44,
+          "volume": 10183770
+        },
+        {
+          "timestamp": "2026-05-11T13:35:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "09:35",
+          "session": "regular",
+          "open": 215.43,
+          "high": 217.63,
+          "low": 215,
+          "close": 217.58,
+          "volume": 4501323
+        },
+        {
+          "timestamp": "2026-05-11T13:40:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "09:40",
+          "session": "regular",
+          "open": 217.59,
+          "high": 219.09,
+          "low": 217.23,
+          "close": 218.88,
+          "volume": 5246509
+        },
+        {
+          "timestamp": "2026-05-11T13:45:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "09:45",
+          "session": "regular",
+          "open": 218.89,
+          "high": 220.9,
+          "low": 218.6,
+          "close": 219.48,
+          "volume": 7448277
+        },
+        {
+          "timestamp": "2026-05-11T13:50:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "09:50",
+          "session": "regular",
+          "open": 219.48,
+          "high": 220.53,
+          "low": 217.83,
+          "close": 217.85,
+          "volume": 3714095
+        },
+        {
+          "timestamp": "2026-05-11T13:55:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "09:55",
+          "session": "regular",
+          "open": 217.87,
+          "high": 217.94,
+          "low": 216.53,
+          "close": 217.02,
+          "volume": 3456055
+        },
+        {
+          "timestamp": "2026-05-11T14:00:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "10:00",
+          "session": "regular",
+          "open": 216.96,
+          "high": 218.27,
+          "low": 216.92,
+          "close": 217.93,
+          "volume": 3012027
+        },
+        {
+          "timestamp": "2026-05-11T14:05:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "10:05",
+          "session": "regular",
+          "open": 217.93,
+          "high": 218.46,
+          "low": 217.7,
+          "close": 218.16,
+          "volume": 2100703
+        },
+        {
+          "timestamp": "2026-05-11T14:10:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "10:10",
+          "session": "regular",
+          "open": 218.14,
+          "high": 219.56,
+          "low": 218.09,
+          "close": 219.38,
+          "volume": 2604209
+        },
+        {
+          "timestamp": "2026-05-11T14:15:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "10:15",
+          "session": "regular",
+          "open": 219.38,
+          "high": 219.58,
+          "low": 218.91,
+          "close": 219.15,
+          "volume": 2175513
+        },
+        {
+          "timestamp": "2026-05-11T14:20:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "10:20",
+          "session": "regular",
+          "open": 219.14,
+          "high": 219.7,
+          "low": 218.94,
+          "close": 219.18,
+          "volume": 1880056
+        },
+        {
+          "timestamp": "2026-05-11T14:25:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "10:25",
+          "session": "regular",
+          "open": 219.2,
+          "high": 219.35,
+          "low": 217.96,
+          "close": 217.97,
+          "volume": 1881466
+        },
+        {
+          "timestamp": "2026-05-11T14:30:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "10:30",
+          "session": "regular",
+          "open": 217.99,
+          "high": 218.37,
+          "low": 217.37,
+          "close": 218.24,
+          "volume": 2025693
+        },
+        {
+          "timestamp": "2026-05-11T14:35:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "10:35",
+          "session": "regular",
+          "open": 218.26,
+          "high": 218.75,
+          "low": 217.42,
+          "close": 218.72,
+          "volume": 2757968
+        },
+        {
+          "timestamp": "2026-05-11T14:40:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "10:40",
+          "session": "regular",
+          "open": 218.71,
+          "high": 219.39,
+          "low": 218.66,
+          "close": 219.29,
+          "volume": 2184235
+        },
+        {
+          "timestamp": "2026-05-11T14:45:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "10:45",
+          "session": "regular",
+          "open": 219.28,
+          "high": 220.29,
+          "low": 219.16,
+          "close": 220.27,
+          "volume": 2924414
+        },
+        {
+          "timestamp": "2026-05-11T14:50:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "10:50",
+          "session": "regular",
+          "open": 220.28,
+          "high": 222.16,
+          "low": 220.18,
+          "close": 222.05,
+          "volume": 5692357
+        },
+        {
+          "timestamp": "2026-05-11T14:55:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "10:55",
+          "session": "regular",
+          "open": 222.07,
+          "high": 222.18,
+          "low": 220.94,
+          "close": 221.61,
+          "volume": 2627836
+        },
+        {
+          "timestamp": "2026-05-11T15:00:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "11:00",
+          "session": "regular",
+          "open": 221.59,
+          "high": 221.73,
+          "low": 220.91,
+          "close": 221.16,
+          "volume": 1852603
+        },
+        {
+          "timestamp": "2026-05-11T15:05:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "11:05",
+          "session": "regular",
+          "open": 221.18,
+          "high": 222.29,
+          "low": 220.8,
+          "close": 222.25,
+          "volume": 2609484
+        },
+        {
+          "timestamp": "2026-05-11T15:10:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "11:10",
+          "session": "regular",
+          "open": 222.26,
+          "high": 222.27,
+          "low": 220.71,
+          "close": 220.76,
+          "volume": 2114405
+        },
+        {
+          "timestamp": "2026-05-11T15:15:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "11:15",
+          "session": "regular",
+          "open": 220.81,
+          "high": 221.4,
+          "low": 220.6,
+          "close": 221.34,
+          "volume": 1722468
+        },
+        {
+          "timestamp": "2026-05-11T15:20:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "11:20",
+          "session": "regular",
+          "open": 221.33,
+          "high": 221.46,
+          "low": 221,
+          "close": 221.26,
+          "volume": 1058509
+        },
+        {
+          "timestamp": "2026-05-11T15:25:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "11:25",
+          "session": "regular",
+          "open": 221.24,
+          "high": 222.04,
+          "low": 220.88,
+          "close": 221.99,
+          "volume": 1657328
+        },
+        {
+          "timestamp": "2026-05-11T15:30:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "11:30",
+          "session": "regular",
+          "open": 221.99,
+          "high": 222.12,
+          "low": 221.22,
+          "close": 221.49,
+          "volume": 1365551
+        },
+        {
+          "timestamp": "2026-05-11T15:35:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "11:35",
+          "session": "regular",
+          "open": 221.49,
+          "high": 221.53,
+          "low": 221.07,
+          "close": 221.23,
+          "volume": 1278676
+        },
+        {
+          "timestamp": "2026-05-11T15:40:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "11:40",
+          "session": "regular",
+          "open": 221.24,
+          "high": 221.42,
+          "low": 220.97,
+          "close": 221.13,
+          "volume": 1207836
+        },
+        {
+          "timestamp": "2026-05-11T15:45:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "11:45",
+          "session": "regular",
+          "open": 221.13,
+          "high": 221.48,
+          "low": 221,
+          "close": 221.43,
+          "volume": 895572
+        },
+        {
+          "timestamp": "2026-05-11T15:50:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "11:50",
+          "session": "regular",
+          "open": 221.46,
+          "high": 222.05,
+          "low": 221.22,
+          "close": 221.96,
+          "volume": 1403656
+        },
+        {
+          "timestamp": "2026-05-11T15:55:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "11:55",
+          "session": "regular",
+          "open": 221.94,
+          "high": 222.07,
+          "low": 221.65,
+          "close": 221.96,
+          "volume": 1329915
+        },
+        {
+          "timestamp": "2026-05-11T16:00:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "12:00",
+          "session": "regular",
+          "open": 221.97,
+          "high": 222.07,
+          "low": 221.53,
+          "close": 221.83,
+          "volume": 1273674
+        },
+        {
+          "timestamp": "2026-05-11T16:05:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "12:05",
+          "session": "regular",
+          "open": 221.86,
+          "high": 221.92,
+          "low": 221.43,
+          "close": 221.71,
+          "volume": 1049586
+        },
+        {
+          "timestamp": "2026-05-11T16:10:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "12:10",
+          "session": "regular",
+          "open": 221.73,
+          "high": 222.3,
+          "low": 221.65,
+          "close": 221.83,
+          "volume": 1573324
+        },
+        {
+          "timestamp": "2026-05-11T16:15:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "12:15",
+          "session": "regular",
+          "open": 221.83,
+          "high": 222.22,
+          "low": 221.6,
+          "close": 221.76,
+          "volume": 1343226
+        },
+        {
+          "timestamp": "2026-05-11T16:20:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "12:20",
+          "session": "regular",
+          "open": 221.78,
+          "high": 221.86,
+          "low": 221.45,
+          "close": 221.59,
+          "volume": 1124078
+        },
+        {
+          "timestamp": "2026-05-11T16:25:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "12:25",
+          "session": "regular",
+          "open": 221.57,
+          "high": 222,
+          "low": 221.57,
+          "close": 221.99,
+          "volume": 950771
+        },
+        {
+          "timestamp": "2026-05-11T16:30:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "12:30",
+          "session": "regular",
+          "open": 221.98,
+          "high": 222.09,
+          "low": 221.72,
+          "close": 221.93,
+          "volume": 918545
+        },
+        {
+          "timestamp": "2026-05-11T16:35:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "12:35",
+          "session": "regular",
+          "open": 221.93,
+          "high": 221.94,
+          "low": 221.35,
+          "close": 221.37,
+          "volume": 945483
+        },
+        {
+          "timestamp": "2026-05-11T16:40:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "12:40",
+          "session": "regular",
+          "open": 221.35,
+          "high": 221.35,
+          "low": 220.38,
+          "close": 220.78,
+          "volume": 1589210
+        },
+        {
+          "timestamp": "2026-05-11T16:45:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "12:45",
+          "session": "regular",
+          "open": 220.79,
+          "high": 221.15,
+          "low": 220.65,
+          "close": 220.79,
+          "volume": 951550
+        },
+        {
+          "timestamp": "2026-05-11T16:50:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "12:50",
+          "session": "regular",
+          "open": 220.78,
+          "high": 220.91,
+          "low": 220.41,
+          "close": 220.63,
+          "volume": 857843
+        },
+        {
+          "timestamp": "2026-05-11T16:55:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "12:55",
+          "session": "regular",
+          "open": 220.62,
+          "high": 220.85,
+          "low": 220.4,
+          "close": 220.63,
+          "volume": 798139
+        },
+        {
+          "timestamp": "2026-05-11T17:00:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "13:00",
+          "session": "regular",
+          "open": 220.63,
+          "high": 221,
+          "low": 220.53,
+          "close": 220.85,
+          "volume": 785698
+        },
+        {
+          "timestamp": "2026-05-11T17:05:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "13:05",
+          "session": "regular",
+          "open": 220.84,
+          "high": 220.91,
+          "low": 220.3,
+          "close": 220.45,
+          "volume": 644529
+        },
+        {
+          "timestamp": "2026-05-11T17:10:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "13:10",
+          "session": "regular",
+          "open": 220.42,
+          "high": 220.43,
+          "low": 219.92,
+          "close": 219.99,
+          "volume": 1076052
+        },
+        {
+          "timestamp": "2026-05-11T17:15:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "13:15",
+          "session": "regular",
+          "open": 219.98,
+          "high": 220.27,
+          "low": 219.88,
+          "close": 220.02,
+          "volume": 923040
+        },
+        {
+          "timestamp": "2026-05-11T17:20:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "13:20",
+          "session": "regular",
+          "open": 220.01,
+          "high": 220.53,
+          "low": 219.96,
+          "close": 220.45,
+          "volume": 980698
+        },
+        {
+          "timestamp": "2026-05-11T17:25:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "13:25",
+          "session": "regular",
+          "open": 220.45,
+          "high": 220.85,
+          "low": 220.37,
+          "close": 220.76,
+          "volume": 729861
+        },
+        {
+          "timestamp": "2026-05-11T17:30:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "13:30",
+          "session": "regular",
+          "open": 220.72,
+          "high": 220.94,
+          "low": 220.67,
+          "close": 220.84,
+          "volume": 648565
+        },
+        {
+          "timestamp": "2026-05-11T17:35:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "13:35",
+          "session": "regular",
+          "open": 220.83,
+          "high": 221.1,
+          "low": 220.78,
+          "close": 220.9,
+          "volume": 742244
+        },
+        {
+          "timestamp": "2026-05-11T17:40:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "13:40",
+          "session": "regular",
+          "open": 220.89,
+          "high": 221.09,
+          "low": 220.83,
+          "close": 221.03,
+          "volume": 518386
+        },
+        {
+          "timestamp": "2026-05-11T17:45:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "13:45",
+          "session": "regular",
+          "open": 221.03,
+          "high": 221.27,
+          "low": 220.86,
+          "close": 220.89,
+          "volume": 638394
+        },
+        {
+          "timestamp": "2026-05-11T17:50:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "13:50",
+          "session": "regular",
+          "open": 220.9,
+          "high": 220.93,
+          "low": 220.62,
+          "close": 220.64,
+          "volume": 576898
+        },
+        {
+          "timestamp": "2026-05-11T17:55:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "13:55",
+          "session": "regular",
+          "open": 220.64,
+          "high": 220.79,
+          "low": 220.41,
+          "close": 220.44,
+          "volume": 656184
+        },
+        {
+          "timestamp": "2026-05-11T18:00:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "14:00",
+          "session": "regular",
+          "open": 220.45,
+          "high": 220.66,
+          "low": 220.37,
+          "close": 220.38,
+          "volume": 657289
+        },
+        {
+          "timestamp": "2026-05-11T18:05:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "14:05",
+          "session": "regular",
+          "open": 220.38,
+          "high": 220.84,
+          "low": 220.37,
+          "close": 220.83,
+          "volume": 713905
+        },
+        {
+          "timestamp": "2026-05-11T18:10:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "14:10",
+          "session": "regular",
+          "open": 220.82,
+          "high": 220.94,
+          "low": 220.63,
+          "close": 220.79,
+          "volume": 693675
+        },
+        {
+          "timestamp": "2026-05-11T18:15:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "14:15",
+          "session": "regular",
+          "open": 220.79,
+          "high": 220.95,
+          "low": 220.68,
+          "close": 220.83,
+          "volume": 636558
+        },
+        {
+          "timestamp": "2026-05-11T18:20:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "14:20",
+          "session": "regular",
+          "open": 220.83,
+          "high": 220.86,
+          "low": 220.56,
+          "close": 220.84,
+          "volume": 822924
+        },
+        {
+          "timestamp": "2026-05-11T18:25:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "14:25",
+          "session": "regular",
+          "open": 220.82,
+          "high": 221.44,
+          "low": 220.81,
+          "close": 221.43,
+          "volume": 1258083
+        },
+        {
+          "timestamp": "2026-05-11T18:30:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "14:30",
+          "session": "regular",
+          "open": 221.41,
+          "high": 221.57,
+          "low": 221.14,
+          "close": 221.16,
+          "volume": 1190213
+        },
+        {
+          "timestamp": "2026-05-11T18:35:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "14:35",
+          "session": "regular",
+          "open": 221.16,
+          "high": 221.51,
+          "low": 221.16,
+          "close": 221.38,
+          "volume": 815791
+        },
+        {
+          "timestamp": "2026-05-11T18:40:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "14:40",
+          "session": "regular",
+          "open": 221.38,
+          "high": 221.46,
+          "low": 221.08,
+          "close": 221.12,
+          "volume": 771020
+        },
+        {
+          "timestamp": "2026-05-11T18:45:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "14:45",
+          "session": "regular",
+          "open": 221.11,
+          "high": 221.19,
+          "low": 220.75,
+          "close": 220.88,
+          "volume": 730392
+        },
+        {
+          "timestamp": "2026-05-11T18:50:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "14:50",
+          "session": "regular",
+          "open": 220.88,
+          "high": 221,
+          "low": 220.75,
+          "close": 220.86,
+          "volume": 693276
+        },
+        {
+          "timestamp": "2026-05-11T18:55:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "14:55",
+          "session": "regular",
+          "open": 220.87,
+          "high": 221,
+          "low": 219.97,
+          "close": 220.07,
+          "volume": 1335268
+        },
+        {
+          "timestamp": "2026-05-11T19:00:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "15:00",
+          "session": "regular",
+          "open": 220.08,
+          "high": 220.4,
+          "low": 219.9,
+          "close": 220.1,
+          "volume": 1124035
+        },
+        {
+          "timestamp": "2026-05-11T19:05:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "15:05",
+          "session": "regular",
+          "open": 220.11,
+          "high": 220.58,
+          "low": 220.07,
+          "close": 220.42,
+          "volume": 1045774
+        },
+        {
+          "timestamp": "2026-05-11T19:10:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "15:10",
+          "session": "regular",
+          "open": 220.42,
+          "high": 220.43,
+          "low": 220.02,
+          "close": 220.09,
+          "volume": 747894
+        },
+        {
+          "timestamp": "2026-05-11T19:15:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "15:15",
+          "session": "regular",
+          "open": 220.09,
+          "high": 220.14,
+          "low": 219.55,
+          "close": 219.89,
+          "volume": 1349090
+        },
+        {
+          "timestamp": "2026-05-11T19:20:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "15:20",
+          "session": "regular",
+          "open": 219.88,
+          "high": 219.96,
+          "low": 219.24,
+          "close": 219.27,
+          "volume": 1179810
+        },
+        {
+          "timestamp": "2026-05-11T19:25:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "15:25",
+          "session": "regular",
+          "open": 219.26,
+          "high": 219.53,
+          "low": 218.94,
+          "close": 219.14,
+          "volume": 1490351
+        },
+        {
+          "timestamp": "2026-05-11T19:30:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "15:30",
+          "session": "regular",
+          "open": 219.15,
+          "high": 219.45,
+          "low": 219,
+          "close": 219.15,
+          "volume": 1322360
+        },
+        {
+          "timestamp": "2026-05-11T19:35:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "15:35",
+          "session": "regular",
+          "open": 219.16,
+          "high": 219.48,
+          "low": 219.1,
+          "close": 219.41,
+          "volume": 1156376
+        },
+        {
+          "timestamp": "2026-05-11T19:40:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "15:40",
+          "session": "regular",
+          "open": 219.41,
+          "high": 219.57,
+          "low": 219.1,
+          "close": 219.14,
+          "volume": 1029413
+        },
+        {
+          "timestamp": "2026-05-11T19:45:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "15:45",
+          "session": "regular",
+          "open": 219.12,
+          "high": 219.5,
+          "low": 218.92,
+          "close": 219.37,
+          "volume": 1555012
+        },
+        {
+          "timestamp": "2026-05-11T19:50:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "15:50",
+          "session": "regular",
+          "open": 219.36,
+          "high": 219.59,
+          "low": 218.95,
+          "close": 219.2,
+          "volume": 2231832
+        },
+        {
+          "timestamp": "2026-05-11T19:55:00.000Z",
+          "tradingDate": "2026-05-11",
+          "time": "15:55",
+          "session": "regular",
+          "open": 219.23,
+          "high": 219.48,
+          "low": 219.1,
+          "close": 219.48,
+          "volume": 3214457
+        }
+      ],
+      "previousClose": 215.21,
+      "regularMarketPrice": 219.48,
+      "coverage": {
+        "firstTimestamp": "2026-05-11T13:30:00.000Z",
+        "lastTimestamp": "2026-05-11T19:55:00.000Z",
+        "candleCount": 78,
+        "hasPremarket": false,
+        "hasRegular": true,
+        "hasPostmarket": false
+      }
+    },
+    {
+      "tradingDate": "2026-05-12",
+      "status": "historical",
+      "candles": [
+        {
+          "timestamp": "2026-05-12T13:30:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "09:30",
+          "session": "regular",
+          "open": 218.54,
+          "high": 221.6,
+          "low": 217.01,
+          "close": 221.23,
+          "volume": 10837057
+        },
+        {
+          "timestamp": "2026-05-12T13:35:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "09:35",
+          "session": "regular",
+          "open": 221.21,
+          "high": 222,
+          "low": 220.19,
+          "close": 221.99,
+          "volume": 4699338
+        },
+        {
+          "timestamp": "2026-05-12T13:40:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "09:40",
+          "session": "regular",
+          "open": 221.99,
+          "high": 223.75,
+          "low": 221.08,
+          "close": 223.73,
+          "volume": 5490119
+        },
+        {
+          "timestamp": "2026-05-12T13:45:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "09:45",
+          "session": "regular",
+          "open": 223.74,
+          "high": 223.74,
+          "low": 222.14,
+          "close": 222.43,
+          "volume": 3928482
+        },
+        {
+          "timestamp": "2026-05-12T13:50:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "09:50",
+          "session": "regular",
+          "open": 222.41,
+          "high": 223.6,
+          "low": 221.89,
+          "close": 223.31,
+          "volume": 3646536
+        },
+        {
+          "timestamp": "2026-05-12T13:55:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "09:55",
+          "session": "regular",
+          "open": 223.31,
+          "high": 223.31,
+          "low": 220.18,
+          "close": 220.31,
+          "volume": 3499337
+        },
+        {
+          "timestamp": "2026-05-12T14:00:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "10:00",
+          "session": "regular",
+          "open": 220.32,
+          "high": 221.78,
+          "low": 220.01,
+          "close": 221.19,
+          "volume": 3581751
+        },
+        {
+          "timestamp": "2026-05-12T14:05:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "10:05",
+          "session": "regular",
+          "open": 221.15,
+          "high": 221.62,
+          "low": 220.27,
+          "close": 220.61,
+          "volume": 2112646
+        },
+        {
+          "timestamp": "2026-05-12T14:10:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "10:10",
+          "session": "regular",
+          "open": 220.61,
+          "high": 220.97,
+          "low": 220.15,
+          "close": 220.44,
+          "volume": 1856948
+        },
+        {
+          "timestamp": "2026-05-12T14:15:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "10:15",
+          "session": "regular",
+          "open": 220.44,
+          "high": 220.64,
+          "low": 219.76,
+          "close": 220.46,
+          "volume": 2027890
+        },
+        {
+          "timestamp": "2026-05-12T14:20:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "10:20",
+          "session": "regular",
+          "open": 220.44,
+          "high": 220.64,
+          "low": 219.9,
+          "close": 220.05,
+          "volume": 1372182
+        },
+        {
+          "timestamp": "2026-05-12T14:25:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "10:25",
+          "session": "regular",
+          "open": 220.14,
+          "high": 220.31,
+          "low": 218.65,
+          "close": 218.92,
+          "volume": 2202593
+        },
+        {
+          "timestamp": "2026-05-12T14:30:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "10:30",
+          "session": "regular",
+          "open": 218.9,
+          "high": 218.97,
+          "low": 217.65,
+          "close": 218.34,
+          "volume": 2627008
+        },
+        {
+          "timestamp": "2026-05-12T14:35:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "10:35",
+          "session": "regular",
+          "open": 218.32,
+          "high": 219.1,
+          "low": 217.68,
+          "close": 218.67,
+          "volume": 2283619
+        },
+        {
+          "timestamp": "2026-05-12T14:40:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "10:40",
+          "session": "regular",
+          "open": 218.68,
+          "high": 219.1,
+          "low": 218.19,
+          "close": 218.26,
+          "volume": 1395496
+        },
+        {
+          "timestamp": "2026-05-12T14:45:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "10:45",
+          "session": "regular",
+          "open": 218.26,
+          "high": 218.49,
+          "low": 217.6,
+          "close": 217.63,
+          "volume": 1431880
+        },
+        {
+          "timestamp": "2026-05-12T14:50:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "10:50",
+          "session": "regular",
+          "open": 217.63,
+          "high": 218.9,
+          "low": 217.35,
+          "close": 218.63,
+          "volume": 1870133
+        },
+        {
+          "timestamp": "2026-05-12T14:55:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "10:55",
+          "session": "regular",
+          "open": 218.6,
+          "high": 218.9,
+          "low": 217.24,
+          "close": 217.37,
+          "volume": 2028924
+        },
+        {
+          "timestamp": "2026-05-12T15:00:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "11:00",
+          "session": "regular",
+          "open": 217.39,
+          "high": 217.82,
+          "low": 217.08,
+          "close": 217.37,
+          "volume": 2124953
+        },
+        {
+          "timestamp": "2026-05-12T15:05:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "11:05",
+          "session": "regular",
+          "open": 217.38,
+          "high": 217.99,
+          "low": 217.06,
+          "close": 217.74,
+          "volume": 1629712
+        },
+        {
+          "timestamp": "2026-05-12T15:10:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "11:10",
+          "session": "regular",
+          "open": 217.73,
+          "high": 217.84,
+          "low": 217.23,
+          "close": 217.35,
+          "volume": 1710529
+        },
+        {
+          "timestamp": "2026-05-12T15:15:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "11:15",
+          "session": "regular",
+          "open": 217.33,
+          "high": 217.37,
+          "low": 216.31,
+          "close": 217.12,
+          "volume": 3455645
+        },
+        {
+          "timestamp": "2026-05-12T15:20:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "11:20",
+          "session": "regular",
+          "open": 217.11,
+          "high": 217.29,
+          "low": 215.19,
+          "close": 215.48,
+          "volume": 3841488
+        },
+        {
+          "timestamp": "2026-05-12T15:25:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "11:25",
+          "session": "regular",
+          "open": 215.51,
+          "high": 216.03,
+          "low": 214.92,
+          "close": 215.46,
+          "volume": 2661764
+        },
+        {
+          "timestamp": "2026-05-12T15:30:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "11:30",
+          "session": "regular",
+          "open": 215.42,
+          "high": 216.81,
+          "low": 215.14,
+          "close": 216.65,
+          "volume": 1783218
+        },
+        {
+          "timestamp": "2026-05-12T15:35:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "11:35",
+          "session": "regular",
+          "open": 216.63,
+          "high": 217.62,
+          "low": 216.04,
+          "close": 217.24,
+          "volume": 1862815
+        },
+        {
+          "timestamp": "2026-05-12T15:40:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "11:40",
+          "session": "regular",
+          "open": 217.24,
+          "high": 217.54,
+          "low": 217.03,
+          "close": 217.28,
+          "volume": 1526214
+        },
+        {
+          "timestamp": "2026-05-12T15:45:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "11:45",
+          "session": "regular",
+          "open": 217.28,
+          "high": 217.55,
+          "low": 217,
+          "close": 217.24,
+          "volume": 1314166
+        },
+        {
+          "timestamp": "2026-05-12T15:50:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "11:50",
+          "session": "regular",
+          "open": 217.24,
+          "high": 217.62,
+          "low": 216.75,
+          "close": 217.3,
+          "volume": 1206199
+        },
+        {
+          "timestamp": "2026-05-12T15:55:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "11:55",
+          "session": "regular",
+          "open": 217.31,
+          "high": 217.42,
+          "low": 216.71,
+          "close": 216.86,
+          "volume": 1366586
+        },
+        {
+          "timestamp": "2026-05-12T16:00:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "12:00",
+          "session": "regular",
+          "open": 216.91,
+          "high": 217.99,
+          "low": 216.48,
+          "close": 217.89,
+          "volume": 1342943
+        },
+        {
+          "timestamp": "2026-05-12T16:05:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "12:05",
+          "session": "regular",
+          "open": 217.89,
+          "high": 218.09,
+          "low": 217.43,
+          "close": 217.6,
+          "volume": 1094162
+        },
+        {
+          "timestamp": "2026-05-12T16:10:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "12:10",
+          "session": "regular",
+          "open": 217.6,
+          "high": 218.26,
+          "low": 217.38,
+          "close": 218.16,
+          "volume": 1094813
+        },
+        {
+          "timestamp": "2026-05-12T16:15:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "12:15",
+          "session": "regular",
+          "open": 218.17,
+          "high": 218.18,
+          "low": 217.4,
+          "close": 217.42,
+          "volume": 1034002
+        },
+        {
+          "timestamp": "2026-05-12T16:20:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "12:20",
+          "session": "regular",
+          "open": 217.44,
+          "high": 217.65,
+          "low": 217.11,
+          "close": 217.37,
+          "volume": 1059491
+        },
+        {
+          "timestamp": "2026-05-12T16:25:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "12:25",
+          "session": "regular",
+          "open": 217.37,
+          "high": 217.76,
+          "low": 217.23,
+          "close": 217.51,
+          "volume": 884118
+        },
+        {
+          "timestamp": "2026-05-12T16:30:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "12:30",
+          "session": "regular",
+          "open": 217.52,
+          "high": 217.63,
+          "low": 217.03,
+          "close": 217.4,
+          "volume": 908959
+        },
+        {
+          "timestamp": "2026-05-12T16:35:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "12:35",
+          "session": "regular",
+          "open": 217.4,
+          "high": 217.68,
+          "low": 217.33,
+          "close": 217.43,
+          "volume": 790149
+        },
+        {
+          "timestamp": "2026-05-12T16:40:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "12:40",
+          "session": "regular",
+          "open": 217.44,
+          "high": 217.85,
+          "low": 216.8,
+          "close": 217.29,
+          "volume": 1255707
+        },
+        {
+          "timestamp": "2026-05-12T16:45:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "12:45",
+          "session": "regular",
+          "open": 217.27,
+          "high": 217.52,
+          "low": 216.84,
+          "close": 217.24,
+          "volume": 832935
+        },
+        {
+          "timestamp": "2026-05-12T16:50:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "12:50",
+          "session": "regular",
+          "open": 217.24,
+          "high": 217.26,
+          "low": 216.16,
+          "close": 216.49,
+          "volume": 965665
+        },
+        {
+          "timestamp": "2026-05-12T16:55:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "12:55",
+          "session": "regular",
+          "open": 216.46,
+          "high": 216.55,
+          "low": 215.68,
+          "close": 215.9,
+          "volume": 1256209
+        },
+        {
+          "timestamp": "2026-05-12T17:00:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "13:00",
+          "session": "regular",
+          "open": 215.92,
+          "high": 216.26,
+          "low": 215.53,
+          "close": 215.83,
+          "volume": 1357433
+        },
+        {
+          "timestamp": "2026-05-12T17:05:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "13:05",
+          "session": "regular",
+          "open": 215.82,
+          "high": 216.53,
+          "low": 215.81,
+          "close": 216.16,
+          "volume": 1234823
+        },
+        {
+          "timestamp": "2026-05-12T17:10:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "13:10",
+          "session": "regular",
+          "open": 216.2,
+          "high": 216.58,
+          "low": 216.1,
+          "close": 216.47,
+          "volume": 3447165
+        },
+        {
+          "timestamp": "2026-05-12T17:15:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "13:15",
+          "session": "regular",
+          "open": 216.47,
+          "high": 217.39,
+          "low": 216.46,
+          "close": 217.29,
+          "volume": 1138350
+        },
+        {
+          "timestamp": "2026-05-12T17:20:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "13:20",
+          "session": "regular",
+          "open": 217.29,
+          "high": 218.09,
+          "low": 217.27,
+          "close": 217.86,
+          "volume": 1369887
+        },
+        {
+          "timestamp": "2026-05-12T17:25:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "13:25",
+          "session": "regular",
+          "open": 217.86,
+          "high": 217.94,
+          "low": 217.21,
+          "close": 217.72,
+          "volume": 1120560
+        },
+        {
+          "timestamp": "2026-05-12T17:30:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "13:30",
+          "session": "regular",
+          "open": 217.72,
+          "high": 218.72,
+          "low": 217.67,
+          "close": 218.58,
+          "volume": 1549235
+        },
+        {
+          "timestamp": "2026-05-12T17:35:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "13:35",
+          "session": "regular",
+          "open": 218.57,
+          "high": 218.67,
+          "low": 218.03,
+          "close": 218.33,
+          "volume": 1043535
+        },
+        {
+          "timestamp": "2026-05-12T17:40:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "13:40",
+          "session": "regular",
+          "open": 218.37,
+          "high": 218.66,
+          "low": 218.29,
+          "close": 218.45,
+          "volume": 779866
+        },
+        {
+          "timestamp": "2026-05-12T17:45:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "13:45",
+          "session": "regular",
+          "open": 218.46,
+          "high": 218.66,
+          "low": 218.21,
+          "close": 218.54,
+          "volume": 636472
+        },
+        {
+          "timestamp": "2026-05-12T17:50:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "13:50",
+          "session": "regular",
+          "open": 218.55,
+          "high": 218.68,
+          "low": 218.2,
+          "close": 218.66,
+          "volume": 616726
+        },
+        {
+          "timestamp": "2026-05-12T17:55:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "13:55",
+          "session": "regular",
+          "open": 218.68,
+          "high": 218.85,
+          "low": 218.36,
+          "close": 218.6,
+          "volume": 658080
+        },
+        {
+          "timestamp": "2026-05-12T18:00:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "14:00",
+          "session": "regular",
+          "open": 218.59,
+          "high": 218.72,
+          "low": 218.13,
+          "close": 218.29,
+          "volume": 814433
+        },
+        {
+          "timestamp": "2026-05-12T18:05:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "14:05",
+          "session": "regular",
+          "open": 218.28,
+          "high": 218.37,
+          "low": 217.85,
+          "close": 217.91,
+          "volume": 739391
+        },
+        {
+          "timestamp": "2026-05-12T18:10:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "14:10",
+          "session": "regular",
+          "open": 217.9,
+          "high": 218.48,
+          "low": 217.77,
+          "close": 218.42,
+          "volume": 610524
+        },
+        {
+          "timestamp": "2026-05-12T18:15:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "14:15",
+          "session": "regular",
+          "open": 218.37,
+          "high": 218.56,
+          "low": 217.82,
+          "close": 218.12,
+          "volume": 677274
+        },
+        {
+          "timestamp": "2026-05-12T18:20:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "14:20",
+          "session": "regular",
+          "open": 218.11,
+          "high": 218.37,
+          "low": 218.02,
+          "close": 218.22,
+          "volume": 478220
+        },
+        {
+          "timestamp": "2026-05-12T18:25:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "14:25",
+          "session": "regular",
+          "open": 218.25,
+          "high": 219.2,
+          "low": 218.24,
+          "close": 218.96,
+          "volume": 1289843
+        },
+        {
+          "timestamp": "2026-05-12T18:30:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "14:30",
+          "session": "regular",
+          "open": 218.95,
+          "high": 219.71,
+          "low": 218.89,
+          "close": 219.45,
+          "volume": 1378716
+        },
+        {
+          "timestamp": "2026-05-12T18:35:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "14:35",
+          "session": "regular",
+          "open": 219.44,
+          "high": 219.86,
+          "low": 219.24,
+          "close": 219.63,
+          "volume": 1312996
+        },
+        {
+          "timestamp": "2026-05-12T18:40:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "14:40",
+          "session": "regular",
+          "open": 219.68,
+          "high": 220,
+          "low": 219.53,
+          "close": 219.66,
+          "volume": 998008
+        },
+        {
+          "timestamp": "2026-05-12T18:45:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "14:45",
+          "session": "regular",
+          "open": 219.66,
+          "high": 219.66,
+          "low": 219,
+          "close": 219.52,
+          "volume": 1087811
+        },
+        {
+          "timestamp": "2026-05-12T18:50:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "14:50",
+          "session": "regular",
+          "open": 219.51,
+          "high": 219.99,
+          "low": 219.36,
+          "close": 219.85,
+          "volume": 830680
+        },
+        {
+          "timestamp": "2026-05-12T18:55:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "14:55",
+          "session": "regular",
+          "open": 219.85,
+          "high": 220.34,
+          "low": 219.25,
+          "close": 219.53,
+          "volume": 1662829
+        },
+        {
+          "timestamp": "2026-05-12T19:00:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "15:00",
+          "session": "regular",
+          "open": 219.52,
+          "high": 220.1,
+          "low": 219.52,
+          "close": 219.98,
+          "volume": 857985
+        },
+        {
+          "timestamp": "2026-05-12T19:05:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "15:05",
+          "session": "regular",
+          "open": 219.97,
+          "high": 220.61,
+          "low": 219.66,
+          "close": 220.38,
+          "volume": 1442731
+        },
+        {
+          "timestamp": "2026-05-12T19:10:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "15:10",
+          "session": "regular",
+          "open": 220.38,
+          "high": 220.68,
+          "low": 220.13,
+          "close": 220.59,
+          "volume": 1020078
+        },
+        {
+          "timestamp": "2026-05-12T19:15:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "15:15",
+          "session": "regular",
+          "open": 220.59,
+          "high": 221.06,
+          "low": 220.59,
+          "close": 221.03,
+          "volume": 1674138
+        },
+        {
+          "timestamp": "2026-05-12T19:20:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "15:20",
+          "session": "regular",
+          "open": 221.03,
+          "high": 221.14,
+          "low": 220.26,
+          "close": 220.49,
+          "volume": 1409089
+        },
+        {
+          "timestamp": "2026-05-12T19:25:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "15:25",
+          "session": "regular",
+          "open": 220.49,
+          "high": 220.88,
+          "low": 220.37,
+          "close": 220.73,
+          "volume": 963468
+        },
+        {
+          "timestamp": "2026-05-12T19:30:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "15:30",
+          "session": "regular",
+          "open": 220.74,
+          "high": 221.43,
+          "low": 220.71,
+          "close": 221.33,
+          "volume": 1500426
+        },
+        {
+          "timestamp": "2026-05-12T19:35:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "15:35",
+          "session": "regular",
+          "open": 221.35,
+          "high": 221.6,
+          "low": 221.21,
+          "close": 221.58,
+          "volume": 1234214
+        },
+        {
+          "timestamp": "2026-05-12T19:40:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "15:40",
+          "session": "regular",
+          "open": 221.57,
+          "high": 221.74,
+          "low": 221.26,
+          "close": 221.28,
+          "volume": 1377743
+        },
+        {
+          "timestamp": "2026-05-12T19:45:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "15:45",
+          "session": "regular",
+          "open": 221.28,
+          "high": 221.29,
+          "low": 220.45,
+          "close": 220.7,
+          "volume": 1722995
+        },
+        {
+          "timestamp": "2026-05-12T19:50:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "15:50",
+          "session": "regular",
+          "open": 220.71,
+          "high": 221.28,
+          "low": 220.32,
+          "close": 220.33,
+          "volume": 2358982
+        },
+        {
+          "timestamp": "2026-05-12T19:55:00.000Z",
+          "tradingDate": "2026-05-12",
+          "time": "15:55",
+          "session": "regular",
+          "open": 220.33,
+          "high": 221.03,
+          "low": 220.15,
+          "close": 220.87,
+          "volume": 4709636
+        }
+      ],
+      "previousClose": 219.48,
+      "regularMarketPrice": 220.87,
+      "coverage": {
+        "firstTimestamp": "2026-05-12T13:30:00.000Z",
+        "lastTimestamp": "2026-05-12T19:55:00.000Z",
+        "candleCount": 78,
+        "hasPremarket": false,
+        "hasRegular": true,
+        "hasPostmarket": false
+      }
+    },
+    {
+      "tradingDate": "2026-05-13",
+      "status": "current-intraday",
+      "candles": [
+        {
+          "timestamp": "2026-05-13T13:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "09:30",
+          "session": "regular",
+          "open": 224.93,
+          "high": 226.88,
+          "low": 224.12,
+          "close": 226.79,
+          "volume": 16711694
+        },
+        {
+          "timestamp": "2026-05-13T13:35:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "09:35",
+          "session": "regular",
+          "open": 226.79,
+          "high": 227.16,
+          "low": 225.2,
+          "close": 225.82,
+          "volume": 5151306
+        },
+        {
+          "timestamp": "2026-05-13T13:40:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "09:40",
+          "session": "regular",
+          "open": 225.8,
+          "high": 225.81,
+          "low": 224.4,
+          "close": 224.57,
+          "volume": 3264583
+        },
+        {
+          "timestamp": "2026-05-13T13:45:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "09:45",
+          "session": "regular",
+          "open": 224.58,
+          "high": 224.8,
+          "low": 221.84,
+          "close": 222.55,
+          "volume": 4346027
+        },
+        {
+          "timestamp": "2026-05-13T13:50:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "09:50",
+          "session": "regular",
+          "open": 222.53,
+          "high": 224.15,
+          "low": 221.57,
+          "close": 224.01,
+          "volume": 4086502
+        },
+        {
+          "timestamp": "2026-05-13T13:55:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "09:55",
+          "session": "regular",
+          "open": 224.03,
+          "high": 224.6,
+          "low": 223.31,
+          "close": 224.1,
+          "volume": 2581348
+        },
+        {
+          "timestamp": "2026-05-13T14:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "10:00",
+          "session": "regular",
+          "open": 224.1,
+          "high": 224.24,
+          "low": 223.18,
+          "close": 223.59,
+          "volume": 1766904
+        },
+        {
+          "timestamp": "2026-05-13T14:05:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "10:05",
+          "session": "regular",
+          "open": 223.58,
+          "high": 223.96,
+          "low": 223.06,
+          "close": 223.32,
+          "volume": 1949042
+        },
+        {
+          "timestamp": "2026-05-13T14:10:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "10:10",
+          "session": "regular",
+          "open": 223.29,
+          "high": 224.28,
+          "low": 223.13,
+          "close": 224.03,
+          "volume": 1560446
+        },
+        {
+          "timestamp": "2026-05-13T14:15:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "10:15",
+          "session": "regular",
+          "open": 224.02,
+          "high": 224.87,
+          "low": 223.6,
+          "close": 224.02,
+          "volume": 1948065
+        },
+        {
+          "timestamp": "2026-05-13T14:20:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "10:20",
+          "session": "regular",
+          "open": 224.05,
+          "high": 225.17,
+          "low": 223.85,
+          "close": 224.67,
+          "volume": 2007106
+        },
+        {
+          "timestamp": "2026-05-13T14:25:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "10:25",
+          "session": "regular",
+          "open": 224.68,
+          "high": 225.05,
+          "low": 224.33,
+          "close": 224.44,
+          "volume": 1491040
+        },
+        {
+          "timestamp": "2026-05-13T14:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "10:30",
+          "session": "regular",
+          "open": 224.46,
+          "high": 224.83,
+          "low": 223.7,
+          "close": 224.6,
+          "volume": 1874580
+        },
+        {
+          "timestamp": "2026-05-13T14:35:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "10:35",
+          "session": "regular",
+          "open": 224.59,
+          "high": 225.09,
+          "low": 224.18,
+          "close": 224.38,
+          "volume": 1506389
+        },
+        {
+          "timestamp": "2026-05-13T14:40:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "10:40",
+          "session": "regular",
+          "open": 224.38,
+          "high": 225.43,
+          "low": 224.31,
+          "close": 225.25,
+          "volume": 1699851
+        },
+        {
+          "timestamp": "2026-05-13T14:45:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "10:45",
+          "session": "regular",
+          "open": 225.25,
+          "high": 225.46,
+          "low": 224.47,
+          "close": 225.18,
+          "volume": 1820731
+        },
+        {
+          "timestamp": "2026-05-13T14:50:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "10:50",
+          "session": "regular",
+          "open": 225.16,
+          "high": 225.99,
+          "low": 224.99,
+          "close": 225.82,
+          "volume": 1774920
+        },
+        {
+          "timestamp": "2026-05-13T14:55:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "10:55",
+          "session": "regular",
+          "open": 225.82,
+          "high": 226.46,
+          "low": 225.72,
+          "close": 226.41,
+          "volume": 2127409
+        },
+        {
+          "timestamp": "2026-05-13T15:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "11:00",
+          "session": "regular",
+          "open": 226.41,
+          "high": 226.99,
+          "low": 226.25,
+          "close": 226.76,
+          "volume": 2398405
+        },
+        {
+          "timestamp": "2026-05-13T15:05:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "11:05",
+          "session": "regular",
+          "open": 226.75,
+          "high": 227.56,
+          "low": 226.42,
+          "close": 227.54,
+          "volume": 3729525
+        },
+        {
+          "timestamp": "2026-05-13T15:10:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "11:10",
+          "session": "regular",
+          "open": 227.53,
+          "high": 227.57,
+          "low": 226.23,
+          "close": 226.68,
+          "volume": 2799945
+        },
+        {
+          "timestamp": "2026-05-13T15:15:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "11:15",
+          "session": "regular",
+          "open": 226.69,
+          "high": 227.24,
+          "low": 226.62,
+          "close": 226.99,
+          "volume": 1708969
+        },
+        {
+          "timestamp": "2026-05-13T15:20:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "11:20",
+          "session": "regular",
+          "open": 226.99,
+          "high": 226.99,
+          "low": 225.92,
+          "close": 226.1,
+          "volume": 1524858
+        },
+        {
+          "timestamp": "2026-05-13T15:25:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "11:25",
+          "session": "regular",
+          "open": 226.09,
+          "high": 226.35,
+          "low": 225.74,
+          "close": 226.21,
+          "volume": 1308610
+        },
+        {
+          "timestamp": "2026-05-13T15:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "11:30",
+          "session": "regular",
+          "open": 226.22,
+          "high": 226.25,
+          "low": 225.71,
+          "close": 226.24,
+          "volume": 1064492
+        },
+        {
+          "timestamp": "2026-05-13T15:35:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "11:35",
+          "session": "regular",
+          "open": 226.24,
+          "high": 226.55,
+          "low": 226.15,
+          "close": 226.3,
+          "volume": 1191863
+        },
+        {
+          "timestamp": "2026-05-13T15:40:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "11:40",
+          "session": "regular",
+          "open": 226.35,
+          "high": 227.24,
+          "low": 226.31,
+          "close": 227.15,
+          "volume": 1336812
+        },
+        {
+          "timestamp": "2026-05-13T15:45:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "11:45",
+          "session": "regular",
+          "open": 227.13,
+          "high": 227.17,
+          "low": 226.8,
+          "close": 227.02,
+          "volume": 1096809
+        },
+        {
+          "timestamp": "2026-05-13T15:50:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "11:50",
+          "session": "regular",
+          "open": 227.01,
+          "high": 227.35,
+          "low": 226.52,
+          "close": 227.25,
+          "volume": 1430560
+        },
+        {
+          "timestamp": "2026-05-13T15:55:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "11:55",
+          "session": "regular",
+          "open": 227.23,
+          "high": 227.28,
+          "low": 226.55,
+          "close": 226.55,
+          "volume": 1210397
+        },
+        {
+          "timestamp": "2026-05-13T16:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "12:00",
+          "session": "regular",
+          "open": 226.56,
+          "high": 227.31,
+          "low": 226.38,
+          "close": 227.13,
+          "volume": 1349498
+        },
+        {
+          "timestamp": "2026-05-13T16:05:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "12:05",
+          "session": "regular",
+          "open": 227.15,
+          "high": 227.2,
+          "low": 226.75,
+          "close": 227.15,
+          "volume": 1145811
+        },
+        {
+          "timestamp": "2026-05-13T16:10:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "12:10",
+          "session": "regular",
+          "open": 227.16,
+          "high": 227.72,
+          "low": 227.05,
+          "close": 227.66,
+          "volume": 1522668
+        },
+        {
+          "timestamp": "2026-05-13T16:15:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "12:15",
+          "session": "regular",
+          "open": 227.67,
+          "high": 227.84,
+          "low": 226.9,
+          "close": 227.1,
+          "volume": 1706293
+        },
+        {
+          "timestamp": "2026-05-13T16:20:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "12:20",
+          "session": "regular",
+          "open": 227.1,
+          "high": 227.68,
+          "low": 226.86,
+          "close": 227.56,
+          "volume": 1275355
+        },
+        {
+          "timestamp": "2026-05-13T16:25:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "12:25",
+          "session": "regular",
+          "open": 227.55,
+          "high": 227.68,
+          "low": 227.21,
+          "close": 227.33,
+          "volume": 957904
+        },
+        {
+          "timestamp": "2026-05-13T16:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "12:30",
+          "session": "regular",
+          "open": 227.3,
+          "high": 227.44,
+          "low": 227.04,
+          "close": 227.33,
+          "volume": 906397
+        },
+        {
+          "timestamp": "2026-05-13T16:35:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "12:35",
+          "session": "regular",
+          "open": 227.34,
+          "high": 227.65,
+          "low": 227.13,
+          "close": 227.16,
+          "volume": 938961
+        },
+        {
+          "timestamp": "2026-05-13T16:40:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "12:40",
+          "session": "regular",
+          "open": 227.16,
+          "high": 227.34,
+          "low": 226.91,
+          "close": 227,
+          "volume": 1180703
+        },
+        {
+          "timestamp": "2026-05-13T16:45:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "12:45",
+          "session": "regular",
+          "open": 226.99,
+          "high": 227.09,
+          "low": 226.66,
+          "close": 226.86,
+          "volume": 1329582
+        },
+        {
+          "timestamp": "2026-05-13T16:50:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "12:50",
+          "session": "regular",
+          "open": 226.87,
+          "high": 227,
+          "low": 226.7,
+          "close": 226.97,
+          "volume": 727176
+        },
+        {
+          "timestamp": "2026-05-13T16:55:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "12:55",
+          "session": "regular",
+          "open": 226.96,
+          "high": 227.16,
+          "low": 226.74,
+          "close": 226.8,
+          "volume": 786137
+        },
+        {
+          "timestamp": "2026-05-13T17:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "13:00",
+          "session": "regular",
+          "open": 226.83,
+          "high": 227.16,
+          "low": 226.7,
+          "close": 226.96,
+          "volume": 760559
+        },
+        {
+          "timestamp": "2026-05-13T17:05:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "13:05",
+          "session": "regular",
+          "open": 226.94,
+          "high": 227.22,
+          "low": 226.87,
+          "close": 226.92,
+          "volume": 829391
+        },
+        {
+          "timestamp": "2026-05-13T17:10:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "13:10",
+          "session": "regular",
+          "open": 226.91,
+          "high": 227.12,
+          "low": 226.9,
+          "close": 227.04,
+          "volume": 852555
+        },
+        {
+          "timestamp": "2026-05-13T17:15:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "13:15",
+          "session": "regular",
+          "open": 227.03,
+          "high": 227.29,
+          "low": 227.01,
+          "close": 227.18,
+          "volume": 656589
+        },
+        {
+          "timestamp": "2026-05-13T17:20:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "13:20",
+          "session": "regular",
+          "open": 227.2,
+          "high": 227.34,
+          "low": 226.82,
+          "close": 226.84,
+          "volume": 879462
+        },
+        {
+          "timestamp": "2026-05-13T17:25:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "13:25",
+          "session": "regular",
+          "open": 226.85,
+          "high": 227.04,
+          "low": 226.75,
+          "close": 226.95,
+          "volume": 709153
+        },
+        {
+          "timestamp": "2026-05-13T17:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "13:30",
+          "session": "regular",
+          "open": 226.93,
+          "high": 227.02,
+          "low": 226.36,
+          "close": 226.47,
+          "volume": 1035108
+        },
+        {
+          "timestamp": "2026-05-13T17:35:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "13:35",
+          "session": "regular",
+          "open": 226.47,
+          "high": 226.51,
+          "low": 226.05,
+          "close": 226.07,
+          "volume": 890966
+        },
+        {
+          "timestamp": "2026-05-13T17:40:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "13:40",
+          "session": "regular",
+          "open": 226.07,
+          "high": 226.37,
+          "low": 226.05,
+          "close": 226.32,
+          "volume": 806739
+        },
+        {
+          "timestamp": "2026-05-13T17:45:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "13:45",
+          "session": "regular",
+          "open": 226.3,
+          "high": 226.42,
+          "low": 225.96,
+          "close": 226,
+          "volume": 988284
+        },
+        {
+          "timestamp": "2026-05-13T17:50:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "13:50",
+          "session": "regular",
+          "open": 226.01,
+          "high": 226.24,
+          "low": 225.86,
+          "close": 225.88,
+          "volume": 848073
+        },
+        {
+          "timestamp": "2026-05-13T17:55:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "13:55",
+          "session": "regular",
+          "open": 225.86,
+          "high": 226.15,
+          "low": 225.41,
+          "close": 225.47,
+          "volume": 1244342
+        },
+        {
+          "timestamp": "2026-05-13T18:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "14:00",
+          "session": "regular",
+          "open": 225.48,
+          "high": 226.3,
+          "low": 225.43,
+          "close": 226.11,
+          "volume": 1377814
+        },
+        {
+          "timestamp": "2026-05-13T18:05:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "14:05",
+          "session": "regular",
+          "open": 226.12,
+          "high": 226.72,
+          "low": 226.03,
+          "close": 226.63,
+          "volume": 1147931
+        },
+        {
+          "timestamp": "2026-05-13T18:10:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "14:10",
+          "session": "regular",
+          "open": 226.62,
+          "high": 227.03,
+          "low": 226.54,
+          "close": 227.01,
+          "volume": 1080295
+        },
+        {
+          "timestamp": "2026-05-13T18:15:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "14:15",
+          "session": "regular",
+          "open": 227.01,
+          "high": 227.31,
+          "low": 226.98,
+          "close": 227.27,
+          "volume": 1156684
+        },
+        {
+          "timestamp": "2026-05-13T18:20:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "14:20",
+          "session": "regular",
+          "open": 227.26,
+          "high": 227.43,
+          "low": 227.11,
+          "close": 227.18,
+          "volume": 895832
+        },
+        {
+          "timestamp": "2026-05-13T18:25:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "14:25",
+          "session": "regular",
+          "open": 227.21,
+          "high": 227.35,
+          "low": 226.93,
+          "close": 226.96,
+          "volume": 857629
+        },
+        {
+          "timestamp": "2026-05-13T18:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "14:30",
+          "session": "regular",
+          "open": 226.96,
+          "high": 227.16,
+          "low": 226.86,
+          "close": 227.15,
+          "volume": 688518
+        },
+        {
+          "timestamp": "2026-05-13T18:35:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "14:35",
+          "session": "regular",
+          "open": 227.16,
+          "high": 227.16,
+          "low": 226.84,
+          "close": 227.05,
+          "volume": 615531
+        },
+        {
+          "timestamp": "2026-05-13T18:40:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "14:40",
+          "session": "regular",
+          "open": 227.08,
+          "high": 227.2,
+          "low": 226.8,
+          "close": 226.83,
+          "volume": 600839
+        },
+        {
+          "timestamp": "2026-05-13T18:45:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "14:45",
+          "session": "regular",
+          "open": 226.82,
+          "high": 227.01,
+          "low": 226.62,
+          "close": 226.85,
+          "volume": 812512
+        },
+        {
+          "timestamp": "2026-05-13T18:50:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "14:50",
+          "session": "regular",
+          "open": 226.86,
+          "high": 227.09,
+          "low": 226.73,
+          "close": 227.08,
+          "volume": 643800
+        },
+        {
+          "timestamp": "2026-05-13T18:55:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "14:55",
+          "session": "regular",
+          "open": 227.09,
+          "high": 227.17,
+          "low": 226.35,
+          "close": 226.46,
+          "volume": 856231
+        },
+        {
+          "timestamp": "2026-05-13T19:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "15:00",
+          "session": "regular",
+          "open": 226.45,
+          "high": 226.75,
+          "low": 226.32,
+          "close": 226.35,
+          "volume": 770387
+        },
+        {
+          "timestamp": "2026-05-13T19:05:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "15:05",
+          "session": "regular",
+          "open": 226.36,
+          "high": 226.93,
+          "low": 226.3,
+          "close": 226.91,
+          "volume": 893262
+        },
+        {
+          "timestamp": "2026-05-13T19:10:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "15:10",
+          "session": "regular",
+          "open": 226.89,
+          "high": 227.16,
+          "low": 226.72,
+          "close": 227.04,
+          "volume": 1049931
+        },
+        {
+          "timestamp": "2026-05-13T19:15:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "15:15",
+          "session": "regular",
+          "open": 227.04,
+          "high": 227.14,
+          "low": 226.9,
+          "close": 227.03,
+          "volume": 775704
+        },
+        {
+          "timestamp": "2026-05-13T19:20:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "15:20",
+          "session": "regular",
+          "open": 227.04,
+          "high": 227.05,
+          "low": 226.31,
+          "close": 226.38,
+          "volume": 938055
+        },
+        {
+          "timestamp": "2026-05-13T19:25:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "15:25",
+          "session": "regular",
+          "open": 226.36,
+          "high": 226.8,
+          "low": 226.31,
+          "close": 226.78,
+          "volume": 1004503
+        },
+        {
+          "timestamp": "2026-05-13T19:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "15:30",
+          "session": "regular",
+          "open": 226.79,
+          "high": 226.81,
+          "low": 226.36,
+          "close": 226.48,
+          "volume": 806042
+        },
+        {
+          "timestamp": "2026-05-13T19:35:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "15:35",
+          "session": "regular",
+          "open": 226.47,
+          "high": 226.57,
+          "low": 226.23,
+          "close": 226.34,
+          "volume": 862181
+        },
+        {
+          "timestamp": "2026-05-13T19:40:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "15:40",
+          "session": "regular",
+          "open": 226.35,
+          "high": 226.45,
+          "low": 226.2,
+          "close": 226.23,
+          "volume": 797458
+        },
+        {
+          "timestamp": "2026-05-13T19:45:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "15:45",
+          "session": "regular",
+          "open": 226.22,
+          "high": 226.29,
+          "low": 226.03,
+          "close": 226.13,
+          "volume": 1060468
+        },
+        {
+          "timestamp": "2026-05-13T19:50:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "15:50",
+          "session": "regular",
+          "open": 226.12,
+          "high": 226.12,
+          "low": 225.08,
+          "close": 225.43,
+          "volume": 3172874
+        },
+        {
+          "timestamp": "2026-05-13T19:55:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "15:55",
+          "session": "regular",
+          "open": 225.44,
+          "high": 226,
+          "low": 225.33,
+          "close": 225.87,
+          "volume": 4360936
+        },
+        {
+          "timestamp": "2026-05-13T20:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "time": "16:00",
+          "session": "post",
+          "open": 225.89,
+          "high": 225.99,
+          "low": 225.57,
+          "close": 225.98,
+          "volume": 9283050
+        }
+      ],
+      "previousClose": 220.87,
+      "regularMarketPrice": 225.98,
+      "coverage": {
+        "firstTimestamp": "2026-05-13T13:30:00.000Z",
+        "lastTimestamp": "2026-05-13T20:00:00.000Z",
+        "candleCount": 79,
+        "hasPremarket": false,
+        "hasRegular": true,
+        "hasPostmarket": true
+      }
+    }
+  ],
   "stock": {
     "bars": [
       {
         "time": "2026-05-13T13:30:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 224.93,
         "high": 226.88,
         "low": 224.12,
@@ -41,6 +3550,7 @@
       },
       {
         "time": "2026-05-13T13:35:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.79,
         "high": 227.16,
         "low": 225.2,
@@ -52,6 +3562,7 @@
       },
       {
         "time": "2026-05-13T13:40:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 225.8,
         "high": 225.81,
         "low": 224.4,
@@ -63,6 +3574,7 @@
       },
       {
         "time": "2026-05-13T13:45:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 224.58,
         "high": 224.8,
         "low": 221.84,
@@ -74,6 +3586,7 @@
       },
       {
         "time": "2026-05-13T13:50:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 222.53,
         "high": 224.15,
         "low": 221.57,
@@ -85,6 +3598,7 @@
       },
       {
         "time": "2026-05-13T13:55:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 224.03,
         "high": 224.6,
         "low": 223.31,
@@ -96,6 +3610,7 @@
       },
       {
         "time": "2026-05-13T14:00:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 224.1,
         "high": 224.24,
         "low": 223.18,
@@ -107,6 +3622,7 @@
       },
       {
         "time": "2026-05-13T14:05:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 223.58,
         "high": 223.96,
         "low": 223.06,
@@ -118,6 +3634,7 @@
       },
       {
         "time": "2026-05-13T14:10:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 223.29,
         "high": 224.28,
         "low": 223.13,
@@ -129,6 +3646,7 @@
       },
       {
         "time": "2026-05-13T14:15:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 224.02,
         "high": 224.87,
         "low": 223.6,
@@ -140,6 +3658,7 @@
       },
       {
         "time": "2026-05-13T14:20:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 224.05,
         "high": 225.17,
         "low": 223.85,
@@ -151,6 +3670,7 @@
       },
       {
         "time": "2026-05-13T14:25:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 224.68,
         "high": 225.05,
         "low": 224.33,
@@ -162,6 +3682,7 @@
       },
       {
         "time": "2026-05-13T14:30:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 224.46,
         "high": 224.83,
         "low": 223.7,
@@ -173,6 +3694,7 @@
       },
       {
         "time": "2026-05-13T14:35:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 224.59,
         "high": 225.09,
         "low": 224.18,
@@ -184,6 +3706,7 @@
       },
       {
         "time": "2026-05-13T14:40:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 224.38,
         "high": 225.43,
         "low": 224.31,
@@ -195,6 +3718,7 @@
       },
       {
         "time": "2026-05-13T14:45:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 225.25,
         "high": 225.46,
         "low": 224.47,
@@ -206,6 +3730,7 @@
       },
       {
         "time": "2026-05-13T14:50:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 225.16,
         "high": 225.99,
         "low": 224.99,
@@ -217,6 +3742,7 @@
       },
       {
         "time": "2026-05-13T14:55:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 225.82,
         "high": 226.46,
         "low": 225.72,
@@ -228,6 +3754,7 @@
       },
       {
         "time": "2026-05-13T15:00:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.41,
         "high": 226.99,
         "low": 226.25,
@@ -239,6 +3766,7 @@
       },
       {
         "time": "2026-05-13T15:05:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.75,
         "high": 227.56,
         "low": 226.42,
@@ -250,6 +3778,7 @@
       },
       {
         "time": "2026-05-13T15:10:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.53,
         "high": 227.57,
         "low": 226.23,
@@ -261,6 +3790,7 @@
       },
       {
         "time": "2026-05-13T15:15:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.69,
         "high": 227.24,
         "low": 226.62,
@@ -272,6 +3802,7 @@
       },
       {
         "time": "2026-05-13T15:20:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.99,
         "high": 226.99,
         "low": 225.92,
@@ -283,6 +3814,7 @@
       },
       {
         "time": "2026-05-13T15:25:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.09,
         "high": 226.35,
         "low": 225.74,
@@ -294,6 +3826,7 @@
       },
       {
         "time": "2026-05-13T15:30:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.22,
         "high": 226.25,
         "low": 225.71,
@@ -305,6 +3838,7 @@
       },
       {
         "time": "2026-05-13T15:35:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.24,
         "high": 226.55,
         "low": 226.15,
@@ -316,6 +3850,7 @@
       },
       {
         "time": "2026-05-13T15:40:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.35,
         "high": 227.24,
         "low": 226.31,
@@ -327,6 +3862,7 @@
       },
       {
         "time": "2026-05-13T15:45:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.13,
         "high": 227.17,
         "low": 226.8,
@@ -338,6 +3874,7 @@
       },
       {
         "time": "2026-05-13T15:50:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.01,
         "high": 227.35,
         "low": 226.52,
@@ -349,6 +3886,7 @@
       },
       {
         "time": "2026-05-13T15:55:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.23,
         "high": 227.28,
         "low": 226.55,
@@ -360,6 +3898,7 @@
       },
       {
         "time": "2026-05-13T16:00:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.56,
         "high": 227.31,
         "low": 226.38,
@@ -371,6 +3910,7 @@
       },
       {
         "time": "2026-05-13T16:05:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.15,
         "high": 227.2,
         "low": 226.75,
@@ -382,6 +3922,7 @@
       },
       {
         "time": "2026-05-13T16:10:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.16,
         "high": 227.72,
         "low": 227.05,
@@ -393,6 +3934,7 @@
       },
       {
         "time": "2026-05-13T16:15:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.67,
         "high": 227.84,
         "low": 226.9,
@@ -404,6 +3946,7 @@
       },
       {
         "time": "2026-05-13T16:20:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.1,
         "high": 227.68,
         "low": 226.86,
@@ -415,6 +3958,7 @@
       },
       {
         "time": "2026-05-13T16:25:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.55,
         "high": 227.68,
         "low": 227.21,
@@ -426,6 +3970,7 @@
       },
       {
         "time": "2026-05-13T16:30:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.3,
         "high": 227.44,
         "low": 227.04,
@@ -437,6 +3982,7 @@
       },
       {
         "time": "2026-05-13T16:35:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.34,
         "high": 227.65,
         "low": 227.13,
@@ -448,6 +3994,7 @@
       },
       {
         "time": "2026-05-13T16:40:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.16,
         "high": 227.34,
         "low": 226.91,
@@ -459,6 +4006,7 @@
       },
       {
         "time": "2026-05-13T16:45:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.99,
         "high": 227.09,
         "low": 226.66,
@@ -470,6 +4018,7 @@
       },
       {
         "time": "2026-05-13T16:50:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.87,
         "high": 227,
         "low": 226.7,
@@ -481,6 +4030,7 @@
       },
       {
         "time": "2026-05-13T16:55:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.96,
         "high": 227.16,
         "low": 226.74,
@@ -492,6 +4042,7 @@
       },
       {
         "time": "2026-05-13T17:00:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.83,
         "high": 227.16,
         "low": 226.7,
@@ -503,6 +4054,7 @@
       },
       {
         "time": "2026-05-13T17:05:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.94,
         "high": 227.22,
         "low": 226.87,
@@ -514,6 +4066,7 @@
       },
       {
         "time": "2026-05-13T17:10:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.91,
         "high": 227.12,
         "low": 226.9,
@@ -525,6 +4078,7 @@
       },
       {
         "time": "2026-05-13T17:15:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.03,
         "high": 227.29,
         "low": 227.01,
@@ -536,6 +4090,7 @@
       },
       {
         "time": "2026-05-13T17:20:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.2,
         "high": 227.34,
         "low": 226.82,
@@ -547,6 +4102,7 @@
       },
       {
         "time": "2026-05-13T17:25:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.85,
         "high": 227.04,
         "low": 226.75,
@@ -558,6 +4114,7 @@
       },
       {
         "time": "2026-05-13T17:30:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.93,
         "high": 227.02,
         "low": 226.36,
@@ -569,6 +4126,7 @@
       },
       {
         "time": "2026-05-13T17:35:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.47,
         "high": 226.51,
         "low": 226.05,
@@ -580,6 +4138,7 @@
       },
       {
         "time": "2026-05-13T17:40:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.07,
         "high": 226.37,
         "low": 226.05,
@@ -591,6 +4150,7 @@
       },
       {
         "time": "2026-05-13T17:45:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.3,
         "high": 226.42,
         "low": 225.96,
@@ -602,6 +4162,7 @@
       },
       {
         "time": "2026-05-13T17:50:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.01,
         "high": 226.24,
         "low": 225.86,
@@ -613,6 +4174,7 @@
       },
       {
         "time": "2026-05-13T17:55:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 225.86,
         "high": 226.15,
         "low": 225.41,
@@ -624,6 +4186,7 @@
       },
       {
         "time": "2026-05-13T18:00:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 225.48,
         "high": 226.3,
         "low": 225.43,
@@ -635,6 +4198,7 @@
       },
       {
         "time": "2026-05-13T18:05:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.12,
         "high": 226.72,
         "low": 226.03,
@@ -646,6 +4210,7 @@
       },
       {
         "time": "2026-05-13T18:10:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.62,
         "high": 227.03,
         "low": 226.54,
@@ -657,6 +4222,7 @@
       },
       {
         "time": "2026-05-13T18:15:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.01,
         "high": 227.31,
         "low": 226.98,
@@ -668,6 +4234,7 @@
       },
       {
         "time": "2026-05-13T18:20:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.26,
         "high": 227.43,
         "low": 227.11,
@@ -679,6 +4246,7 @@
       },
       {
         "time": "2026-05-13T18:25:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.21,
         "high": 227.35,
         "low": 226.93,
@@ -690,6 +4258,7 @@
       },
       {
         "time": "2026-05-13T18:30:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.96,
         "high": 227.16,
         "low": 226.86,
@@ -701,6 +4270,7 @@
       },
       {
         "time": "2026-05-13T18:35:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.16,
         "high": 227.16,
         "low": 226.84,
@@ -712,6 +4282,7 @@
       },
       {
         "time": "2026-05-13T18:40:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.08,
         "high": 227.2,
         "low": 226.8,
@@ -723,6 +4294,7 @@
       },
       {
         "time": "2026-05-13T18:45:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.82,
         "high": 227.01,
         "low": 226.62,
@@ -734,6 +4306,7 @@
       },
       {
         "time": "2026-05-13T18:50:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.86,
         "high": 227.09,
         "low": 226.73,
@@ -745,6 +4318,7 @@
       },
       {
         "time": "2026-05-13T18:55:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.09,
         "high": 227.17,
         "low": 226.35,
@@ -756,6 +4330,7 @@
       },
       {
         "time": "2026-05-13T19:00:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.45,
         "high": 226.75,
         "low": 226.32,
@@ -767,6 +4342,7 @@
       },
       {
         "time": "2026-05-13T19:05:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.36,
         "high": 226.93,
         "low": 226.3,
@@ -778,6 +4354,7 @@
       },
       {
         "time": "2026-05-13T19:10:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.89,
         "high": 227.16,
         "low": 226.72,
@@ -789,6 +4366,7 @@
       },
       {
         "time": "2026-05-13T19:15:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.04,
         "high": 227.14,
         "low": 226.9,
@@ -800,6 +4378,7 @@
       },
       {
         "time": "2026-05-13T19:20:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 227.04,
         "high": 227.05,
         "low": 226.31,
@@ -811,6 +4390,7 @@
       },
       {
         "time": "2026-05-13T19:25:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.36,
         "high": 226.8,
         "low": 226.31,
@@ -822,6 +4402,7 @@
       },
       {
         "time": "2026-05-13T19:30:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.79,
         "high": 226.81,
         "low": 226.36,
@@ -833,6 +4414,7 @@
       },
       {
         "time": "2026-05-13T19:35:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.47,
         "high": 226.57,
         "low": 226.23,
@@ -844,6 +4426,7 @@
       },
       {
         "time": "2026-05-13T19:40:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.35,
         "high": 226.45,
         "low": 226.2,
@@ -855,6 +4438,7 @@
       },
       {
         "time": "2026-05-13T19:45:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.22,
         "high": 226.29,
         "low": 226.03,
@@ -866,6 +4450,7 @@
       },
       {
         "time": "2026-05-13T19:50:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 226.12,
         "high": 226.12,
         "low": 225.08,
@@ -877,6 +4462,7 @@
       },
       {
         "time": "2026-05-13T19:55:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 225.44,
         "high": 226,
         "low": 225.33,
@@ -888,6 +4474,7 @@
       },
       {
         "time": "2026-05-13T20:00:00.000Z",
+        "tradingDate": "2026-05-13",
         "open": 225.89,
         "high": 225.99,
         "low": 225.57,
@@ -899,7 +4486,7 @@
       }
     ],
     "latestClose": 225.98,
-    "previousClose": 220.78,
+    "previousClose": 209.25,
     "regularMarketPrice": 225.83
   },
   "timeframes": {
@@ -910,6 +4497,7 @@
       "bars": [
         {
           "time": "2026-05-13T13:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 224.93,
           "high": 227.16,
           "low": 224.12,
@@ -923,6 +4511,7 @@
         },
         {
           "time": "2026-05-13T13:40:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 225.8,
           "high": 225.81,
           "low": 221.84,
@@ -936,6 +4525,7 @@
         },
         {
           "time": "2026-05-13T13:50:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 222.53,
           "high": 224.6,
           "low": 221.57,
@@ -949,6 +4539,7 @@
         },
         {
           "time": "2026-05-13T14:00:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 224.1,
           "high": 224.24,
           "low": 223.06,
@@ -962,6 +4553,7 @@
         },
         {
           "time": "2026-05-13T14:10:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 223.29,
           "high": 224.87,
           "low": 223.13,
@@ -975,6 +4567,7 @@
         },
         {
           "time": "2026-05-13T14:20:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 224.05,
           "high": 225.17,
           "low": 223.85,
@@ -988,6 +4581,7 @@
         },
         {
           "time": "2026-05-13T14:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 224.46,
           "high": 225.09,
           "low": 223.7,
@@ -1001,6 +4595,7 @@
         },
         {
           "time": "2026-05-13T14:40:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 224.38,
           "high": 225.46,
           "low": 224.31,
@@ -1014,6 +4609,7 @@
         },
         {
           "time": "2026-05-13T14:50:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 225.16,
           "high": 226.46,
           "low": 224.99,
@@ -1027,6 +4623,7 @@
         },
         {
           "time": "2026-05-13T15:00:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.41,
           "high": 227.56,
           "low": 226.25,
@@ -1040,6 +4637,7 @@
         },
         {
           "time": "2026-05-13T15:10:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 227.53,
           "high": 227.57,
           "low": 226.23,
@@ -1053,6 +4651,7 @@
         },
         {
           "time": "2026-05-13T15:20:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.99,
           "high": 226.99,
           "low": 225.74,
@@ -1066,6 +4665,7 @@
         },
         {
           "time": "2026-05-13T15:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.22,
           "high": 226.55,
           "low": 225.71,
@@ -1079,6 +4679,7 @@
         },
         {
           "time": "2026-05-13T15:40:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.35,
           "high": 227.24,
           "low": 226.31,
@@ -1092,6 +4693,7 @@
         },
         {
           "time": "2026-05-13T15:50:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 227.01,
           "high": 227.35,
           "low": 226.52,
@@ -1105,6 +4707,7 @@
         },
         {
           "time": "2026-05-13T16:00:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.56,
           "high": 227.31,
           "low": 226.38,
@@ -1118,6 +4721,7 @@
         },
         {
           "time": "2026-05-13T16:10:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 227.16,
           "high": 227.84,
           "low": 226.9,
@@ -1131,6 +4735,7 @@
         },
         {
           "time": "2026-05-13T16:20:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 227.1,
           "high": 227.68,
           "low": 226.86,
@@ -1144,6 +4749,7 @@
         },
         {
           "time": "2026-05-13T16:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 227.3,
           "high": 227.65,
           "low": 227.04,
@@ -1157,6 +4763,7 @@
         },
         {
           "time": "2026-05-13T16:40:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 227.16,
           "high": 227.34,
           "low": 226.66,
@@ -1170,6 +4777,7 @@
         },
         {
           "time": "2026-05-13T16:50:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.87,
           "high": 227.16,
           "low": 226.7,
@@ -1183,6 +4791,7 @@
         },
         {
           "time": "2026-05-13T17:00:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.83,
           "high": 227.22,
           "low": 226.7,
@@ -1196,6 +4805,7 @@
         },
         {
           "time": "2026-05-13T17:10:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.91,
           "high": 227.29,
           "low": 226.9,
@@ -1209,6 +4819,7 @@
         },
         {
           "time": "2026-05-13T17:20:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 227.2,
           "high": 227.34,
           "low": 226.75,
@@ -1222,6 +4833,7 @@
         },
         {
           "time": "2026-05-13T17:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.93,
           "high": 227.02,
           "low": 226.05,
@@ -1235,6 +4847,7 @@
         },
         {
           "time": "2026-05-13T17:40:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.07,
           "high": 226.42,
           "low": 225.96,
@@ -1248,6 +4861,7 @@
         },
         {
           "time": "2026-05-13T17:50:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.01,
           "high": 226.24,
           "low": 225.41,
@@ -1261,6 +4875,7 @@
         },
         {
           "time": "2026-05-13T18:00:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 225.48,
           "high": 226.72,
           "low": 225.43,
@@ -1274,6 +4889,7 @@
         },
         {
           "time": "2026-05-13T18:10:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.62,
           "high": 227.31,
           "low": 226.54,
@@ -1287,6 +4903,7 @@
         },
         {
           "time": "2026-05-13T18:20:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 227.26,
           "high": 227.43,
           "low": 226.93,
@@ -1300,6 +4917,7 @@
         },
         {
           "time": "2026-05-13T18:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.96,
           "high": 227.16,
           "low": 226.84,
@@ -1313,6 +4931,7 @@
         },
         {
           "time": "2026-05-13T18:40:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 227.08,
           "high": 227.2,
           "low": 226.62,
@@ -1326,6 +4945,7 @@
         },
         {
           "time": "2026-05-13T18:50:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.86,
           "high": 227.17,
           "low": 226.35,
@@ -1339,6 +4959,7 @@
         },
         {
           "time": "2026-05-13T19:00:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.45,
           "high": 226.93,
           "low": 226.3,
@@ -1352,6 +4973,7 @@
         },
         {
           "time": "2026-05-13T19:10:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.89,
           "high": 227.16,
           "low": 226.72,
@@ -1365,6 +4987,7 @@
         },
         {
           "time": "2026-05-13T19:20:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 227.04,
           "high": 227.05,
           "low": 226.31,
@@ -1378,6 +5001,7 @@
         },
         {
           "time": "2026-05-13T19:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.79,
           "high": 226.81,
           "low": 226.23,
@@ -1391,6 +5015,7 @@
         },
         {
           "time": "2026-05-13T19:40:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.35,
           "high": 226.45,
           "low": 226.03,
@@ -1404,6 +5029,7 @@
         },
         {
           "time": "2026-05-13T19:50:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.12,
           "high": 226.12,
           "low": 225.08,
@@ -1417,6 +5043,7 @@
         },
         {
           "time": "2026-05-13T20:00:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 225.89,
           "high": 225.99,
           "low": 225.57,
@@ -1985,6 +5612,426 @@
         ]
       }
     },
+    "30m": {
+      "timeframe": "30m",
+      "intervalMinutes": 30,
+      "sourceTimeframe": "10m",
+      "bars": [
+        {
+          "time": "2026-05-13T13:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 224.93,
+          "high": 227.16,
+          "low": 221.57,
+          "close": 224.1,
+          "volume": 36141460,
+          "vwap": 224.8,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T14:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 224.1,
+          "high": 225.17,
+          "low": 223.06,
+          "close": 224.44,
+          "volume": 10722603,
+          "vwap": 224,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T14:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 224.46,
+          "high": 226.46,
+          "low": 223.7,
+          "close": 226.41,
+          "volume": 10803880,
+          "vwap": 225.15,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T15:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 226.41,
+          "high": 227.57,
+          "low": 225.74,
+          "close": 226.21,
+          "volume": 13470312,
+          "vwap": 226.89,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T15:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 226.22,
+          "high": 227.35,
+          "low": 225.71,
+          "close": 226.55,
+          "volume": 7330933,
+          "vwap": 226.63,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T16:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 226.56,
+          "high": 227.84,
+          "low": 226.38,
+          "close": 227.33,
+          "volume": 7957529,
+          "vwap": 227.18,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T16:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 227.3,
+          "high": 227.65,
+          "low": 226.66,
+          "close": 226.8,
+          "volume": 5868956,
+          "vwap": 227.04,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T17:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 226.83,
+          "high": 227.34,
+          "low": 226.7,
+          "close": 226.95,
+          "volume": 4687709,
+          "vwap": 227.03,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T17:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 226.93,
+          "high": 227.02,
+          "low": 225.41,
+          "close": 225.47,
+          "volume": 5813512,
+          "vwap": 226.06,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T18:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 225.48,
+          "high": 227.43,
+          "low": 225.43,
+          "close": 226.96,
+          "volume": 6516185,
+          "vwap": 226.76,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T18:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 226.96,
+          "high": 227.2,
+          "low": 226.35,
+          "close": 226.46,
+          "volume": 4217431,
+          "vwap": 226.85,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T19:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 226.45,
+          "high": 227.16,
+          "low": 226.3,
+          "close": 226.78,
+          "volume": 5431842,
+          "vwap": 226.8,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T19:30:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 226.79,
+          "high": 226.81,
+          "low": 225.08,
+          "close": 225.87,
+          "volume": 11059959,
+          "vwap": 225.89,
+          "session": "regular",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T20:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 225.89,
+          "high": 225.99,
+          "low": 225.57,
+          "close": 225.98,
+          "volume": 9283050,
+          "vwap": 225.85,
+          "session": "post",
+          "sourceIntervalMinutes": 30,
+          "sourceBarCount": 1,
+          "isPartial": true
+        }
+      ],
+      "rsi": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "macd": {
+        "line": [
+          0,
+          0.0271,
+          0.2052,
+          0.3265,
+          0.4448,
+          0.5947,
+          0.6631,
+          0.7211,
+          0.6403,
+          0.6885,
+          0.6786,
+          0.6886,
+          0.616,
+          0.5608
+        ],
+        "signal": [
+          0,
+          0.0054,
+          0.0454,
+          0.1016,
+          0.1702,
+          0.2551,
+          0.3367,
+          0.4136,
+          0.459,
+          0.5049,
+          0.5396,
+          0.5694,
+          0.5787,
+          0.5751
+        ],
+        "hist": [
+          0,
+          0.0217,
+          0.1598,
+          0.2249,
+          0.2746,
+          0.3396,
+          0.3264,
+          0.3075,
+          0.1813,
+          0.1836,
+          0.139,
+          0.1192,
+          0.0372,
+          -0.0143
+        ],
+        "slope": [
+          null,
+          0.0217,
+          0.1381,
+          0.065,
+          0.0497,
+          0.065,
+          -0.0132,
+          -0.0189,
+          -0.1262,
+          0.0023,
+          -0.0447,
+          -0.0198,
+          -0.0819,
+          -0.0516
+        ]
+      },
+      "stochRsi": {
+        "value": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "k": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "d": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "rsiLength": 14,
+        "stochLength": 14
+      },
+      "preLift": {
+        "phi": 1.618,
+        "deltaMinutes": [
+          null,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30
+        ],
+        "angleRadians": [
+          null,
+          0.053881,
+          0.053881,
+          0.053881,
+          0.053881,
+          0.053881,
+          0.053881,
+          0.053881,
+          0.053881,
+          0.053881,
+          0.053881,
+          0.053881,
+          0.053881,
+          0.053881
+        ],
+        "angleDegrees": [
+          null,
+          3.0872,
+          3.0872,
+          3.0872,
+          3.0872,
+          3.0872,
+          3.0872,
+          3.0872,
+          3.0872,
+          3.0872,
+          3.0872,
+          3.0872,
+          3.0872,
+          3.0872
+        ],
+        "pre": [
+          null,
+          0.0047,
+          0.0268,
+          -0.0027,
+          0.0045,
+          0.0105,
+          -0.0068,
+          0.0016,
+          -0.0199,
+          0.0203,
+          -0.0068,
+          0.0045,
+          -0.0125,
+          0.0012
+        ],
+        "lift": [
+          null,
+          0.9159,
+          0.9229,
+          1.1506,
+          0.6262,
+          0.6797,
+          0.5013,
+          0.4004,
+          0.4966,
+          0.5566,
+          0.3603,
+          0.464,
+          0.9447,
+          0.793
+        ]
+      }
+    },
     "1h": {
       "timeframe": "1h",
       "intervalMinutes": 60,
@@ -1992,6 +6039,7 @@
       "bars": [
         {
           "time": "2026-05-13T13:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 224.93,
           "high": 227.16,
           "low": 221.57,
@@ -2005,6 +6053,7 @@
         },
         {
           "time": "2026-05-13T14:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 224.46,
           "high": 227.57,
           "low": 223.7,
@@ -2018,6 +6067,7 @@
         },
         {
           "time": "2026-05-13T15:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.22,
           "high": 227.84,
           "low": 225.71,
@@ -2031,6 +6081,7 @@
         },
         {
           "time": "2026-05-13T16:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 227.3,
           "high": 227.65,
           "low": 226.66,
@@ -2044,6 +6095,7 @@
         },
         {
           "time": "2026-05-13T17:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.93,
           "high": 227.43,
           "low": 225.41,
@@ -2057,6 +6109,7 @@
         },
         {
           "time": "2026-05-13T18:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.96,
           "high": 227.2,
           "low": 226.3,
@@ -2070,19 +6123,35 @@
         },
         {
           "time": "2026-05-13T19:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.79,
           "high": 226.81,
           "low": 225.08,
-          "close": 225.98,
-          "volume": 20343009,
-          "vwap": 225.87,
+          "close": 225.87,
+          "volume": 11059959,
+          "vwap": 225.89,
           "session": "regular",
           "sourceIntervalMinutes": 60,
-          "sourceBarCount": 7,
+          "sourceBarCount": 6,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T20:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 225.89,
+          "high": 225.99,
+          "low": 225.57,
+          "close": 225.98,
+          "volume": 9283050,
+          "vwap": 225.85,
+          "session": "post",
+          "sourceIntervalMinutes": 60,
+          "sourceBarCount": 1,
           "isPartial": true
         }
       ],
       "rsi": [
+        null,
         null,
         null,
         null,
@@ -2099,7 +6168,8 @@
           0.4608,
           0.5513,
           0.6016,
-          0.5703
+          0.5615,
+          0.5325
         ],
         "signal": [
           0,
@@ -2108,7 +6178,8 @@
           0.1646,
           0.2419,
           0.3138,
-          0.3651
+          0.3634,
+          0.3972
         ],
         "hist": [
           0,
@@ -2117,7 +6188,8 @@
           0.2962,
           0.3094,
           0.2877,
-          0.2052
+          0.1982,
+          0.1353
         ],
         "slope": [
           null,
@@ -2126,11 +6198,13 @@
           0.0472,
           0.0132,
           -0.0217,
-          -0.0826
+          -0.0896,
+          -0.0628
         ]
       },
       "stochRsi": {
         "value": [
+          null,
           null,
           null,
           null,
@@ -2146,9 +6220,11 @@
           null,
           null,
           null,
+          null,
           null
         ],
         "d": [
+          null,
           null,
           null,
           null,
@@ -2169,7 +6245,8 @@
           60,
           60,
           60,
-          60
+          60,
+          30
         ],
         "angleRadians": [
           null,
@@ -2178,7 +6255,8 @@
           0.02696,
           0.02696,
           0.02696,
-          0.02696
+          0.02696,
+          0.053881
         ],
         "angleDegrees": [
           null,
@@ -2187,7 +6265,8 @@
           1.5447,
           1.5447,
           1.5447,
-          1.5447
+          1.5447,
+          3.0872
         ],
         "pre": [
           null,
@@ -2196,7 +6275,8 @@
           -0.0024,
           0.0002,
           -0.0012,
-          -0.0055
+          -0.0063,
+          0.0012
         ],
         "lift": [
           null,
@@ -2205,7 +6285,8 @@
           0.348,
           0.4064,
           0.3181,
-          0.6705
+          0.3646,
+          0.6115
         ]
       }
     },
@@ -2216,6 +6297,7 @@
       "bars": [
         {
           "time": "2026-05-13T13:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 224.93,
           "high": 227.84,
           "low": 221.57,
@@ -2229,50 +6311,73 @@
         },
         {
           "time": "2026-05-13T17:30:00.000Z",
+          "tradingDate": "2026-05-13",
           "open": 226.93,
           "high": 227.43,
           "low": 225.08,
-          "close": 225.98,
-          "volume": 42321979,
-          "vwap": 226.25,
+          "close": 225.87,
+          "volume": 33038929,
+          "vwap": 226.36,
           "session": "regular",
           "sourceIntervalMinutes": 240,
-          "sourceBarCount": 31,
+          "sourceBarCount": 30,
+          "isPartial": true
+        },
+        {
+          "time": "2026-05-13T20:00:00.000Z",
+          "tradingDate": "2026-05-13",
+          "open": 225.89,
+          "high": 225.99,
+          "low": 225.57,
+          "close": 225.98,
+          "volume": 9283050,
+          "vwap": 225.85,
+          "session": "post",
+          "sourceIntervalMinutes": 240,
+          "sourceBarCount": 1,
           "isPartial": true
         }
       ],
       "rsi": [
+        null,
         null,
         null
       ],
       "macd": {
         "line": [
           0,
-          -0.0774
+          -0.0862,
+          -0.1439
         ],
         "signal": [
           0,
-          -0.0155
+          -0.0172,
+          -0.0426
         ],
         "hist": [
           0,
-          -0.0619
+          -0.0689,
+          -0.1013
         ],
         "slope": [
           null,
-          -0.0619
+          -0.0689,
+          -0.0324
         ]
       },
       "stochRsi": {
         "value": [
           null,
+          null,
           null
         ],
         "k": [
           null,
+          null,
           null
         ],
         "d": [
+          null,
           null,
           null
         ],
@@ -2283,23 +6388,28 @@
         "phi": 1.618,
         "deltaMinutes": [
           null,
-          240
+          240,
+          150
         ],
         "angleRadians": [
           null,
-          0.006742
+          0.006742,
+          0.010786
         ],
         "angleDegrees": [
           null,
-          0.3863
+          0.3863,
+          0.618
         ],
         "pre": [
           null,
-          -0.0016
+          -0.0018,
+          0.0002
         ],
         "lift": [
           null,
-          0.1686
+          0.1316,
+          0.0592
         ]
       }
     }
@@ -2434,7 +6544,7 @@
   "accuracy": {
     "status": "warn",
     "tradingDate": "2026-05-13",
-    "generatedAt": "2026-05-13T21:56:32.719Z",
+    "generatedAt": "2026-05-13T22:43:52.992Z",
     "checks": [
       {
         "id": "ohlcv",
@@ -2464,7 +6574,7 @@
         "id": "indicator-availability",
         "label": "Indicator availability",
         "status": "warn",
-        "detail": "1h missing RSI and StochRSI.; 4h missing RSI and StochRSI."
+        "detail": "1h missing RSI and StochRSI.; 30m missing RSI and StochRSI.; 4h missing RSI and StochRSI."
       },
       {
         "id": "artifact-references",
@@ -2537,6 +6647,16 @@
         "stochRsiAvailable": false,
         "preLiftAvailable": true,
         "detail": "1h missing RSI and StochRSI."
+      },
+      {
+        "timeframe": "30m",
+        "status": "warn",
+        "rsiAvailable": false,
+        "macdAvailable": true,
+        "macdSlopeAvailable": true,
+        "stochRsiAvailable": false,
+        "preLiftAvailable": true,
+        "detail": "30m missing RSI and StochRSI."
       },
       {
         "timeframe": "4h",
@@ -2675,6 +6795,56 @@
         "label": "10m PRE/Lift",
         "kind": "chart",
         "path": "reports/2026-05-13/charts/pre-lift-10m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "price-volume-30m",
+        "label": "30m price and volume",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/price-volume-30m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "rsi-30m",
+        "label": "30m RSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/rsi-30m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "macd-30m",
+        "label": "30m MACD",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/macd-30m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "stoch-rsi-30m",
+        "label": "30m StochRSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/stoch-rsi-30m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "pre-lift-30m",
+        "label": "30m PRE/Lift",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/pre-lift-30m.svg",
         "required": true,
         "status": "pass",
         "exists": true,
@@ -2854,6 +7024,41 @@
       "required": true
     },
     {
+      "id": "price-volume-30m",
+      "label": "30m price and volume",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/price-volume-30m.svg",
+      "required": true
+    },
+    {
+      "id": "rsi-30m",
+      "label": "30m RSI",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/rsi-30m.svg",
+      "required": true
+    },
+    {
+      "id": "macd-30m",
+      "label": "30m MACD",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/macd-30m.svg",
+      "required": true
+    },
+    {
+      "id": "stoch-rsi-30m",
+      "label": "30m StochRSI",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/stoch-rsi-30m.svg",
+      "required": true
+    },
+    {
+      "id": "pre-lift-30m",
+      "label": "30m PRE/Lift",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/pre-lift-30m.svg",
+      "required": true
+    },
+    {
       "id": "price-volume-1h",
       "label": "1h price and volume",
       "kind": "chart",
@@ -2934,23 +7139,32 @@
       "preLiftAngleDegrees": 9.1908,
       "preLift": 3.9024
     },
+    "30m": {
+      "timeframe": "30m",
+      "rsi": null,
+      "macdHistogram": -0.0143,
+      "macdSlope": -0.0516,
+      "stochRsi": null,
+      "preLiftAngleDegrees": 3.0872,
+      "preLift": 0.793
+    },
     "1h": {
       "timeframe": "1h",
       "rsi": null,
-      "macdHistogram": 0.2052,
-      "macdSlope": -0.0826,
+      "macdHistogram": 0.1353,
+      "macdSlope": -0.0628,
       "stochRsi": null,
-      "preLiftAngleDegrees": 1.5447,
-      "preLift": 0.6705
+      "preLiftAngleDegrees": 3.0872,
+      "preLift": 0.6115
     },
     "4h": {
       "timeframe": "4h",
       "rsi": null,
-      "macdHistogram": -0.0619,
-      "macdSlope": -0.0619,
+      "macdHistogram": -0.1013,
+      "macdSlope": -0.0324,
       "stochRsi": null,
-      "preLiftAngleDegrees": 0.3863,
-      "preLift": 0.1686
+      "preLiftAngleDegrees": 0.618,
+      "preLift": 0.0592
     }
   },
   "researchAnchors": [
@@ -3184,6 +7398,41 @@
         "label": "10m PRE/Lift",
         "kind": "chart",
         "path": "reports/2026-05-13/charts/pre-lift-10m.svg",
+        "required": true
+      },
+      {
+        "id": "price-volume-30m",
+        "label": "30m price and volume",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/price-volume-30m.svg",
+        "required": true
+      },
+      {
+        "id": "rsi-30m",
+        "label": "30m RSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/rsi-30m.svg",
+        "required": true
+      },
+      {
+        "id": "macd-30m",
+        "label": "30m MACD",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/macd-30m.svg",
+        "required": true
+      },
+      {
+        "id": "stoch-rsi-30m",
+        "label": "30m StochRSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/stoch-rsi-30m.svg",
+        "required": true
+      },
+      {
+        "id": "pre-lift-30m",
+        "label": "30m PRE/Lift",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/pre-lift-30m.svg",
         "required": true
       },
       {

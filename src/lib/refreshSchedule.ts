@@ -53,6 +53,19 @@ function addLocalDays(parts: ZonedParts, days: number): ZonedParts {
   return { ...parts, year, month, day };
 }
 
+export function getLastPlannedRefreshTime(now = new Date()): Date {
+  const current = getZonedParts(now);
+  let refreshDay = current;
+  let candidate = zonedTimeToUtc({ ...refreshDay, hour: REFRESH_HOUR, minute: 0, second: 0 });
+
+  if (now.getTime() < candidate.getTime()) {
+    refreshDay = addLocalDays(current, -1);
+    candidate = zonedTimeToUtc({ ...refreshDay, hour: REFRESH_HOUR, minute: 0, second: 0 });
+  }
+
+  return candidate;
+}
+
 export function getNextRefreshTime(now = new Date()): Date {
   const current = getZonedParts(now);
   let refreshDay = current;

@@ -1,8 +1,10 @@
-export type TimeframeKey = "10m" | "1h" | "4h";
+export type TimeframeKey = "10m" | "30m" | "1h" | "4h";
 export type MarketSessionSegment = "pre" | "regular" | "post";
+export type MarketSessionBoundary = "extended-open" | "regular-open" | "regular-close" | "extended-close";
 
 export interface MarketBar {
   time: string;
+  tradingDate?: string;
   open: number;
   high: number;
   low: number;
@@ -13,6 +15,14 @@ export interface MarketBar {
   sourceIntervalMinutes?: number;
   sourceBarCount?: number;
   isPartial?: boolean;
+}
+
+export interface MarketSessionMarker {
+  id: string;
+  tradingDate: string;
+  kind: MarketSessionBoundary;
+  label: string;
+  time: string;
 }
 
 export interface MacdSeries {
@@ -66,6 +76,7 @@ export interface FrameSummary {
 
 export const TIMEFRAMES: Array<{ key: TimeframeKey; minutes: number }> = [
   { key: "10m", minutes: 10 },
+  { key: "30m", minutes: 30 },
   { key: "1h", minutes: 60 },
   { key: "4h", minutes: 240 }
 ];
@@ -162,6 +173,46 @@ function getSessionOpenUtc(time: number): number {
   return zonedTimeToUtc({ ...parts, hour: 9, minute: 30, second: 0 });
 }
 
+function getExtendedOpenUtc(time: number): number {
+  const parts = getZonedParts(new Date(time));
+  return zonedTimeToUtc({ ...parts, hour: 4, minute: 0, second: 0 });
+}
+
+function getRegularCloseUtc(time: number): number {
+  const parts = getZonedParts(new Date(time));
+  return zonedTimeToUtc({ ...parts, hour: 16, minute: 0, second: 0 });
+}
+
+function localTradingTimeToIso(tradingDate: string, hour: number, minute: number): string {
+  const [year, month, day] = tradingDate.split("-").map(Number);
+  return new Date(zonedTimeToUtc({ year, month, day, hour, minute, second: 0 })).toISOString();
+}
+
+export function getTradingDate(value: string | Date): string {
+  const date = typeof value === "string" ? new Date(value) : value;
+  const parts = getZonedParts(date);
+  return `${parts.year}-${String(parts.month).padStart(2, "0")}-${String(parts.day).padStart(2, "0")}`;
+}
+
+export function buildMarketSessionMarkers(tradingDates: string[]): MarketSessionMarker[] {
+  const definitions: Array<{ kind: MarketSessionBoundary; label: string; hour: number; minute: number }> = [
+    { kind: "extended-open", label: "4:00 AM", hour: 4, minute: 0 },
+    { kind: "regular-open", label: "9:30 AM", hour: 9, minute: 30 },
+    { kind: "regular-close", label: "4:00 PM", hour: 16, minute: 0 },
+    { kind: "extended-close", label: "8:00 PM", hour: 20, minute: 0 }
+  ];
+
+  return [...new Set(tradingDates)]
+    .sort()
+    .flatMap((tradingDate) => definitions.map((definition) => ({
+      id: `${tradingDate}-${definition.kind}`,
+      tradingDate,
+      kind: definition.kind,
+      label: definition.label,
+      time: localTradingTimeToIso(tradingDate, definition.hour, definition.minute)
+    })));
+}
+
 export function classifyMarketSession(value: string | Date): MarketSessionSegment {
   const date = typeof value === "string" ? new Date(value) : value;
   const parts = getZonedParts(date);
@@ -172,6 +223,15 @@ export function classifyMarketSession(value: string | Date): MarketSessionSegmen
   return "post";
 }
 
+function getSegmentAnchorUtc(time: number): number {
+  const parts = getZonedParts(new Date(time));
+  const minutes = parts.hour * 60 + parts.minute;
+
+  if (minutes < REGULAR_OPEN_MINUTES) return getExtendedOpenUtc(time);
+  if (minutes < REGULAR_CLOSE_MINUTES) return getSessionOpenUtc(time);
+  return getRegularCloseUtc(time);
+}
+
 export function resampleBars(baseBars: MarketBar[], targetMinutes: number): MarketBar[] {
   const bucketMs = targetMinutes * 60_000;
   const buckets = new Map<number, MarketBar[]>();
@@ -179,8 +239,8 @@ export function resampleBars(baseBars: MarketBar[], targetMinutes: number): Mark
   for (const bar of baseBars) {
     const time = new Date(bar.time).getTime();
     if (!Number.isFinite(time)) continue;
-    const sessionOpen = getSessionOpenUtc(time);
-    const bucketStart = sessionOpen + Math.floor((time - sessionOpen) / bucketMs) * bucketMs;
+    const segmentAnchor = getSegmentAnchorUtc(time);
+    const bucketStart = segmentAnchor + Math.floor((time - segmentAnchor) / bucketMs) * bucketMs;
     const current = buckets.get(bucketStart) ?? [];
     current.push(bar);
     buckets.set(bucketStart, current);
@@ -197,6 +257,7 @@ export function resampleBars(baseBars: MarketBar[], targetMinutes: number): Mark
 
       return {
         time: new Date(bucketStart).toISOString(),
+        tradingDate: bars[0].tradingDate ?? getTradingDate(new Date(bucketStart)),
         open: round(bars[0].open)!,
         high: round(Math.max(...bars.map((bar) => bar.high)))!,
         low: round(Math.min(...bars.map((bar) => bar.low)))!,
@@ -316,9 +377,17 @@ export function computePreLift(bars: MarketBar[], phi = 1.618): PreLiftSeries {
 }
 
 export function buildTimeframeSeries(baseBars: MarketBar[]): Record<TimeframeKey, TimeframeSeries> {
+  const tenMinute = resampleBars(baseBars, 10);
+  const frameBars: Record<TimeframeKey, MarketBar[]> = {
+    "10m": tenMinute,
+    "30m": resampleBars(tenMinute, 30),
+    "1h": resampleBars(tenMinute, 60),
+    "4h": resampleBars(tenMinute, 240)
+  };
+
   return Object.fromEntries(
     TIMEFRAMES.map(({ key, minutes }) => {
-      const bars = resampleBars(baseBars, minutes);
+      const bars = frameBars[key];
       const closes = bars.map((bar) => bar.close);
       return [
         key,

@@ -11,6 +11,7 @@ export interface MetricOption extends HighlightSignal {
 
 export interface Candle {
   timestamp: string;
+  tradingDate?: string;
   time: string;
   session?: "pre" | "regular" | "post";
   open: number;
@@ -36,6 +37,24 @@ export interface MarketRegion {
   detail: string;
 }
 
+export interface TradingSessionCoverage {
+  firstTimestamp: string;
+  lastTimestamp: string;
+  candleCount: number;
+  hasPremarket: boolean;
+  hasRegular: boolean;
+  hasPostmarket: boolean;
+}
+
+export interface TradingSessionHistory {
+  tradingDate: string;
+  status: "historical" | "current-intraday" | "complete";
+  candles: Candle[];
+  previousClose?: number;
+  regularMarketPrice?: number;
+  coverage?: TradingSessionCoverage;
+}
+
 export interface MarketSession {
   symbol: string;
   sessionDate: string;
@@ -50,6 +69,7 @@ export interface MarketSession {
   retrievedAt: string;
   regularMarketPrice: number;
   previousClose: number;
+  sessions?: TradingSessionHistory[];
   candles: Candle[];
   regions: MarketRegion[];
 }

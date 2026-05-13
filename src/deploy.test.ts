@@ -15,14 +15,19 @@ describe("GitHub Pages deployment config", () => {
     expect(workflow).not.toContain("npm run refresh:data");
   });
 
-  it("runs a separate 8:15 PM Eastern research refresh that commits generated artifacts", () => {
+  it("runs an 8:00 PM Eastern research refresh that commits artifacts and deploys Pages", () => {
     const workflow = readFileSync(".github/workflows/daily-research.yml", "utf8");
 
-    expect(workflow).toContain("15 0 * * *");
-    expect(workflow).toContain("15 1 * * *");
+    expect(workflow).toContain("0 0 * * *");
+    expect(workflow).toContain("0 1 * * *");
+    expect(workflow).toContain("20:00");
     expect(workflow).toContain("America/New_York");
     expect(workflow).toContain("contents: write");
+    expect(workflow).toContain("pages: write");
+    expect(workflow).toContain("id-token: write");
     expect(workflow).toContain("npm run refresh:data");
     expect(workflow).toContain("git commit -m \"chore: refresh NVDA research artifacts\"");
+    expect(workflow).toContain("actions/upload-pages-artifact@v3");
+    expect(workflow).toContain("actions/deploy-pages@v4");
   });
 });

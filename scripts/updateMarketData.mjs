@@ -5,7 +5,8 @@ import { setTimeout as delay } from "node:timers/promises";
 
 const SYMBOL = "NVDA";
 const TIME_ZONE = "America/New_York";
-const YAHOO_CHART_URL = `https://query1.finance.yahoo.com/v8/finance/chart/${SYMBOL}?range=1d&interval=5m&includePrePost=true`;
+const YAHOO_CHART_URL = `https://query1.finance.yahoo.com/v8/finance/chart/${SYMBOL}?range=10d&interval=5m&includePrePost=true`;
+const HISTORY_SESSION_COUNT = 4;
 const SESSION_POLICY = {
   includeExtendedHours: true,
   aggregationAnchor: "regular-open",
@@ -92,6 +93,7 @@ function normalizeCandle(timestamp, quote, index) {
   const timestampIso = new Date(timestamp * 1000).toISOString();
   return {
     timestamp: timestampIso,
+    tradingDate: formatDate(timestamp),
     time: formatTime(timestamp),
     session: classifyMarketSession(timestampIso),
     open: round(open),
@@ -254,6 +256,24 @@ function getSessionOpenUtc(time) {
   return zonedTimeToUtc({ ...parts, hour: 9, minute: 30, second: 0 });
 }
 
+function getExtendedOpenUtc(time) {
+  const parts = getZonedParts(new Date(time));
+  return zonedTimeToUtc({ ...parts, hour: 4, minute: 0, second: 0 });
+}
+
+function getRegularCloseUtc(time) {
+  const parts = getZonedParts(new Date(time));
+  return zonedTimeToUtc({ ...parts, hour: 16, minute: 0, second: 0 });
+}
+
+function getSegmentAnchorUtc(time) {
+  const parts = getZonedParts(new Date(time));
+  const minutes = parts.hour * 60 + parts.minute;
+  if (minutes < SESSION_OPEN_MINUTES) return getExtendedOpenUtc(time);
+  if (minutes < SESSION_CLOSE_MINUTES) return getSessionOpenUtc(time);
+  return getRegularCloseUtc(time);
+}
+
 function classifyMarketSession(value) {
   const parts = getZonedParts(new Date(value));
   const minutes = parts.hour * 60 + parts.minute;
@@ -265,6 +285,7 @@ function classifyMarketSession(value) {
 function sessionToBars(session) {
   return session.candles.map((bar) => ({
     time: bar.timestamp,
+    tradingDate: bar.tradingDate ?? formatDate(Date.parse(bar.timestamp) / 1000),
     open: bar.open,
     high: bar.high,
     low: bar.low,
@@ -569,8 +590,8 @@ function resampleBars(baseBars, targetMinutes) {
   for (const bar of baseBars) {
     const time = new Date(bar.time).getTime();
     if (!Number.isFinite(time)) continue;
-    const sessionOpen = getSessionOpenUtc(time);
-    const bucketStart = sessionOpen + Math.floor((time - sessionOpen) / bucketMs) * bucketMs;
+    const segmentAnchor = getSegmentAnchorUtc(time);
+    const bucketStart = segmentAnchor + Math.floor((time - segmentAnchor) / bucketMs) * bucketMs;
     const current = buckets.get(bucketStart) ?? [];
     current.push(bar);
     buckets.set(bucketStart, current);
@@ -583,6 +604,7 @@ function resampleBars(baseBars, targetMinutes) {
       : bars.reduce((sum, bar) => sum + ((bar.high + bar.low + bar.close) / 3) * bar.volume, 0) / volume;
     return {
       time: new Date(bucketStart).toISOString(),
+      tradingDate: bars[0].tradingDate ?? formatDate(bucketStart / 1000),
       open: round(bars[0].open),
       high: round(Math.max(...bars.map((bar) => bar.high))),
       low: round(Math.min(...bars.map((bar) => bar.low))),
@@ -696,6 +718,7 @@ function buildTimeframes(baseBars) {
   const tenMinute = resampleBars(baseBars, 10);
   const frames = {
     "10m": tenMinute,
+    "30m": resampleBars(tenMinute, 30),
     "1h": resampleBars(tenMinute, 60),
     "4h": resampleBars(tenMinute, 240)
   };
@@ -704,7 +727,7 @@ function buildTimeframes(baseBars) {
     const closes = bars.map((bar) => bar.close);
     return [timeframe, {
       timeframe,
-      intervalMinutes: timeframe === "10m" ? 10 : timeframe === "1h" ? 60 : 240,
+      intervalMinutes: timeframe === "10m" ? 10 : timeframe === "30m" ? 30 : timeframe === "1h" ? 60 : 240,
       sourceTimeframe: timeframe === "10m" ? "5m" : "10m",
       bars,
       rsi: computeRsi(closes),
@@ -986,8 +1009,37 @@ async function fetchYahooSession() {
     throw new Error(`Yahoo chart payload produced only ${candles.length} valid candles.`);
   }
 
-  const sessionDate = formatDate(timestamps[timestamps.length - 1]);
-  const lastClose = candles[candles.length - 1].close;
+  const sessions = [...candles.reduce((groups, candle) => {
+    const current = groups.get(candle.tradingDate) ?? [];
+    current.push(candle);
+    groups.set(candle.tradingDate, current);
+    return groups;
+  }, new Map()).entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .slice(-HISTORY_SESSION_COUNT)
+    .map(([tradingDate, sessionCandles], index, selectedSessions) => ({
+      tradingDate,
+      status: index === selectedSessions.length - 1 ? "current-intraday" : "historical",
+      candles: sessionCandles,
+      previousClose: index > 0 ? selectedSessions[index - 1][1].at(-1)?.close : undefined,
+      regularMarketPrice: sessionCandles.at(-1)?.close,
+      coverage: {
+        firstTimestamp: sessionCandles[0].timestamp,
+        lastTimestamp: sessionCandles.at(-1).timestamp,
+        candleCount: sessionCandles.length,
+        hasPremarket: sessionCandles.some((candle) => candle.session === "pre"),
+        hasRegular: sessionCandles.some((candle) => candle.session === "regular"),
+        hasPostmarket: sessionCandles.some((candle) => candle.session === "post")
+      }
+    }));
+
+  if (sessions.length === 0) {
+    throw new Error("Yahoo chart payload produced no grouped trading sessions.");
+  }
+
+  const latestSession = sessions.at(-1);
+  const sessionDate = latestSession.tradingDate;
+  const lastClose = latestSession.candles.at(-1).close;
 
   return {
     symbol: SYMBOL,
@@ -998,21 +1050,42 @@ async function fetchYahooSession() {
     sessionPolicy: SESSION_POLICY,
     retrievedAt: new Date().toISOString(),
     regularMarketPrice: round(result.meta?.regularMarketPrice ?? lastClose),
-    previousClose: round(result.meta?.chartPreviousClose ?? result.meta?.previousClose ?? candles[0].open),
-    candles,
-    regions: deriveRegions(candles)
+    previousClose: round(result.meta?.chartPreviousClose ?? result.meta?.previousClose ?? latestSession.candles[0].open),
+    sessions,
+    candles: latestSession.candles,
+    regions: deriveRegions(latestSession.candles)
   };
 }
 
 async function loadFallbackSession(error) {
   const raw = await readFile(resolve("src/data/nvdaSession.json"), "utf8");
   const session = JSON.parse(raw);
+  const fallbackCandles = session.candles.map((candle) => ({
+    ...candle,
+    tradingDate: candle.tradingDate ?? session.sessionDate
+  }));
   return {
     ...session,
     sourceUrl: YAHOO_CHART_URL,
     sessionPolicy: session.sessionPolicy ?? SESSION_POLICY,
     source: `${session.source ?? "Packaged fallback"} (fallback after refresh error: ${error.message})`,
-    retrievedAt: new Date().toISOString()
+    retrievedAt: new Date().toISOString(),
+    candles: fallbackCandles,
+    sessions: session.sessions ?? [{
+      tradingDate: session.sessionDate,
+      status: "current-intraday",
+      candles: fallbackCandles,
+      previousClose: session.previousClose,
+      regularMarketPrice: session.regularMarketPrice,
+      coverage: {
+        firstTimestamp: fallbackCandles[0]?.timestamp ?? "",
+        lastTimestamp: fallbackCandles.at(-1)?.timestamp ?? "",
+        candleCount: fallbackCandles.length,
+        hasPremarket: fallbackCandles.some((candle) => candle.session === "pre"),
+        hasRegular: fallbackCandles.some((candle) => candle.session === "regular"),
+        hasPostmarket: fallbackCandles.some((candle) => candle.session === "post")
+      }
+    }]
   };
 }
 
@@ -1092,7 +1165,7 @@ function buildSignalPressure(frame) {
 
 function buildChartImages(tradingDate) {
   const chartRoot = `reports/${tradingDate}/charts`;
-  const timeframeArtifacts = ["10m", "1h", "4h"].flatMap((timeframe) => [
+  const timeframeArtifacts = ["10m", "30m", "1h", "4h"].flatMap((timeframe) => [
     {
       id: `price-volume-${timeframe}`,
       label: `${timeframe} price and volume`,
@@ -1441,6 +1514,7 @@ const latestArtifact = {
   source: session.source,
   sourceUrl: session.sourceUrl,
   sessionPolicy: session.sessionPolicy ?? SESSION_POLICY,
+  sessions: session.sessions ?? [],
   stock: {
     bars: baseBars,
     latestClose,

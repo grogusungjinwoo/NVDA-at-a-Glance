@@ -1,7 +1,7 @@
 {
   "symbol": "NVDA",
   "tradingDate": "2026-05-13",
-  "generatedAt": "2026-05-13T21:56:32.719Z",
+  "generatedAt": "2026-05-13T22:43:52.992Z",
   "summary": "NVDA delayed research data for 2026-05-13: 6 signal modules evaluated; session return +0.47%.",
   "findings": [
     {
@@ -95,7 +95,7 @@
   "accuracy": {
     "status": "warn",
     "tradingDate": "2026-05-13",
-    "generatedAt": "2026-05-13T21:56:32.719Z",
+    "generatedAt": "2026-05-13T22:43:52.992Z",
     "checks": [
       {
         "id": "ohlcv",
@@ -125,7 +125,7 @@
         "id": "indicator-availability",
         "label": "Indicator availability",
         "status": "warn",
-        "detail": "1h missing RSI and StochRSI.; 4h missing RSI and StochRSI."
+        "detail": "1h missing RSI and StochRSI.; 30m missing RSI and StochRSI.; 4h missing RSI and StochRSI."
       },
       {
         "id": "artifact-references",
@@ -198,6 +198,16 @@
         "stochRsiAvailable": false,
         "preLiftAvailable": true,
         "detail": "1h missing RSI and StochRSI."
+      },
+      {
+        "timeframe": "30m",
+        "status": "warn",
+        "rsiAvailable": false,
+        "macdAvailable": true,
+        "macdSlopeAvailable": true,
+        "stochRsiAvailable": false,
+        "preLiftAvailable": true,
+        "detail": "30m missing RSI and StochRSI."
       },
       {
         "timeframe": "4h",
@@ -336,6 +346,56 @@
         "label": "10m PRE/Lift",
         "kind": "chart",
         "path": "reports/2026-05-13/charts/pre-lift-10m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "price-volume-30m",
+        "label": "30m price and volume",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/price-volume-30m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "rsi-30m",
+        "label": "30m RSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/rsi-30m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "macd-30m",
+        "label": "30m MACD",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/macd-30m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "stoch-rsi-30m",
+        "label": "30m StochRSI",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/stoch-rsi-30m.svg",
+        "required": true,
+        "status": "pass",
+        "exists": true,
+        "detail": "Referenced artifact is available."
+      },
+      {
+        "id": "pre-lift-30m",
+        "label": "30m PRE/Lift",
+        "kind": "chart",
+        "path": "reports/2026-05-13/charts/pre-lift-30m.svg",
         "required": true,
         "status": "pass",
         "exists": true,
@@ -515,6 +575,41 @@
       "required": true
     },
     {
+      "id": "price-volume-30m",
+      "label": "30m price and volume",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/price-volume-30m.svg",
+      "required": true
+    },
+    {
+      "id": "rsi-30m",
+      "label": "30m RSI",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/rsi-30m.svg",
+      "required": true
+    },
+    {
+      "id": "macd-30m",
+      "label": "30m MACD",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/macd-30m.svg",
+      "required": true
+    },
+    {
+      "id": "stoch-rsi-30m",
+      "label": "30m StochRSI",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/stoch-rsi-30m.svg",
+      "required": true
+    },
+    {
+      "id": "pre-lift-30m",
+      "label": "30m PRE/Lift",
+      "kind": "chart",
+      "path": "reports/2026-05-13/charts/pre-lift-30m.svg",
+      "required": true
+    },
+    {
       "id": "price-volume-1h",
       "label": "1h price and volume",
       "kind": "chart",
@@ -595,23 +690,32 @@
       "preLiftAngleDegrees": 9.1908,
       "preLift": 3.9024
     },
+    "30m": {
+      "timeframe": "30m",
+      "rsi": null,
+      "macdHistogram": -0.0143,
+      "macdSlope": -0.0516,
+      "stochRsi": null,
+      "preLiftAngleDegrees": 3.0872,
+      "preLift": 0.793
+    },
     "1h": {
       "timeframe": "1h",
       "rsi": null,
-      "macdHistogram": 0.2052,
-      "macdSlope": -0.0826,
+      "macdHistogram": 0.1353,
+      "macdSlope": -0.0628,
       "stochRsi": null,
-      "preLiftAngleDegrees": 1.5447,
-      "preLift": 0.6705
+      "preLiftAngleDegrees": 3.0872,
+      "preLift": 0.6115
     },
     "4h": {
       "timeframe": "4h",
       "rsi": null,
-      "macdHistogram": -0.0619,
-      "macdSlope": -0.0619,
+      "macdHistogram": -0.1013,
+      "macdSlope": -0.0324,
       "stochRsi": null,
-      "preLiftAngleDegrees": 0.3863,
-      "preLift": 0.1686
+      "preLiftAngleDegrees": 0.618,
+      "preLift": 0.0592
     }
   },
   "disclaimer": "Educational research output only. Not financial advice.",

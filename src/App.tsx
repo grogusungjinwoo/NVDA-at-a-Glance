@@ -24,12 +24,14 @@ import { CalendarHistory, type CalendarReportManifestItem } from "./components/C
 import { ChartGallery } from "./components/ChartGallery";
 import { MathVisualizations } from "./components/MathVisualizations";
 import { ThreeChartScene } from "./components/ThreeChartScene";
-import { formatEasternTimestamp, formatRefreshCountdown, getNextRefreshTime } from "./lib/refreshSchedule";
+import { formatEasternTimestamp, formatRefreshCountdown, getLastPlannedRefreshTime, getNextRefreshTime } from "./lib/refreshSchedule";
 import { computeSessionAnalysis } from "./lib/sessionAnalysis";
 import {
   TIMEFRAMES,
+  buildMarketSessionMarkers,
   buildTimeframeSeries,
   classifyMarketSession,
+  getTradingDate,
   summarizeFrame,
   type MarketBar,
   type TimeframeKey,
@@ -47,6 +49,12 @@ type OverlayId = "price" | "volume" | "rsi" | "macd" | "vwap";
 type DataStatus = "packaged" | "loading" | "synced" | "error";
 
 const initialSession = measuredData as MarketSession;
+
+const highDetailRenderQuality = {
+  maxPixelRatio: 3,
+  preserveDrawingBuffer: false,
+  candleDetail: "high" as const
+};
 
 const layoutOptions: Array<{ id: LayoutMode; label: string; description: string }> = [
   { id: "default", label: "Default", description: "Balanced chart, controls, indicators, and math." },
@@ -80,15 +88,23 @@ const researchAnchors = [
   { label: "Deng et al. 2022 candlestick context", href: "https://journals.sagepub.com/doi/10.1177/21582440221117803" }
 ];
 
-function sessionToBars(session: MarketSession): MarketBar[] {
-  return session.candles.map((bar): MarketBar => ({
+function sessionToBars(session: MarketSession, includeHistory = false): MarketBar[] {
+  const candles = includeHistory && session.sessions?.length
+    ? session.sessions.flatMap((historySession) => historySession.candles.map((bar) => ({
+      ...bar,
+      tradingDate: bar.tradingDate ?? historySession.tradingDate
+    })))
+    : session.candles;
+
+  return candles.map((bar): MarketBar => ({
     time: bar.timestamp,
+    tradingDate: bar.tradingDate ?? getTradingDate(bar.timestamp),
     open: bar.open,
     high: bar.high,
     low: bar.low,
     close: bar.close,
     volume: bar.volume,
-    session: classifyMarketSession(bar.timestamp),
+    session: bar.session ?? classifyMarketSession(bar.timestamp),
     sourceIntervalMinutes: 5,
     sourceBarCount: 1
   }))
@@ -261,12 +277,18 @@ export function App() {
   const [format, setFormat] = useState<GraphFormat>("hybrid");
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [activeOverlays, setActiveOverlays] = useState<OverlayId[]>(["price", "volume", "rsi", "macd", "vwap"]);
-  const measuredBars = useMemo(() => sessionToBars(session), [session]);
+  const measuredBars = useMemo(() => sessionToBars(session, true), [session]);
+  const latestSessionBars = useMemo(() => sessionToBars(session, false), [session]);
   const frames = useMemo(() => buildTimeframeSeries(measuredBars), [measuredBars]);
+  const latestFrames = useMemo(() => buildTimeframeSeries(latestSessionBars), [latestSessionBars]);
   const activeSeries = frames[timeframe];
+  const latestActiveSeries = latestFrames[timeframe];
   const summary = useMemo(() => summarizeFrame(activeSeries), [activeSeries]);
   const analysis = useMemo(() => computeSessionAnalysis(activeSeries.bars), [activeSeries]);
-  const visibleBars = useMemo(() => activeSeries.bars.slice(-Math.max(12, Math.round(52 / zoom))), [activeSeries.bars, zoom]);
+  const visibleBars = activeSeries.bars;
+  const tradingDates = useMemo(() => [...new Set(measuredBars.map((bar) => bar.tradingDate ?? getTradingDate(bar.time)))].sort(), [measuredBars]);
+  const sessionMarkers = useMemo(() => buildMarketSessionMarkers(tradingDates), [tradingDates]);
+  const sessionCount = Math.max(tradingDates.length, 1);
   const selectedBar = selectedTime === null
     ? visibleBars.at(-1)!
     : activeSeries.bars.find((bar) => bar.time === selectedTime) ?? visibleBars.at(-1)!;
@@ -283,6 +305,7 @@ export function App() {
   const latestRsi = lastFinite(activeSeries.rsi);
   const latestMacdHist = lastFinite(activeSeries.macd.hist);
   const latestMacdSlope = lastFinite(activeSeries.macd.slope);
+  const lastPlannedRefresh = getLastPlannedRefreshTime(new Date(session.retrievedAt));
   const nextRefresh = getNextRefreshTime(now);
   const countdown = formatRefreshCountdown(now);
   const currentFormatLabel = graphFormats.find((item) => item.id === format)?.label ?? "Graph";
@@ -301,7 +324,7 @@ export function App() {
       vwap: vwapForBars(series.bars)
     };
   }), [frames]);
-  const researchFindings = useMemo(() => buildResearchFindings(activeSeries.bars), [activeSeries]);
+  const researchFindings = useMemo(() => buildResearchFindings(latestActiveSeries.bars), [latestActiveSeries]);
   const unusualOptions = useMemo(() => scanUnusualOptions(demoOptionChain, summary.latestClose), [summary.latestClose]);
   const gammaProfile = useMemo(() => buildGammaProfile(demoOptionChain, summary.latestClose), [summary.latestClose]);
   const chartImages = useMemo<ChartImageReference[]>(() => [
@@ -353,7 +376,7 @@ export function App() {
   const accuracyCheck = useMemo(() => buildAccuracyCheck({
     tradingDate: session.sessionDate,
     generatedAt: session.retrievedAt,
-    bars: measuredBars,
+    bars: latestSessionBars,
     indicatorFrames: Object.fromEntries(TIMEFRAMES.map(({ key }) => [
       key,
       {
@@ -375,18 +398,20 @@ export function App() {
     findings: researchFindings,
     artifacts: reportArtifacts,
     availablePaths: reportArtifacts.filter((artifact) => artifact.required).map((artifact) => artifact.path)
-  }), [frames, measuredBars, reportArtifacts, researchFindings, session.retrievedAt, session.sessionDate]);
+  }), [frames, latestSessionBars, reportArtifacts, researchFindings, session.retrievedAt, session.sessionDate]);
   const dailyReport = useMemo(() => buildDailyReport({
     tradingDate: session.sessionDate,
     generatedAt: session.retrievedAt,
-    bars: activeSeries.bars,
+    bars: latestActiveSeries.bars,
     findings: researchFindings,
     accuracy: accuracyCheck,
     chartImages,
     indicatorSnapshots
-  }), [accuracyCheck, activeSeries.bars, chartImages, indicatorSnapshots, researchFindings, session.retrievedAt, session.sessionDate]);
+  }), [accuracyCheck, latestActiveSeries.bars, chartImages, indicatorSnapshots, researchFindings, session.retrievedAt, session.sessionDate]);
   const reportManifest = useMemo<CalendarReportManifestItem[]>(() => {
-    const dates = [offsetIsoDate(session.sessionDate, -1), session.sessionDate, offsetIsoDate(session.sessionDate, 1)];
+    const dates = session.sessions?.length
+      ? session.sessions.map((historySession) => historySession.tradingDate)
+      : [offsetIsoDate(session.sessionDate, -1), session.sessionDate, offsetIsoDate(session.sessionDate, 1)];
     return dates.map((date) => ({
       date,
       title: `NVDA research report ${date}`,
@@ -472,11 +497,19 @@ export function App() {
         </button>
       </header>
 
+      <section className="refresh-note" aria-label="Refresh status">
+        <div>
+          <strong>Last refresh</strong>
+          <span>{formatEasternTimestamp(lastPlannedRefresh)}</span>
+        </div>
+        <p>Preplanned after post-market close at 8:00 PM Eastern. Retrieved {formatEasternTimestamp(session.retrievedAt)} from {session.source}.</p>
+      </section>
+
       <section className="overview-section" id="overview">
         <div>
           <span className="eyebrow">NVDA / measured through {formatTime(measuredBars.at(-1)?.time ?? null)}</span>
           <h1>NVDA at a Glance</h1>
-          <p>Measured Yahoo Finance 5m bars feed a session-aligned 10m to 4h bar field with RSI and MACD evaluations. One format is immersive and interactive; the others stay available for fast comparison.</p>
+          <p>Measured Yahoo Finance 5m bars feed a four-session 10m, 30m, 1h, and 4h bar field with RSI and MACD evaluations. One format is immersive and interactive; the others stay available for fast comparison.</p>
         </div>
         <dl className="overview-stats" aria-label="Session summary">
           <div>
@@ -628,13 +661,15 @@ export function App() {
                 <h2>{currentFormatLabel}</h2>
                 <p>{format === "hybrid" ? "Drag, wheel, hover, or use arrows to inspect measured OHLCV, volume, VWAP, RSI, and MACD context." : `${currentFormatLabel} format preview`}</p>
               </div>
-              <span>{visibleBars.length} bars visible</span>
+              <span>{sessionCount} sessions shown / {visibleBars.length} bars visible</span>
             </div>
 
             {format === "hybrid" ? (
               <div className="bar-scene" data-render-state={visibleBars.length > 0 ? "ready" : "empty"} data-testid="bar-scene" style={{ "--zoom": zoom } as CSSProperties}>
                 <ThreeChartScene
                   bars={visibleBars}
+                  sessionMarkers={sessionMarkers}
+                  renderQuality={highDetailRenderQuality}
                   high={high}
                   low={low}
                   volumeMax={volumeMax}
@@ -676,7 +711,7 @@ export function App() {
                 <span>Multi-Timeframe Strip</span>
                 <strong>Scroll sideways to compare every active frame</strong>
               </div>
-              <small>10m floor / 1h / 4h</small>
+              <small>10m / 30m / 1h / 4h</small>
             </div>
             <div className="comparison-rail" data-testid="timeframe-comparison-strip">
               {comparisonFrames.map((frame) => (
@@ -702,6 +737,7 @@ export function App() {
                   <button
                     className="comparison-mini-chart-button"
                     type="button"
+                    aria-pressed={timeframe === frame.key}
                     aria-label={`Select ${frame.key} mini chart`}
                     onClick={() => {
                       setTimeframe(frame.key);

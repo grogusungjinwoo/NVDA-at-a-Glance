@@ -11,6 +11,37 @@ const bars: MarketBar[] = [
   { time: "2026-05-12T13:45:00.000Z", open: 105, high: 106, low: 103, close: 104, volume: 1800 }
 ];
 
+const sessionMarkers = [
+  {
+    id: "2026-05-12-extended-open",
+    tradingDate: "2026-05-12",
+    kind: "extended-open" as const,
+    label: "4:00 AM",
+    time: "2026-05-12T08:00:00.000Z"
+  },
+  {
+    id: "2026-05-12-regular-open",
+    tradingDate: "2026-05-12",
+    kind: "regular-open" as const,
+    label: "9:30 AM",
+    time: "2026-05-12T13:30:00.000Z"
+  },
+  {
+    id: "2026-05-12-regular-close",
+    tradingDate: "2026-05-12",
+    kind: "regular-close" as const,
+    label: "4:00 PM",
+    time: "2026-05-12T20:00:00.000Z"
+  },
+  {
+    id: "2026-05-12-extended-close",
+    tradingDate: "2026-05-12",
+    kind: "extended-close" as const,
+    label: "8:00 PM",
+    time: "2026-05-13T00:00:00.000Z"
+  }
+];
+
 function create2dContext() {
   return {
     beginPath: vi.fn(),
@@ -146,5 +177,22 @@ describe("ThreeChartScene interactions", () => {
     expect(shell).toHaveClass("is-fullscreen");
     expect(scene).toHaveAttribute("data-fullscreen", "true");
     expect(onFullscreenToggle).toHaveBeenCalledWith(true);
+  });
+
+  it("renders market session boundary labels and high-detail render quality metadata", () => {
+    const { scene } = renderScene({
+      sessionMarkers,
+      renderQuality: {
+        maxPixelRatio: 3,
+        preserveDrawingBuffer: false,
+        candleDetail: "high"
+      }
+    });
+
+    expect(scene).toHaveAttribute("data-render-quality", "high");
+    expect(screen.getByTestId("session-marker-2026-05-12-extended-open")).toHaveTextContent("4:00 AM");
+    expect(screen.getByTestId("session-marker-2026-05-12-regular-open")).toHaveTextContent("9:30 AM");
+    expect(screen.getByTestId("session-marker-2026-05-12-regular-close")).toHaveTextContent("4:00 PM");
+    expect(screen.getByTestId("session-marker-2026-05-12-extended-close")).toHaveTextContent("8:00 PM");
   });
 });

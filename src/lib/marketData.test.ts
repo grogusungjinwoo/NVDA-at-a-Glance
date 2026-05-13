@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  buildMarketSessionMarkers,
   buildTimeframeSeries,
   classifyMarketSession,
   computeMacd,
@@ -9,6 +10,7 @@ import {
   resampleBars,
   summarizeFrame,
   validateOhlcvBars,
+  getTradingDate,
   type MarketBar
 } from "./marketData";
 
@@ -24,8 +26,8 @@ describe("market data transforms", () => {
     const bars = resampleBars(baseBars, 10);
 
     expect(bars).toEqual([
-      { time: "2026-05-12T13:30:00.000Z", open: 220, high: 223, low: 219, close: 222.5, volume: 220, vwap: 221.3, session: "regular", sourceIntervalMinutes: 10, sourceBarCount: 2, isPartial: false },
-      { time: "2026-05-12T13:40:00.000Z", open: 222.5, high: 224, low: 220.5, close: 221, volume: 200, vwap: 221.62, session: "regular", sourceIntervalMinutes: 10, sourceBarCount: 2, isPartial: false }
+      { time: "2026-05-12T13:30:00.000Z", tradingDate: "2026-05-12", open: 220, high: 223, low: 219, close: 222.5, volume: 220, vwap: 221.3, session: "regular", sourceIntervalMinutes: 10, sourceBarCount: 2, isPartial: false },
+      { time: "2026-05-12T13:40:00.000Z", tradingDate: "2026-05-12", open: 222.5, high: 224, low: 220.5, close: 221, volume: 200, vwap: 221.62, session: "regular", sourceIntervalMinutes: 10, sourceBarCount: 2, isPartial: false }
     ]);
   });
 
@@ -60,7 +62,7 @@ describe("market data transforms", () => {
     expect(bars[0].time).toBe("2026-01-12T14:30:00.000Z");
   });
 
-  it("builds the requested 10m, 1h, and 4h timeframes with RSI and MACD evaluations", () => {
+  it("builds the requested 10m, 30m, 1h, and 4h timeframes with RSI and MACD evaluations", () => {
     const measured = Array.from({ length: 100 }, (_, index): MarketBar => {
       const close = 218 + Math.sin(index / 6) * 4 + index * 0.08;
       return {
@@ -75,14 +77,49 @@ describe("market data transforms", () => {
 
     const frames = buildTimeframeSeries(measured);
 
-    expect(Object.keys(frames)).toEqual(["10m", "1h", "4h"]);
+    expect(Object.keys(frames)).toEqual(["10m", "30m", "1h", "4h"]);
     expect(frames["10m"].bars[0].open).toBe(measured[0].open);
+    expect(frames["30m"]).toMatchObject({
+      intervalMinutes: 30,
+      sourceTimeframe: "10m"
+    });
     expect(frames["4h"].bars.length).toBeGreaterThan(1);
     expect(frames["10m"].rsi.some((value) => value !== null)).toBe(true);
     expect(frames["10m"].macd.hist.some((value) => value !== null)).toBe(true);
     expect(frames["10m"].macd.slope.some((value) => value !== null)).toBe(true);
     expect(frames["10m"].stochRsi.value.some((value) => value !== null)).toBe(true);
     expect(frames["10m"].preLift.angleRadians.some((value) => value !== null)).toBe(true);
+  });
+
+  it("preserves ET trading dates while resampling multi-day extended-hours bars", () => {
+    const multiDay: MarketBar[] = [
+      { time: "2026-05-12T08:00:00.000Z", open: 100, high: 101, low: 99, close: 100.5, volume: 100 },
+      { time: "2026-05-12T08:05:00.000Z", open: 100.5, high: 102, low: 100, close: 101.5, volume: 120 },
+      { time: "2026-05-13T08:00:00.000Z", open: 110, high: 111, low: 109, close: 110.5, volume: 130 },
+      { time: "2026-05-13T08:05:00.000Z", open: 110.5, high: 112, low: 110, close: 111.5, volume: 140 }
+    ];
+
+    const bars = resampleBars(multiDay, 10);
+
+    expect(bars).toHaveLength(2);
+    expect(bars.map((bar) => bar.tradingDate)).toEqual(["2026-05-12", "2026-05-13"]);
+    expect(bars.map((bar) => bar.open)).toEqual([100, 110]);
+    expect(bars.map((bar) => bar.close)).toEqual([101.5, 111.5]);
+  });
+
+  it("builds DST-aware market session markers for each trading date", () => {
+    const markers = buildMarketSessionMarkers(["2026-07-10", "2026-01-12"]);
+
+    expect(markers.find((marker) => marker.tradingDate === "2026-07-10" && marker.kind === "extended-open")).toMatchObject({
+      label: "4:00 AM",
+      time: "2026-07-10T08:00:00.000Z"
+    });
+    expect(markers.find((marker) => marker.tradingDate === "2026-07-10" && marker.kind === "extended-close")?.time).toBe("2026-07-11T00:00:00.000Z");
+    expect(markers.find((marker) => marker.tradingDate === "2026-01-12" && marker.kind === "regular-open")).toMatchObject({
+      label: "9:30 AM",
+      time: "2026-01-12T14:30:00.000Z"
+    });
+    expect(getTradingDate("2026-07-11T00:00:00.000Z")).toBe("2026-07-10");
   });
 
   it("tags extended-hours bars and preserves session segments through aggregation", () => {
