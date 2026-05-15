@@ -57,7 +57,7 @@ function drawFallback(canvas: HTMLCanvasElement, bars: MarketBar[], high: number
   canvas.height = height * window.devicePixelRatio;
   context.scale(window.devicePixelRatio, window.devicePixelRatio);
   context.clearRect(0, 0, width, height);
-  context.fillStyle = "#07120f";
+  context.fillStyle = "#000000";
   context.fillRect(0, 0, width, height);
   context.strokeStyle = "rgba(238, 245, 232, 0.14)";
 
@@ -177,10 +177,10 @@ export function ThreeChartScene({
     }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, renderQuality.maxPixelRatio));
     renderer.setSize(width, height, false);
-    renderer.setClearColor(0x07120f, 1);
+    renderer.setClearColor(0x000000, 1);
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x07120f, 14, 32);
+    scene.fog = new THREE.Fog(0x000000, 14, 32);
     const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
     const target = new THREE.Vector3(0, 0.2, 0);
     function positionCamera() {
@@ -205,7 +205,7 @@ export function ThreeChartScene({
     key.position.set(4, 8, 6);
     scene.add(ambient, key);
 
-    const floor = new THREE.GridHelper(18, 18, 0x31554b, 0x1f332f);
+    const floor = new THREE.GridHelper(18, 18, 0x333333, 0x151515);
     floor.position.y = -4.35;
     floor.rotation.x = Math.PI / 2;
     scene.add(floor);

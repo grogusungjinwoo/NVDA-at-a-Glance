@@ -29,6 +29,18 @@ const packagedBars: MarketBar[] = packagedCandles
   }))
   .filter((bar) => bar.volume > 0);
 
+const packagedLatestBars: MarketBar[] = packagedSession.candles
+  .map((bar): MarketBar => ({
+    time: bar.timestamp,
+    tradingDate: bar.tradingDate ?? packagedSession.sessionDate,
+    open: bar.open,
+    high: bar.high,
+    low: bar.low,
+    close: bar.close,
+    volume: bar.volume
+  }))
+  .filter((bar) => bar.volume > 0);
+
 function formatTestTime(value: string): string {
   return new Intl.DateTimeFormat("en-US", {
     timeZone: "America/New_York",
@@ -52,7 +64,7 @@ function lastFiniteTest(values: Array<number | null>): number | null {
 }
 
 function getIndicatorTarget() {
-  const series = buildTimeframeSeries(packagedBars)["10m"];
+  const series = buildTimeframeSeries(packagedLatestBars)["10m"];
   const visibleBars = series.bars;
   const latestRsi = lastFiniteTest(series.rsi);
   const latestMacd = lastFiniteTest(series.macd.hist);
@@ -74,7 +86,7 @@ function getIndicatorTarget() {
   throw new Error("Expected packaged session to include a visible bar with distinct indicators.");
 }
 
-function getStableZoomTarget(bars = packagedBars) {
+function getStableZoomTarget(bars = packagedLatestBars) {
   const series = buildTimeframeSeries(bars)["10m"];
   const visibleBars = series.bars;
   const visibleIndex = 20;
@@ -175,6 +187,66 @@ function buildFourSessionMarketSession(): MarketSession {
     ...(measuredData as MarketSession),
     sessionDate: latest.tradingDate,
     retrievedAt: "2026-05-14T00:16:00.000Z",
+    candles: latest.candles,
+    sessions,
+    regularMarketPrice: latest.candles.at(-1)!.close,
+    sourceUrl: "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?range=10d&interval=5m&includePrePost=true"
+  };
+}
+
+function buildSixSessionMarketSession(): MarketSession {
+  const sessionSpecs = [
+    { date: "2026-05-11", day: 11, base: 200, status: "historical" as const },
+    { date: "2026-05-12", day: 12, base: 205, status: "historical" as const },
+    { date: "2026-05-13", day: 13, base: 210, status: "historical" as const },
+    { date: "2026-05-14", day: 14, base: 215, status: "historical" as const },
+    { date: "2026-05-15", day: 15, base: 220, status: "historical" as const },
+    { date: "2026-05-18", day: 18, base: 225, status: "current-intraday" as const }
+  ];
+
+  const sessions = sessionSpecs.map((sessionSpec) => {
+    const candles = [
+      { hour: 13, minute: 30, time: "09:30", session: "regular" as const, offset: 0 },
+      { hour: 13, minute: 35, time: "09:35", session: "regular" as const, offset: 1 },
+      { hour: 13, minute: 40, time: "09:40", session: "regular" as const, offset: 2 },
+      { hour: 13, minute: 45, time: "09:45", session: "regular" as const, offset: 3 }
+    ].map((clock) => {
+      const open = sessionSpec.base + clock.offset;
+      const close = open + 0.5;
+      return {
+        timestamp: new Date(Date.UTC(2026, 4, sessionSpec.day, clock.hour, clock.minute)).toISOString(),
+        tradingDate: sessionSpec.date,
+        time: clock.time,
+        session: clock.session,
+        open,
+        high: close + 0.4,
+        low: open - 0.4,
+        close,
+        volume: 1_000_000 + clock.offset * 10_000
+      };
+    });
+
+    return {
+      tradingDate: sessionSpec.date,
+      status: sessionSpec.status,
+      candles,
+      coverage: {
+        firstTimestamp: candles[0].timestamp,
+        lastTimestamp: candles.at(-1)!.timestamp,
+        candleCount: candles.length,
+        hasPremarket: false,
+        hasRegular: true,
+        hasPostmarket: false
+      }
+    };
+  });
+
+  const latest = sessions.at(-1)!;
+
+  return {
+    ...(measuredData as MarketSession),
+    sessionDate: latest.tradingDate,
+    retrievedAt: "2026-05-18T17:45:00.000Z",
     candles: latest.candles,
     sessions,
     regularMarketPrice: latest.candles.at(-1)!.close,
@@ -368,7 +440,7 @@ describe("NVDA at a Glance", () => {
     expect(screen.getByText(/remaining/i)).toBeInTheDocument();
   });
 
-  it("loads four-session history into the 3D chart and marks extended and regular boundaries", async () => {
+  it("loads the newest session into the 3D chart and keeps older sessions in the pager", async () => {
     vi.stubGlobal("fetch", vi.fn(() => Promise.resolve({
       ok: true,
       json: () => Promise.resolve(buildFourSessionMarketSession())
@@ -382,11 +454,63 @@ describe("NVDA at a Glance", () => {
       expect(screen.getByText("Published JSON synced")).toBeInTheDocument();
     });
 
-    expect(screen.getByText(/4 sessions shown/i)).toBeInTheDocument();
+    expect(screen.getByText("Session 2026-05-13")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "View 2026-05-08 session" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "View 2026-05-13 session" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByText(/1 session shown/i)).toBeInTheDocument();
     expect(screen.getAllByText("4:00 AM").length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText("9:30 AM").length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText("4:00 PM").length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText("8:00 PM").length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("caps chart session navigation at the newest session plus four earlier sessions", async () => {
+    vi.stubGlobal("fetch", vi.fn(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve(buildSixSessionMarketSession())
+    })));
+
+    await act(async () => {
+      render(<App />);
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText("Published JSON synced")).toBeInTheDocument();
+    });
+
+    expect(screen.queryByRole("button", { name: "View 2026-05-11 session" })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "View 2026-05-12 session" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "View 2026-05-18 session" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByText("Session 2026-05-18")).toBeInTheDocument();
+  });
+
+  it("pages and wheel-scrolls across active chart sessions without flattening all days", async () => {
+    vi.stubGlobal("fetch", vi.fn(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve(buildFourSessionMarketSession())
+    })));
+
+    await act(async () => {
+      render(<App />);
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText("Published JSON synced")).toBeInTheDocument();
+    });
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "Previous session" }));
+    });
+
+    expect(screen.getByRole("button", { name: "View 2026-05-12 session" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByText("Session 2026-05-12")).toBeInTheDocument();
+
+    await act(async () => {
+      fireEvent.wheel(screen.getByTestId("session-navigation"), { deltaX: 120 });
+    });
+
+    expect(screen.getByRole("button", { name: "View 2026-05-13 session" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByText("Session 2026-05-13")).toBeInTheDocument();
   });
 
   it("toggles indicator layers on the 3D chart", async () => {

@@ -1,10 +1,12 @@
-import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useMemo, useState, type CSSProperties, type WheelEvent } from "react";
 import {
   AreaChart,
   BarChart3,
   Box,
   CandlestickChart,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   ChevronUp,
   Clock3,
   DatabaseZap,
@@ -26,6 +28,7 @@ import { MathVisualizations } from "./components/MathVisualizations";
 import { ThreeChartScene } from "./components/ThreeChartScene";
 import { formatEasternTimestamp, formatRefreshCountdown, getLastPlannedRefreshTime, getNextRefreshTime } from "./lib/refreshSchedule";
 import { computeSessionAnalysis } from "./lib/sessionAnalysis";
+import { getLatestTradingDate, normalizeSessionHistory } from "./lib/sessionHistory";
 import {
   TIMEFRAMES,
   buildMarketSessionMarkers,
@@ -47,6 +50,7 @@ type LayoutMode = "default" | "focus" | "research";
 type GraphFormat = "hybrid" | "line" | "candles" | "area" | "volume" | "rsi" | "macd" | "pylab";
 type OverlayId = "price" | "volume" | "rsi" | "macd" | "vwap";
 type DataStatus = "packaged" | "loading" | "synced" | "error";
+type RefreshIntent = "initial" | "manual" | "scheduled";
 
 const initialSession = measuredData as MarketSession;
 
@@ -137,6 +141,10 @@ function formatTime(value: string | null): string {
     hour: "numeric",
     minute: "2-digit"
   }).format(new Date(value));
+}
+
+function formatSessionLabel(value: string): string {
+  return value;
 }
 
 function offsetIsoDate(date: string, days: number): string {
@@ -276,8 +284,31 @@ export function App() {
   const [zoom, setZoom] = useState(1);
   const [format, setFormat] = useState<GraphFormat>("hybrid");
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [activeTradingDate, setActiveTradingDate] = useState<string | null>(null);
   const [activeOverlays, setActiveOverlays] = useState<OverlayId[]>(["price", "volume", "rsi", "macd", "vwap"]);
-  const measuredBars = useMemo(() => sessionToBars(session, true), [session]);
+  const sessionHistory = useMemo(() => normalizeSessionHistory(session), [session]);
+  const latestTradingDate = useMemo(() => getLatestTradingDate(sessionHistory), [sessionHistory]);
+  const activeSession = useMemo(() => {
+    return sessionHistory.find((historySession) => historySession.tradingDate === activeTradingDate)
+      ?? sessionHistory.at(-1)
+      ?? null;
+  }, [activeTradingDate, sessionHistory]);
+  const activeSessionIndex = activeSession
+    ? sessionHistory.findIndex((historySession) => historySession.tradingDate === activeSession.tradingDate)
+    : -1;
+  const activeMarketSession = useMemo<MarketSession>(() => {
+    if (!activeSession) return session;
+
+    return {
+      ...session,
+      sessionDate: activeSession.tradingDate,
+      previousClose: activeSession.previousClose ?? session.previousClose,
+      regularMarketPrice: activeSession.regularMarketPrice ?? activeSession.candles.at(-1)?.close ?? session.regularMarketPrice,
+      candles: activeSession.candles,
+      regions: activeSession.tradingDate === session.sessionDate ? session.regions : []
+    };
+  }, [activeSession, session]);
+  const measuredBars = useMemo(() => sessionToBars(activeMarketSession, false), [activeMarketSession]);
   const latestSessionBars = useMemo(() => sessionToBars(session, false), [session]);
   const frames = useMemo(() => buildTimeframeSeries(measuredBars), [measuredBars]);
   const latestFrames = useMemo(() => buildTimeframeSeries(latestSessionBars), [latestSessionBars]);
@@ -286,7 +317,7 @@ export function App() {
   const summary = useMemo(() => summarizeFrame(activeSeries), [activeSeries]);
   const analysis = useMemo(() => computeSessionAnalysis(activeSeries.bars), [activeSeries]);
   const visibleBars = activeSeries.bars;
-  const tradingDates = useMemo(() => [...new Set(measuredBars.map((bar) => bar.tradingDate ?? getTradingDate(bar.time)))].sort(), [measuredBars]);
+  const tradingDates = useMemo(() => activeSession ? [activeSession.tradingDate] : [], [activeSession]);
   const sessionMarkers = useMemo(() => buildMarketSessionMarkers(tradingDates), [tradingDates]);
   const sessionCount = Math.max(tradingDates.length, 1);
   const selectedBar = selectedTime === null
@@ -423,9 +454,23 @@ export function App() {
   const reportPdfHref = `${import.meta.env.BASE_URL}${dailyReport.pdfPath}`;
   const reportCalendarHref = `${import.meta.env.BASE_URL}${dailyReport.calendarPath}`;
 
-  const loadPublishedSession = useCallback(async (refresh = false) => {
+  useEffect(() => {
+    if (!latestTradingDate) return;
+    setActiveTradingDate((current) => {
+      const currentStillExists = current && sessionHistory.some((historySession) => historySession.tradingDate === current);
+      return currentStillExists ? current : latestTradingDate;
+    });
+  }, [latestTradingDate, sessionHistory]);
+
+  useEffect(() => {
+    setSelectedTime(null);
+  }, [activeSession?.tradingDate]);
+
+  const loadPublishedSession = useCallback(async (intent: RefreshIntent = "initial") => {
     if (typeof fetch !== "function") return;
+    const refresh = intent !== "initial";
     const suffix = refresh ? `?t=${Date.now()}` : "";
+    const previousLatestTradingDate = latestTradingDate;
 
     try {
       setDataStatus(refresh ? "loading" : "packaged");
@@ -435,16 +480,27 @@ export function App() {
       if (!response.ok) throw new Error(`Published session returned ${response.status}`);
       const payload: unknown = await response.json();
       if (!isMarketSession(payload)) throw new Error("Published session payload is invalid");
+      const nextHistory = normalizeSessionHistory(payload);
+      const nextLatestTradingDate = getLatestTradingDate(nextHistory);
       setSession(payload);
+      setActiveTradingDate((current) => {
+        if (!nextLatestTradingDate) return current;
+        const currentStillExists = current && nextHistory.some((historySession) => historySession.tradingDate === current);
+        const shouldPreserveOlderScheduledView = intent === "scheduled"
+          && current
+          && current !== previousLatestTradingDate
+          && currentStillExists;
+        return shouldPreserveOlderScheduledView ? current : nextLatestTradingDate;
+      });
       setDataStatus("synced");
       setSelectedTime(null);
     } catch {
       setDataStatus("error");
     }
-  }, []);
+  }, [latestTradingDate]);
 
   useEffect(() => {
-    void loadPublishedSession(false);
+    void loadPublishedSession("initial");
   }, [loadPublishedSession]);
 
   useEffect(() => {
@@ -455,7 +511,7 @@ export function App() {
       const delay = Math.min(Math.max(getNextRefreshTime(new Date()).getTime() - Date.now() + 1_500, 1_000), 2_147_483_647);
       timeout = window.setTimeout(() => {
         setNow(new Date());
-        void loadPublishedSession(true);
+        void loadPublishedSession("scheduled");
         scheduleRefresh();
       }, delay);
     }
@@ -470,6 +526,29 @@ export function App() {
 
   function toggleOverlay(id: OverlayId) {
     setActiveOverlays((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]);
+  }
+
+  function selectSessionAt(index: number) {
+    const nextSession = sessionHistory[Math.min(Math.max(index, 0), sessionHistory.length - 1)];
+    if (!nextSession) return;
+    setActiveTradingDate(nextSession.tradingDate);
+    setSelectedTime(null);
+  }
+
+  function stepSession(direction: -1 | 1) {
+    if (activeSessionIndex < 0) return;
+    selectSessionAt(activeSessionIndex + direction);
+  }
+
+  function handleSessionWheel(event: WheelEvent<HTMLElement>) {
+    if (event.ctrlKey || event.metaKey || sessionHistory.length <= 1) return;
+    const horizontalIntent = Math.abs(event.deltaX) > Math.abs(event.deltaY)
+      ? event.deltaX
+      : event.shiftKey
+        ? event.deltaY
+        : 0;
+    if (Math.abs(horizontalIntent) < 24) return;
+    stepSession(horizontalIntent > 0 ? 1 : -1);
   }
 
   return (
@@ -503,13 +582,23 @@ export function App() {
           <span>{formatEasternTimestamp(lastPlannedRefresh)}</span>
         </div>
         <p>Preplanned after post-market close at 8:00 PM Eastern. Retrieved {formatEasternTimestamp(session.retrievedAt)} from {session.source}.</p>
+        <button
+          aria-label="Refresh data now"
+          className="refresh-action"
+          disabled={dataStatus === "loading"}
+          onClick={() => void loadPublishedSession("manual")}
+          type="button"
+        >
+          <RefreshCw size={15} />
+          <span>{dataStatus === "loading" ? "Refreshing" : "Refresh"}</span>
+        </button>
       </section>
 
       <section className="overview-section" id="overview">
         <div>
           <span className="eyebrow">NVDA / measured through {formatTime(measuredBars.at(-1)?.time ?? null)}</span>
           <h1>NVDA at a Glance</h1>
-          <p>Measured Yahoo Finance 5m bars feed a four-session 10m, 30m, 1h, and 4h bar field with RSI and MACD evaluations. One format is immersive and interactive; the others stay available for fast comparison.</p>
+          <p>Measured Yahoo Finance 5m bars load the newest intraday session first, with quick access to the prior four sessions for 10m, 30m, 1h, and 4h analysis.</p>
         </div>
         <dl className="overview-stats" aria-label="Session summary">
           <div>
@@ -607,6 +696,48 @@ export function App() {
         </aside>
 
         <section className="chart-map graph-workspace" aria-label="Interactive NVDA chart map">
+          <div className="session-navigation" data-testid="session-navigation" aria-label="Chart session navigation" onWheel={handleSessionWheel}>
+            <div className="session-navigation__summary">
+              <span>Session {formatSessionLabel(activeSession?.tradingDate ?? session.sessionDate)}</span>
+              {activeSession?.tradingDate === latestTradingDate && <strong>Current</strong>}
+            </div>
+            <div className="session-navigation__controls">
+              <button
+                aria-label="Previous session"
+                disabled={activeSessionIndex <= 0}
+                onClick={() => stepSession(-1)}
+                type="button"
+              >
+                <ChevronLeft size={16} />
+              </button>
+              <div className="session-navigation__rail" role="group" aria-label="Available chart sessions">
+                {sessionHistory.map((historySession) => (
+                  <button
+                    aria-label={`View ${historySession.tradingDate} session`}
+                    aria-pressed={activeSession?.tradingDate === historySession.tradingDate}
+                    className={activeSession?.tradingDate === historySession.tradingDate ? "active" : ""}
+                    key={historySession.tradingDate}
+                    onClick={() => {
+                      setActiveTradingDate(historySession.tradingDate);
+                      setSelectedTime(null);
+                    }}
+                    type="button"
+                  >
+                    <span>{formatSessionLabel(historySession.tradingDate)}</span>
+                  </button>
+                ))}
+              </div>
+              <button
+                aria-label="Next session"
+                disabled={activeSessionIndex < 0 || activeSessionIndex >= sessionHistory.length - 1}
+                onClick={() => stepSession(1)}
+                type="button"
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
+          </div>
+
           <div className="graph-toolbar">
             <div className="timeframe-control" role="group" aria-label="Timeframe selector">
               {TIMEFRAMES.map((option) => (
@@ -655,13 +786,13 @@ export function App() {
             })}
           </div>
 
-          <div className={format === "hybrid" ? "immersive-field" : "immersive-field preview-mode"}>
+          <div className={format === "hybrid" ? "immersive-field" : "immersive-field preview-mode"} onWheel={handleSessionWheel}>
             <div className="field-header">
               <div>
                 <h2>{currentFormatLabel}</h2>
                 <p>{format === "hybrid" ? "Drag, wheel, hover, or use arrows to inspect measured OHLCV, volume, VWAP, RSI, and MACD context." : `${currentFormatLabel} format preview`}</p>
               </div>
-              <span>{sessionCount} sessions shown / {visibleBars.length} bars visible</span>
+              <span>{sessionCount} session{sessionCount === 1 ? "" : "s"} shown / {visibleBars.length} bars visible</span>
             </div>
 
             {format === "hybrid" ? (

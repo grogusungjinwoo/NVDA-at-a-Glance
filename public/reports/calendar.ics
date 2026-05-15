@@ -3,11 +3,18 @@ VERSION:2.0
 PRODID:-//NVDA at a Glance//Research Reports//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
+UID:nvda-research-2026-05-14@nvda-at-a-glance
+DTSTAMP:20260515T041815Z
+DTSTART;VALUE=DATE:20260514
+SUMMARY:NVDA research report 2026-05-14
+DESCRIPTION:NVDA delayed research data for 2026-05-14: 6 signal modules evaluated  session return +2.62%.
+END:VEVENT
+BEGIN:VEVENT
 UID:nvda-research-2026-05-13@nvda-at-a-glance
 DTSTAMP:20260513T224352Z
 DTSTART;VALUE=DATE:20260513
 SUMMARY:NVDA research report 2026-05-13
-DESCRIPTION:NVDA delayed research data for 2026-05-13: 6 signal modules evaluated  session return +0.47%.
+DESCRIPTION:NVDA research report 2026-05-13
 END:VEVENT
 BEGIN:VEVENT
 UID:nvda-research-2026-05-12@nvda-at-a-glance
